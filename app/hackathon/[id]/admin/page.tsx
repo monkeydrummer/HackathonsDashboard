@@ -171,6 +171,23 @@ export default function AdminPage() {
     setData({ ...data, projects: updatedProjects });
   };
 
+  const updateProjectJudgesNotes = (projectId: string, judgesNotes: string) => {
+    if (!data) return;
+
+    const updatedProjects = data.projects.map(project => {
+      if (project.id === projectId) {
+        const updatedProject = { ...project, judgesNotes };
+        if (selectedProject?.id === projectId) {
+          setSelectedProject(updatedProject);
+        }
+        return updatedProject;
+      }
+      return project;
+    });
+
+    setData({ ...data, projects: updatedProjects });
+  };
+
   const updateProjectTitle = (projectId: string, title: string) => {
     if (!data) return;
 
@@ -358,6 +375,7 @@ export default function AdminPage() {
       teamId: newProjectTeam,
       title: newProjectTitle.trim(),
       description: '',
+      judgesNotes: '',
       images: [],
       links: [],
       scores: {
@@ -1121,6 +1139,24 @@ export default function AdminPage() {
                   />
                   <p className="text-xs text-gray-500 mt-2">
                     Supports Markdown: ## Headings, **bold**, *italic*, [links](url), bullet lists, etc.
+                  </p>
+                </div>
+
+                {/* Judges Notes */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                    📝 Judges Notes (Markdown)
+                    <span className="text-xs font-normal text-gray-500">— Visible to all viewers</span>
+                  </h3>
+                  <textarea
+                    value={selectedProject.judgesNotes || ''}
+                    onChange={(e) => updateProjectJudgesNotes(selectedProject.id, e.target.value)}
+                    rows={6}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 font-mono text-sm bg-yellow-50"
+                    placeholder="Add notes from judges... (e.g., highlights, feedback, commendations)"
+                  />
+                  <p className="text-xs text-gray-500 mt-2">
+                    💡 This section will be displayed publicly on the project page.
                   </p>
                 </div>
 

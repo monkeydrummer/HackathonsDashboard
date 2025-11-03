@@ -23,6 +23,7 @@ export interface Project {
   teamId: string;
   title: string;
   description: string;
+  judgesNotes?: string;
   images: string[];
   links: Link[];
   scores: Scores;

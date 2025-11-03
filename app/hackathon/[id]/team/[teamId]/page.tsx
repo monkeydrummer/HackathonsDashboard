@@ -200,6 +200,20 @@ export default async function TeamPage({ params }: { params: Promise<{ id: strin
                     </div>
                   </div>
 
+                  {/* Judges Notes */}
+                  {project.judgesNotes && project.judgesNotes.trim() && (
+                    <div className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                        📝 Judges Notes
+                      </h4>
+                      <div className="prose prose-sm max-w-none text-gray-700">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {project.judgesNotes}
+                        </ReactMarkdown>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Images */}
                   {project.images.length > 0 && (
                     <div className="mb-6">
