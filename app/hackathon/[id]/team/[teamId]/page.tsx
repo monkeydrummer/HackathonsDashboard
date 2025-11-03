@@ -92,14 +92,6 @@ export default async function TeamPage({ params }: { params: Promise<{ id: strin
                     <h3 className="text-2xl font-bold text-white">
                       {project.title}
                     </h3>
-                    {hasScore && (
-                      <div className="bg-white rounded-lg px-4 py-2">
-                        <span className={`text-2xl font-bold ${getScoreColor(overallScore)}`}>
-                          {formatScore(overallScore)}
-                        </span>
-                        <span className="text-gray-600 text-sm ml-1">/ 5.0</span>
-                      </div>
-                    )}
                   </div>
                   
                   {/* Special Awards */}
