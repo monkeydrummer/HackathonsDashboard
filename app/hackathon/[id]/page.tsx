@@ -135,6 +135,9 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Team
                     </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Special Awards
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -153,6 +156,27 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                           {team?.name}
+                        </td>
+                        <td className="px-6 py-4">
+                          {project.specialAwards.length > 0 ? (
+                            <div className="flex flex-wrap gap-1">
+                              {project.specialAwards.map(awardId => {
+                                const award = data.config.specialAwards.find(a => a.id === awardId);
+                                if (!award) return null;
+                                return (
+                                  <span 
+                                    key={awardId}
+                                    className="inline-flex items-center gap-1 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full"
+                                  >
+                                    <span>{award.emoji}</span>
+                                    <span>{award.name}</span>
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <span className="text-xs text-gray-400">—</span>
+                          )}
                         </td>
                       </tr>
                     );

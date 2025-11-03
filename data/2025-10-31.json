@@ -215,7 +215,7 @@
         "innovation": 3
       },
       "specialAwards": [],
-      "judgesNotes": "Cool tool! I can definitely see the usefulness of this.\n\n## Like:\n- Good code structure (view models, views)\n- It has tests! yay\n- Program seems stable (no crashes)\n- Fairly intuitive\n- Good documentation\n\n## Improvements:\n- Ability to search/filter repos\n- Some way to 'cancel' operations - I got stuck when loading a repository that had thousands of branches\n- Show more data, like # of branches\n- General UI improvements (better progress metrics, UI layout, icons, etc.)"
+      "judgesNotes": "Cool tool! I can definitely see the usefulness of this.\n\n## Like:\n- Good code structure (view models, views)\n- It has tests! yay\n- Program seems stable (no crashes)\n- Fairly intuitive\n- Good documentation\n\n## Improvements:\n- Ability to search/filter repos\n- Some way to 'cancel' operations - I got stuck when loading a repository that had thousands of branches\n- Show more data, like # of branches\n- General UI improvements (better progress metrics, UI layout, icons, etc.)\n- Some performance issues (need to virtualize the grid)"
     },
     {
       "id": "alpha-ai",
@@ -272,13 +272,16 @@
         }
       ],
       "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0
+        "workScope": 2,
+        "polish": 2,
+        "funUseful": 4,
+        "creativity": 4,
+        "innovation": 2
       },
-      "specialAwards": []
+      "specialAwards": [
+        "most-fun"
+      ],
+      "judgesNotes": "## Likes:\n- It's a game, and it works! Wohoo\n- I like the music! Glad to see you making your own art/sound effects\n- Roguelike elements seem to work\n\nImprovements:\n- Wish that it was actually 'in' slide and used the GDI graphics rather than launching a browser game (could maybe use the slope surface as the ground, for example)"
     },
     {
       "id": "tri-our-best",
