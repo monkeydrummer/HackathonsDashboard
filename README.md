@@ -69,7 +69,13 @@ Example: http://localhost:3000/hackathon/2025-10-31/admin
 - **📊 Edit Project Details** - Update scores, descriptions, and assign awards to projects
 - **📝 Judges Notes** - Add markdown-formatted notes from judges (visible to all viewers)
 - **✓ Review Status Indicators** - Visual indicators show which projects have been reviewed (✓) vs not yet reviewed (⚠)
-- **Overall Scores Display** - See calculated overall scores in project list and editor panel
+- **Overall Scores Display** - See calculated overall scores in project list and editor panel (admin only)
+
+### Score Privacy
+
+- **All scores are private** - Only admins can view category scores and overall scores
+- **Public viewers see** - Project rankings (when published), special awards, descriptions, and judges notes
+- **Admins see** - All scores, review status, and can manage scoring weights
 
 To change the password, create a `.env.local` file:
 
