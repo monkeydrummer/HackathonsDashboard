@@ -271,16 +271,19 @@ export default function AdminPage() {
                   <div className="flex flex-wrap gap-2">
                     {data.config.specialAwards.map(award => (
                       <button
-                        key={award}
-                        onClick={() => toggleSpecialAward(selectedProject.id, award)}
-                        className={`px-4 py-2 rounded-lg transition-colors ${
-                          selectedProject.specialAwards.includes(award)
+                        key={award.id}
+                        onClick={() => toggleSpecialAward(selectedProject.id, award.id)}
+                        className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
+                          selectedProject.specialAwards.includes(award.id)
                             ? 'bg-yellow-400 text-yellow-900 font-medium'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                       >
-                        {selectedProject.specialAwards.includes(award) ? '✓ ' : ''}
-                        {award}
+                        <span className="text-xl">{award.emoji}</span>
+                        <span>
+                          {selectedProject.specialAwards.includes(award.id) ? '✓ ' : ''}
+                          {award.name}
+                        </span>
                       </button>
                     ))}
                   </div>
