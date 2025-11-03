@@ -61,12 +61,15 @@ Example: http://localhost:3000/hackathon/2025-10-31/admin
 
 ### Admin Features
 
+- **⚖️ Score Categories** - Configure category weights to customize how overall scores are calculated
 - **📋 Manage Projects** - Create new projects, assign to teams, and delete projects
 - **👥 Manage Teams** - Create, edit, and delete teams and their members
 - **🏆 Manage Awards** - Create and customize special awards
 - **⚙️ Hackathon Settings** - Edit hackathon details and publish/unpublish results
 - **📊 Edit Project Details** - Update scores, descriptions, and assign awards to projects
 - **📝 Judges Notes** - Add markdown-formatted notes from judges (visible to all viewers)
+- **✓ Review Status Indicators** - Visual indicators show which projects have been reviewed (✓) vs not yet reviewed (⚠)
+- **Overall Scores Display** - See calculated overall scores in project list and editor panel
 
 To change the password, create a `.env.local` file:
 
