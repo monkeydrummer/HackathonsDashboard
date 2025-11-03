@@ -1,0 +1,32 @@
+HOW TO START THE DASHBOARD
+===========================
+
+Open a PowerShell or Command Prompt window and run:
+
+1. Navigate to the project:
+   cd C:\Users\JeremySmith\source\repos\Hackathons\hackathon-dashboard
+
+2. Start the development server:
+   npm run dev
+
+3. Wait for the message:
+   "Local: http://localhost:3000"
+
+4. Open your browser to:
+   http://localhost:3000
+
+If you see an error about port 3000 being in use, use a different port:
+   npm run dev -- -p 3001
+
+Then open: http://localhost:3001
+
+TROUBLESHOOTING
+===============
+
+If you get errors:
+- Make sure you're in the correct directory
+- Try: npm install (to reinstall dependencies)
+- Check if another app is using port 3000
+
+The build completed successfully, so everything is ready to go!
+

@@ -1,0 +1,13 @@
+{
+  "hackathons": [
+    {
+      "id": "2025-10-31",
+      "name": "Halloween Hackathon 2025",
+      "date": "2025-10-31",
+      "description": "Our spooky Halloween hackathon featuring amazing projects from talented teams!",
+      "emoji": "🎃",
+      "resultsPublished": false,
+      "dataFile": "2025-10-31.json"
+    }
+  ]
+}

@@ -1,0 +1,683 @@
+{
+  "teams": [
+    {
+      "id": "eugene",
+      "name": "Eugene",
+      "members": [
+        "Eugene"
+      ],
+      "projects": [
+        "eugene-submission"
+      ]
+    },
+    {
+      "id": "alpha-ai",
+      "name": "Alpha.ai Team",
+      "members": [
+        "Ted",
+        "Ali",
+        "Arnav"
+      ],
+      "projects": [
+        "alpha-ai"
+      ]
+    },
+    {
+      "id": "anton-john",
+      "name": "Anton & John",
+      "members": [
+        "Anton",
+        "John"
+      ],
+      "projects": [
+        "stereonet-aim-trainer"
+      ]
+    },
+    {
+      "id": "liam",
+      "name": "Liam",
+      "members": [
+        "Liam"
+      ],
+      "projects": [
+        "rogue-slope"
+      ]
+    },
+    {
+      "id": "tri-our-best",
+      "name": "TriOurBest",
+      "members": [
+        "Daniel",
+        "Arsalan",
+        "Armin"
+      ],
+      "projects": [
+        "tri-our-best"
+      ]
+    },
+    {
+      "id": "eric",
+      "name": "Eric",
+      "members": [
+        "Eric"
+      ],
+      "projects": [
+        "halloween-egg"
+      ]
+    },
+    {
+      "id": "angela",
+      "name": "Angela",
+      "members": [
+        "Angela"
+      ],
+      "projects": [
+        "2d-runout-app"
+      ]
+    },
+    {
+      "id": "best-novo-bpt",
+      "name": "BestNovoBPT",
+      "members": [
+        "Riana",
+        "Cristian"
+      ],
+      "projects": [
+        "best-novo-bpt"
+      ]
+    },
+    {
+      "id": "pm-life-saver",
+      "name": "PM Life Saver",
+      "members": [
+        "Rachel",
+        "Grace",
+        "Beverly"
+      ],
+      "projects": [
+        "pm-life-saver"
+      ]
+    },
+    {
+      "id": "abhi",
+      "name": "Abhi",
+      "members": [
+        "Abhi"
+      ],
+      "projects": [
+        "adaptive-rag"
+      ]
+    },
+    {
+      "id": "luca",
+      "name": "Luca",
+      "members": [
+        "Luca"
+      ],
+      "projects": [
+        "wade-debugging-ui"
+      ]
+    },
+    {
+      "id": "igor",
+      "name": "Igor",
+      "members": [
+        "Igor"
+      ],
+      "projects": [
+        "raylib-glb-viewer"
+      ]
+    },
+    {
+      "id": "will",
+      "name": "Will",
+      "members": [
+        "Will"
+      ],
+      "projects": [
+        "cursor-ui-rs3"
+      ]
+    },
+    {
+      "id": "qa-team",
+      "name": "QA Team",
+      "members": [
+        "Mahsa",
+        "Bitta"
+      ],
+      "projects": [
+        "qa-demo-recorder",
+        "qa-halloween-game"
+      ]
+    },
+    {
+      "id": "carter",
+      "name": "Carter",
+      "members": [
+        "Carter"
+      ],
+      "projects": [
+        "roc-analytics"
+      ]
+    },
+    {
+      "id": "rslog-team",
+      "name": "RSLog Team",
+      "members": [
+        "Danial",
+        "Ivan",
+        "Michelle"
+      ],
+      "projects": [
+        "rslog-mcp-server"
+      ]
+    },
+    {
+      "id": "steve",
+      "name": "Steve",
+      "members": [
+        "Steve"
+      ],
+      "projects": [
+        "cpt-settlement-calculator",
+        "blue-jays-angry-birds"
+      ]
+    },
+    {
+      "id": "luke",
+      "name": "Luke",
+      "members": [
+        "Luke"
+      ],
+      "projects": [
+        "block-engine"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "eugene-submission",
+      "teamId": "eugene",
+      "title": "Eugene's Submission",
+      "description": "# Rocscience Orange DevOops\n\nRocscience Orange DevOops is a Windows desktop application for managing and backing up Azure DevOps repositories. It provides a graphical interface for viewing repository metadata, performing backups, and managing repository information across your Azure DevOps organization.\n\n## Features\n\n### Currently Implemented\n\n- **Project Management**\n  - Create new projects with Azure DevOps organization configuration\n  - Open existing projects from local folders\n  - Store project configuration locally\n\n- **Repository Management**\n  - View comprehensive list of all repositories in your Azure DevOps organization\n  - Display repository metadata including:\n    - Repository URL\n    - DevOps project name\n    - Repository name\n    - Repository size (calculated from backups)\n    - Backup preference\n    - Last commit date and author (on-demand)\n    - Last backup date\n    - Backup count\n  - Refresh repository list from Azure DevOps API\n  - Load commit information for selected repositories\n\n- **Repository Backup**\n  - Backup selected repositories using git bundle\n  - Automatic retry mechanism (up to 5 attempts) for clone operations\n  - Progress tracking with detailed status messages\n  - Backup files organized by DevOps project in subfolders\n  - Operation logging to daily log files\n\n### Planned Features\n\n- Remove old backups\n- Recover repositories from backups\n- Remove old logs\n- Command-line interface for backup operations\n\n## Requirements\n\n### System Requirements\n\n- **Operating System**: Windows 7 or later\n- **.NET Runtime**: .NET 8.0 Windows Runtime\n- **Git**: Must be installed and available in your system PATH\n  - Git is used to clone repositories and create bundles\n  - Download from: https://git-scm.com/download/win\n\n### Development Requirements\n\n- **.NET SDK**: .NET 8.0 SDK or later\n- **IDE**: Visual Studio 2022 or later (recommended), or any editor with .NET 8.0 support\n\n## Building the Solution\n\n### Prerequisites\n\n1. Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)\n2. Ensure Git is installed and accessible from command line (verify with `git --version`)\n3. Clone or download this repository\n\n### Build Steps\n\n1. **Open the solution**\n   - Open `RocscienceOrangeDevOops/RocscienceOrangeDevOops.sln` in Visual Studio, or\n   - Navigate to the solution directory in your terminal\n\n2. **Restore NuGet packages**\n   ```bash\n   dotnet restore RocscienceOrangeDevOops/RocscienceOrangeDevOops.sln\n   ```\n\n3. **Build the solution**\n   ```bash\n   dotnet build RocscienceOrangeDevOops/RocscienceOrangeDevOops.sln\n   ```\n   \n   Or build from Visual Studio: `Build > Build Solution` (Ctrl+Shift+B)\n\n4. **Run unit tests** (optional)\n   ```bash\n   dotnet test RocscienceOrangeDevOops/RocscienceOrangeDevOops_Tests/RocscienceOrangeDevOops_Tests.csproj\n   ```\n\n### Output\n\nAfter building, the executable will be located at:\n```\nRocscienceOrangeDevOops/RocscienceOrangeDevOops/bin/Debug/net8.0-windows/RocscienceOrangeDevOops.exe\n```\nor\n```\nRocscienceOrangeDevOops/RocscienceOrangeDevOops/bin/Release/net8.0-windows/RocscienceOrangeDevOops.exe\n```\n\n## Running the Application\n\n### Launching the Application\n\n1. **From Visual Studio**\n   - Press `F5` or click `Debug > Start Debugging`\n   - Or press `Ctrl+F5` for `Debug > Start Without Debugging`\n\n2. **From Command Line**\n   ```bash\n   dotnet run --project RocscienceOrangeDevOops/RocscienceOrangeDevOops/RocscienceOrangeDevOops.csproj\n   ```\n\n3. **Run the Executable**\n   - Navigate to the build output directory\n   - Double-click `RocscienceOrangeDevOops.exe`\n\n## Usage Guide\n\n### Getting Started\n\n#### 1. Create a Personal Access Token (PAT)\n\nBefore using the application, you'll need to create a Personal Access Token in Azure DevOps:\n\n1. Go to your Azure DevOps organization: `https://dev.azure.com/{your-organization}`\n2. Click on your profile picture (top right) > **Security**\n3. Under **Personal access tokens**, click **+ New Token**\n4. Name your token (e.g., \"DevOops Backup Tool\")\n5. Set expiration date\n6. Select **Read** scope for **Code** (minimum required)\n   - For backups, you may also need **Read & write** for **Code**\n7. Click **Create**\n8. **Copy the token immediately** (you won't be able to see it again)\n\n#### 2. Create a Project (See create_project.gif)\n\n1. Launch the application\n2. Go to **File > New Project**\n3. Enter:\n   - **Project Name**: A name for your local project (e.g., \"Company Backups\")\n   - **Project Folder Path**: The parent folder where the project will be created\n   - **Azure DevOps Organization URL**: Your organization URL (e.g., `https://dev.azure.com/your-org` or `https://your-org.visualstudio.com`)\n   - **Personal Access Token**: Paste the PAT you created\n4. Click **Create**\n5. The application will create a project folder with the following structure:\n   ```\n   {ProjectFolder}/{ProjectName}/\n   ├── {ProjectName}.rodo          # Setup file with org URL and PAT\n   ├── repositories.txt             # Repository metadata (JSON format)\n   ├── logs/                        # Operation logs\n   └── backups/                     # Repository backups\n       └── {DevOpsProject}/         # Backups organized by DevOps project\n   ```\n\n#### 3. Open a Project (See open_project.gif)\n\n1. Go to **File > Open Project**\n2. Navigate to your project folder\n3. Select the `.rodo` file (e.g., `MyProject.rodo`)\n4. The application will load the project and automatically fetch repositories\n\n#### 4. View Repositories\n\nOnce a project is opened, the repository list will automatically load and display:\n- All repositories from your Azure DevOps organization\n- Metadata including size, backup status, and backup counts\n- Last commit information is not automatically loaded (for performance)\n\nTo load commit information:\n1. Select one or more repositories in the list\n2. Click **Load Commit Info for Selected**\n3. Wait for the operation to complete (this may take time for repositories with many branches)\n\n#### 5. Backup Repositories\n\n1. Select one or more repositories from the list\n   - Use `Ctrl+Click` or `Shift+Click` to select multiple repositories\n2. Click **Backup Selected**\n3. Monitor the progress bar and status messages\n4. The backup process will:\n   - Clone the repository to a temporary location\n   - Create a git bundle\n   - Store the bundle in `backups/{DevOpsProject}/{RepositoryName}_{timestamp}.bundle`\n   - Update repository metadata\n   - Log the operation\n\n**Note**: Backup operations may take significant time depending on repository size and network speed. The clone operation will retry up to 5 times if it fails.\n\n#### 6. Refresh Repository List\n\nClick **Refresh** to reload the repository list from Azure DevOps and update metadata.\n\n### Project File Structure\n\nEach project contains:\n\n- **`{ProjectName}.rodo`**: Setup file containing:\n  - Line 1: Azure DevOps Organization URL\n  - Line 2: Personal Access Token\n  \n  **Important**: Keep this file secure and never share it or commit it to version control.\n\n- **`repositories.txt`**: JSON file containing repository metadata including:\n  - Backup preferences\n  - Last commit dates and authors\n  - Repository information\n\n- **`logs/`**: Folder containing daily log files:\n  - Format: `backup_yyyyMMdd.txt`\n  - Each operation is logged with timestamp, level, and message\n\n- **`backups/`**: Folder containing repository backups:\n  - Organized by DevOps project in subfolders\n  - Format: `backups/{DevOpsProject}/{RepositoryName}_{timestamp}.bundle`\n  - This prevents name conflicts when repositories with the same name exist in different DevOps projects\n\n### Backup Process Details\n\nThe backup process:\n1. Creates a temporary directory\n2. Clones the repository using `git clone --mirror`\n   - Retries up to 5 times if the clone fails\n   - Cleans up partial clones between retries\n3. Creates a git bundle using `git bundle create --all`\n4. Moves the bundle to the appropriate project subfolder\n5. Updates repository metadata (LastBackupDate, BackupCount, Size)\n6. Logs the operation\n7. Cleans up temporary files\n\n## Troubleshooting\n\n### Common Issues\n\n#### \"Git not found\" or Clone fails\n- **Solution**: Ensure Git is installed and available in your system PATH\n- Verify: Open a command prompt and run `git --version`\n- If not found, install Git from https://git-scm.com/download/win\n\n#### \"Failed to backup repository\" errors\n- Check your Personal Access Token has the necessary permissions\n- Verify the repository URL is accessible\n- Check network connectivity to Azure DevOps\n- Review the log files in `logs/` folder for detailed error messages\n\n#### Clone operation times out\n- Large repositories may take longer than the 30-minute timeout\n- Check your network connection\n- The operation will automatically retry up to 5 times\n\n#### Authentication errors\n- Verify your Personal Access Token is valid and not expired\n- Ensure the token has appropriate scopes (Code: Read, or Code: Read & write for backups)\n- Check that the token wasn't revoked in Azure DevOps\n\n#### Path contains spaces\n- The application handles paths with spaces automatically\n- If you encounter issues, ensure Git is properly handling quoted arguments\n\n## Development\n\n### Project Structure\n\n```\nRocscienceOrangeDevOops/\n├── RocscienceOrangeDevOops/          # Main application project\n│   ├── Controls/                      # WPF Views (UserControls)\n│   │   ├── CreateProject/            # Create Project dialog\n│   │   └── ListRepositories/         # Repository list view\n│   ├── Data/                         # Data models\n│   │   ├── CreateProject/\n│   │   ├── ListRepositories/\n│   │   └── OpenProject/\n│   ├── Services/                      # Business logic services\n│   │   ├── AzureDevOpsService.cs     # Azure DevOps API integration\n│   │   ├── BackupService.cs          # Repository backup operations\n│   │   ├── BackupMetadataService.cs  # Backup metadata management\n│   │   ├── LoggingService.cs         # Operation logging\n│   │   └── RepositoryMetadataService.cs  # Repository metadata storage\n│   ├── CreateProject/                # ViewModels\n│   ├── ListRepositories/\n│   └── MainWindow.xaml               # Main application window\n│\n└── RocscienceOrangeDevOops_Tests/    # Unit tests\n    ├── CreateProject/\n    ├── ListRepositories/\n    └── Services/\n```\n\n### Running Tests\n\n```bash\n# Run all tests\ndotnet test RocscienceOrangeDevOops/RocscienceOrangeDevOops_Tests/RocscienceOrangeDevOops_Tests.csproj\n\n# Run with coverage\ndotnet test --collect:\"XPlat Code Coverage\"\n```\n\n### Code Style\n\nThe project follows MVVM pattern with:\n- **ViewModels**: Inherit from `ObservableObject`, use `[ObservableProperty]` and `[RelayCommand]`\n- **Views**: Use `UserControl` as root, set `DataContext` in code-behind\n- **Models**: Plain C# classes or `ObservableObject` for data binding\n- **Services**: Dependency injection, interfaces for testability\n\nSee `.cursor/rules/` for detailed coding conventions.\n\n## Dependencies\n\n### NuGet Packages\n\n- **CommunityToolkit.Mvvm** (8.4.0): MVVM framework with source generators\n- **DevExpress.Wpf.Controls** (25.1.6): WPF controls (optional, for future enhancements)\n- **DevExpress.Wpf.PropertyGrid** (25.1.6): Property grid control (optional)\n\n### Test Frameworks\n\n- **xUnit** (2.6.3): Testing framework\n- **Moq** (4.20.70): Mocking library\n- **FluentAssertions** (6.12.0): Assertion library\n\n## Security Notes\n\n- **Personal Access Tokens**: Store securely and never commit to version control\n- **`.rodo` files**: Contain sensitive authentication information - keep secure\n- **Project folders**: Consider encrypting project folders if they contain sensitive data\n\n## License\n\n[Add license information here if applicable]\n\n## Support\n\nFor issues or questions, please [add your support contact method].\n\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/EugenesSubmission"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "alpha-ai",
+      "teamId": "alpha-ai",
+      "title": "Alpha.ai",
+      "description": "See [README.md](https://rocscience.visualstudio.com/Hackathons/_git/Alpha.ai?path=/README.md&_a=preview) for more details.\n\n# Project summary\nAlpha.ai is an intelligent **trading algorithm that uses a machine learning model (Random Forests)** to predict when to buy or sell stocks based on **key statistical indicators**.\n\n# Tools and Libraries used\n- Cursor - IDE using Sonnet 4.5 and GPT-5 LLMs\n- Python 3.8+ - Programming language\n- Streamlit - Web interface framework\n- Plotly - Interactive charting library\n- Pandas - Data manipulation and analysis\n- NumPy - Numerical computing\n- yfinance - Yahoo Finance API for stock data\n- scikit-learn - Machine learning (Random Forest model)\n- Matplotlib - Data visualization\n- Kaleido - Static image export\n\n# Division of work\nAli worked on the frontend, Arnav and Ted worked on the backend, and we all worked on integrating the backend into the frontend and documentation.\n\n# Demo screenshots\n![before_input.png](https://rocscience.visualstudio.com/4265a016-9a4a-4267-9af0-6aea4b84591b/_apis/git/repositories/2f5b3675-807b-45c3-99cf-1071ef0a2d29/pullRequests/22873/attachments/before_input.png) \n![model_insight.png](https://rocscience.visualstudio.com/4265a016-9a4a-4267-9af0-6aea4b84591b/_apis/git/repositories/2f5b3675-807b-45c3-99cf-1071ef0a2d29/pullRequests/22873/attachments/model_insight.png) \n![summary_and_graph.png](https://rocscience.visualstudio.com/4265a016-9a4a-4267-9af0-6aea4b84591b/_apis/git/repositories/2f5b3675-807b-45c3-99cf-1071ef0a2d29/pullRequests/22873/attachments/summary_and_graph.png) \n\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps PR",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/Alpha.ai/pullrequest/22873"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "stereonet-aim-trainer",
+      "teamId": "anton-john",
+      "title": "Stereonet 2D Aim Trainer",
+      "description": "# Introduction \nTODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. \n\n# Getting Started\nTODO: Guide users through getting your code up and running on their own system. In this section you can talk about:\n1.\tInstallation process\n2.\tSoftware dependencies\n3.\tLatest releases\n4.\tAPI references\n\n# Build and Test\nTODO: Describe and show how to build your code and run the tests. \n\n# Contribute\nTODO: Explain how other users and developers can contribute to make your code better. \n\nIf you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:\n- [ASP.NET Core](https://github.com/aspnet/Home)\n- [Visual Studio Code](https://github.com/Microsoft/vscode)\n- [Chakra Core](https://github.com/Microsoft/ChakraCore)\n\n![Screenshot1](/images/stereonet-trainer1.png)\n![Screenshot2](/images/steronet-trainer-2.png)\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Local Files",
+          "url": "C:\\Users\\JeremySmith\\source\\repos\\Hackathons\\Anton John"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "rogue-slope",
+      "teamId": "liam",
+      "title": "Rogue Slope",
+      "description": "**NOTE THAT THIS IS PURELY FOR THE HACKATHON. WILL DELETE ANY UNECESSARY BRANCHES ONCE FINISHED REVIEW.**\n\nCreated a game in Slide2 accessed via \"rogueslope\" entered in the command line. A read me and associated .md files have been added. This is **100% not an actual easter egg I want to add and should not be added**, but thought I'd do something similar to existingas the game is slope stability themed. The focus of the vibe code was more on the logic and engine side, seeing if I could emulate a rogue-like game with it's basic elements. \n\nThe goal of this was more on the vibe-coding side, in that a lot of the actual code I'm not familiar with but can get a general sense of the completed work. Hoping to use this to learn more about game design and web design aspects.\n\nPlease see the readme for more details. Please notify me if there are any issues\n\n![Hackathon Gif.gif](https://rocscience.visualstudio.com/cbf8c917-d28b-4fa5-82b5-b352ff7f1e89/_apis/git/repositories/68f8fd48-b0f7-4ce9-abbc-4936f76969ae/pullRequests/22884/attachments/Hackathon%20Gif.gif) \n\nList of tools (most of which I myself are not familiar with at all):\n\n**Engine and UI:**\nConfig-driven tuning via config.js (balance, spawn, movement, assets, UI)\nImage loading via HTMLImageElement (natural size + scaling/offset)\nCustom UI overlays (pause/upgrade/win/game over) with vanilla JS + CSS\nWinsock2 (listen/accept/bind) for the tiny HTTP server\nShellExecuteW to open the default browser\nWin32 file I/O for serving assets from disk\nOptional RCDATA resources (planned/partly used earlier)\nCanvas 2D (CanvasRenderingContext2D) for rendering\nWebAudio API (AudioContext, decodeAudioData, BufferSource, GainNode) for BGM\nDOM/Events (keydown, pointerdown/click, buttons/overlays)\nrequestAnimationFrame for the game loop\n**Music**: Fruity Loops (made by me)\n**Pixel** art: Aseprite (made by me)\n\nWhat I'd do if I had more time:\n- Any obfuscation of the external assets\n- General UI improvement and cleanup\n- Better sprite resolutions\n- Advanced logic\n- More gameplay concepts (skills, enemy variety, etc.)",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps PR",
+          "url": "https://rocscience.visualstudio.com/Slide%202018/_git/Slide%202018/pullrequest/22884"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "tri-our-best",
+      "teamId": "tri-our-best",
+      "title": "TriOurBest",
+      "description": "# Mouse and Keyboard Recording and Replaying Tool\n\nDaniel Wai, Armin Sariri and Amir Jameei proudly present:\n\nA desktop application that enables users to record mouse and keyboard actions and replay them on demand. The tool is designed to help QA engineers and Technical Support engineers automate repetitive tasks by capturing their manual interactions with applications and systems.\n\n## Features\n\n### Implemented Features\n\n- **Record Mouse and Keyboard Actions**: Capture mouse movements, clicks, scrolls, and keyboard input with precise timing\n- **Replay Recorded Actions**: Execute saved recordings to repeat actions accurately\n- **Save Recordings**: Store recorded sequences as JSON files for future use\n- **Load Recordings**: Open and replay previously saved recordings\n- **Visual Status Indicators**: Real-time feedback showing recording/replay status and progress\n- **User-Friendly GUI**: Clean interface with intuitive controls for recording and replay operations\n\n> **Note**: GIF examples are included in the repository to guide you through the main features. Check the repository for visual demonstrations of recording, saving, loading, and replaying actions.\n\n## Getting Started\n\n### Prerequisites\n\n- Python 3.8 or higher\n- pip (Python package installer)\n\n### Installation\n\n1. **Clone the repository**\n   ```bash\n   git clone <repository-url>\n   cd TriOurBest\n   ```\n\n2. **Create and activate a virtual environment:**\n\n   **Windows (PowerShell):**\n   ```powershell\n   python -m venv venv\n   .\\venv\\Scripts\\Activate.ps1\n   ```\n\n   **Windows (Command Prompt):**\n   ```cmd\n   python -m venv venv\n   venv\\Scripts\\activate\n   ```\n\n   **macOS/Linux:**\n   ```bash\n   python3 -m venv venv\n   source venv/bin/activate\n   ```\n\n   After activation, you should see `(venv)` in your command prompt.\n\n3. **Install dependencies:**\n   ```bash\n   pip install -r requirements.txt\n   ```\n\n   This will install:\n   - `pynput` - For capturing and replaying mouse/keyboard events\n   - `pytest` - For running tests\n   - `Pillow` - For image processing (background image support)\n\n## Running the Application\n\nTo start the application:\n\n```bash\npython main.py\n```\n\nThe application window will open, and you can:\n\n1. **Start Recording**: Click \"Start Recording\" to begin capturing mouse and keyboard actions\n2. **Stop Recording**: Click \"Stop Recording\" when finished\n3. **Save Recording**: Click \"Save Recording\" to save your captured actions to a JSON file\n4. **Load Recording**: Click \"Load Recording\" to open a previously saved recording file\n5. **Start Replay**: Click \"Start Replay\" to execute the loaded recording\n6. **Stop Replay**: Click \"Stop Replay\" to interrupt playback at any time\n\n## Running Tests\n\nTo run the full test suite:\n\n```bash\npytest tests/ -v\n```\n\nTo run a specific test file:\n\n```bash\npytest tests/test_recording_model.py -v\n```\n\nTo run tests with coverage:\n\n```bash\npytest tests/ --cov=. --cov-report=html\n```\n\n## Project Structure\n\n```\nTriOurBest/\n├── controllers/          # Application controllers (MVC pattern)\n├── models/              # Data models and business logic\n├── views/               # GUI components (tkinter)\n├── utils/               # Utility functions and constants\n├── tests/               # Unit tests\n├── resources/           # Application resources (images, etc.)\n├── docs/                # Documentation and feature plans\n├── main.py             # Application entry point\n├── requirements.txt     # Python dependencies\n└── README.md           # This file\n```\n\n## Architecture\n\nThe application follows the **Model-View-Controller (MVC)** architecture pattern:\n\n- **Models**: Handle data and business logic (`models/`)\n- **Views**: Manage user interface components (`views/`)\n- **Controllers**: Coordinate between models and views (`controllers/`)\n\n## Technology Stack\n\n- **Python 3.8+**: Core programming language\n- **tkinter**: GUI framework (built-in with Python)\n- **pynput**: Mouse and keyboard event capture/replay\n- **Pillow**: Image processing for background images\n- **pytest**: Testing framework\n\n## Known Limitations\n\n### Special Character Recording\n\n**System Shortcuts (CTRL-C, CTRL-V, etc.)**: System-wide keyboard shortcuts may not be reliably recorded, especially on Windows. This is due to how the operating system handles these shortcuts at a low level before applications can capture them.\n\n**Why this happens:**\n- System shortcuts like CTRL-C (Copy) and CTRL-V (Paste) are handled by the OS before they reach the recording listener\n- On Windows, certain key combinations may be intercepted by the system or other applications\n- This is a limitation of the underlying `pynput` library when dealing with system-level shortcuts\n\n**Workaround:**\n- Use application-specific keyboard shortcuts instead of system-wide ones when recording\n- Consider using alternative input methods for operations that rely on CTRL-C/CTRL-V\n- For detailed information about this issue, see `docs/CTRL_C_V_RECORDING.md`\n\n**Note**: Regular keyboard events and mouse actions are recorded reliably. This limitation primarily affects system-level keyboard shortcuts.\n\n## Troubleshooting\n\n### Common Issues\n\n**Issue**: Application won't start\n- **Solution**: Ensure all dependencies are installed: `pip install -r requirements.txt`\n\n**Issue**: Recording/Replay doesn't work on Linux\n- **Solution**: You may need additional system dependencies. On Ubuntu/Debian: `sudo apt-get install python3-tk python3-dev`\n\n**Issue**: Permission errors when recording\n- **Solution**: On some systems, the application may need elevated permissions to capture keyboard/mouse events. Try running with appropriate permissions.\n\n**Issue**: System shortcuts (CTRL-C, CTRL-V) not being recorded\n- **Solution**: This is a known limitation. See the \"Known Limitations\" section above for details.",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/TriOurBest"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "halloween-egg",
+      "teamId": "eric",
+      "title": "Blackjack - Halloween Easter Egg",
+      "description": "Submission for the 2025 Halloween Hackathon.\n\n# White Queen: The Hidden Blackjack Game\nWhite Queen is a fully functional blackjack game hidden as an Easter (Or Halloween?) egg within RSWall. It’s a fun diversion where users can play casino-style blackjack for entertainment (no real money allowed).\n\n# What Can You Do?\n- \tPlay classic blackjack against a dealer\n- \tUse all standard blackjack actions: Hit, Stand, Double Down, and Split pairs\n- \tStart with a configurable chip amount and add more chips anytime\n- \tPlace bets using quick-bet buttons ($5, $10, $25, $50, $100) or go All-In\n- \tConfigure game settings: number of decks in the shoe, starting chips\n- \tTrack your chip pool and see live statistics (hands played, win/loss record)\n\n# How to Access It\nSecret Command: Type “JQKA”  into the command interface hidden in the Author Field of the Project Summary Dialog.\n![image (3).png](https://rocscience.visualstudio.com/f2ce2862-5cc7-4bf5-9f2a-a8bac94dc25b/_apis/git/repositories/addae456-9e7f-4aff-8b5c-62616c3f44f6/pullRequests/22881/attachments/image%20%283%29.png) \n**For clearer GIF, see attached in work item**\n![Hack-trigger-from-Project-Summary.gif](https://rocscience.visualstudio.com/f2ce2862-5cc7-4bf5-9f2a-a8bac94dc25b/_apis/git/repositories/addae456-9e7f-4aff-8b5c-62616c3f44f6/pullRequests/22881/attachments/Hack-trigger-from-Project-Summary.gif) \n\n## Game Play\nExample Play demonstrated the functionalities of the game:\n- Stand on 19, losing\n- Doubling, Lose\n- Blackjack\n- Hit then Stand, Losing\n- Hit then stand, push\n- Split, win/lose\n\n![Hack-Play-through.gif](https://rocscience.visualstudio.com/f2ce2862-5cc7-4bf5-9f2a-a8bac94dc25b/_apis/git/repositories/addae456-9e7f-4aff-8b5c-62616c3f44f6/pullRequests/22881/attachments/Hack-Play-through.gif) \n\n# Settings Dialog\n![Hack-Settings-dialog.gif](https://rocscience.visualstudio.com/f2ce2862-5cc7-4bf5-9f2a-a8bac94dc25b/_apis/git/repositories/addae456-9e7f-4aff-8b5c-62616c3f44f6/pullRequests/22881/attachments/Hack-Settings-dialog.gif) \n\n\n# Key Considerations\n\n## Cursor Use\nIn the \"Blackjack-game\" directory, there are planning documents showcasing the use of Cursor agents. \nStarted off with a \"rough-spec\" and the \"backend-design.md\" (which was developed with the help of Cursor as well), a \"BLACKJACK_SPEC\" document is created which outlines the different phases and details implementation plan.\nThen, summary files were created along the way to keep track of what is done.\n\n## Visual Elements\nThe game features a festive Halloween/Autumn theme with pumpkin decorations 🎃 and autumn colors. You'll get instant visual feedback—green highlights for wins and blackjacks, pink for losses and busts, and yellow for pushes. Cards display with suit symbols (♠ ♥ ♣ ♦), and the interface shows both dealer and player hands clearly with real-time hand values. There is also a Statistics section shown below:\n![image (2).png](https://rocscience.visualstudio.com/f2ce2862-5cc7-4bf5-9f2a-a8bac94dc25b/_apis/git/repositories/addae456-9e7f-4aff-8b5c-62616c3f44f6/pullRequests/22881/attachments/image%20%282%29.png) \n\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps PR",
+          "url": "https://rocscience.visualstudio.com/RSWall/_git/RSWall/pullrequest/22881"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "2d-runout-app",
+      "teamId": "angela",
+      "title": "2D Runout App",
+      "description": "This is a 2D runout app that models the movement of a continuum flow mass after failure initiation.\n\nKey features:\n- Project Settings\n- Material Properties\n- Define Slope graphically or through a coordinate grid\n- Define Failure Surface graphically or through a coordinate grid\n- Computes (fairly fast) but I was having quite a time trying to get the engine working, so I just started over (which took most of the time); this algorithm is highly numerically unstable if large time steps or strains occur; I didn't have time to implement a velocity damping function.\n- Animations with playback\n- Results pane\n\nSome cool features:\n- GUI polyline drawing with snapping (that was all Cursor!)\n- Animations pane\n- Coloration of blocks is red for compression and green for unloading\n\nMajor external libs used:\n- Alglib\n- Devexpress\n- Protobuf\n\nKey findings:\n- Cursor is really good with UI, although it doesn't seem to be good with dependency injection, even though I told it that I want MVVM and which part should go in which project.\n- I also don't like that it immediately put all the business logic in the WPF project...didn't have time to clean this up and refactor.\n- Cursor is REALLY bad with math and logic\n\nI wish I had a bit more time on the UI...but ran out of time to do nice geometry validation, input validation, fileIO, etc. that would make this a lot more complete.\n\n![Animation (2).gif](https://rocscience.visualstudio.com/4265a016-9a4a-4267-9af0-6aea4b84591b/_apis/git/repositories/80246d0f-a0e1-405b-84a5-b4f402150c98/pullRequests/22885/attachments/Animation%20%282%29.gif) ",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps PR",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/RSRunout/pullrequest/22885"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "best-novo-bpt",
+      "teamId": "best-novo-bpt",
+      "title": "BestNovoBPT",
+      "description": "# NovoBPT Web Application\n\n**Modern, multi-user web application for BPT (Becker Penetration Test) to SPT (Standard Penetration Test) correlation analysis.**\n\nThis project represents a complete modernization of the original Visual Basic desktop application, transforming it into a full-stack web application with user authentication, database-backed storage, and an enhanced user experience.\n\n---\n\n## 🎯 Project Overview\n\n### What is NovoBPT?\n\nNovoBPT is a geotechnical engineering tool that converts Becker Penetration Test (BPT) results to equivalent Standard Penetration Test (SPT) N60 values using established correlation methods. This web version provides all the functionality of the original desktop application plus modern features like multi-user support, cloud-ready architecture, and collaborative project management.\n\n### Key Achievements\n\n✅ **Complete Feature Parity** - All calculation methods and corrections from the original VB.NET application  \n✅ **Multi-User System** - Secure authentication with individual user accounts  \n✅ **Database Storage** - Projects saved to SQLite with user ownership  \n✅ **Modern Architecture** - React frontend + Flask REST API backend  \n✅ **Interactive Visualizations** - Dynamic charts with Plotly.js  \n✅ **Professional Exports** - PDF reports, text/CSV, and NovoSPT/NovoLIQ formats  \n✅ **Responsive Design** - Works seamlessly on desktop and tablet  \n✅ **Easter Egg** - Secret Halloween \"Spookify\" mode (press Shift+6+x+3) 🎃\n\n---\n\n## 🏗️ Architecture\n\n**Backend:** Python Flask REST API (Port 5000)  \n**Frontend:** React 18 + Vite (Port 3000)  \n**Database:** SQLite with bcrypt password hashing  \n**Communication:** RESTful JSON API with session-based authentication\n\n```\n┌─────────────────────┐         HTTP/JSON          ┌──────────────────────┐\n│   React Frontend    │ ◄──────────────────────► │    Flask Backend     │\n│   (Port 3000)       │                           │    (Port 5000)       │\n│                     │                           │                      │\n│  • Login/Register   │                           │  • Authentication    │\n│  • Projects List    │                           │  • User Management   │\n│  • Data Entry UI    │                           │  • BPT Calculations  │\n│  • Interactive      │                           │  • Correlation       │\n│    Charts           │                           │    Methods           │\n│  • Export Features  │                           │  • PDF Generation    │\n└─────────────────────┘                           └──────────────────────┘\n         │                                                    │\n         └────────────────────────────────────────────────────┘\n                              │\n                    ┌─────────▼──────────┐\n                    │  SQLite Database   │\n                    │  • Users           │\n                    │  • Projects        │\n                    │  • Sessions        │\n                    └────────────────────┘\n```\n\n---\n\n## ✨ Features\n\n### 🔐 User Authentication & Security\n- **User Registration** - Create individual accounts with username, email, and password\n- **Secure Login** - Bcrypt password hashing with session management\n- **Protected Routes** - API endpoints and pages require authentication\n- **User Isolation** - Each user only sees their own projects\n- **Session Persistence** - Stay logged in across browser sessions\n\n### 📊 Project Management\n- **Projects Dashboard** - Card-based view of all your saved projects\n- **Database Storage** - Projects saved to SQLite with automatic timestamps\n- **CRUD Operations** - Create, Read, Update, Delete projects with ease\n- **Quick Navigation** - Switch between projects and calculator seamlessly\n- **File Import/Export** - Load existing .bpt files or export for sharing\n\n### 🧮 Calculation Methods\nAll four correlation methods from the original application:\n- **Sy & Campanella (1993b)** - General correlation with Rs interpolation\n- **Seed & Harder** - Direct BPT to N60 correlation\n\n### 🔧 Corrections & Options\n- **Friction Correction** - Accounts for drill string friction losses (Nfr)\n- **Pressure Correction** - Based on chamber pressure measurements (Np)\n- **Configurable Units** - Metric or Imperial\n- **Rounding Options** - Customize decimal places (0-3)\n- **Real-time Updates** - Calculations update as you type\n\n### 📈 Visualization & Analysis\n- **Interactive Charts** - Plotly.js-powered visualizations with zoom/pan\n- **Depth Profiles** - BPT and N60 values plotted vs. depth\n- **Correlation Plots** - Scatter plots showing BPT-N60 relationships\n- **Friction Analysis** - Detailed friction loss charts and statistics\n- **Pressure Correction** - Chamber pressure vs. corrected N values\n- **Export Charts** - Download individual charts as PNG images\n\n### 📤 Export Capabilities\n- **PDF Reports** - Professional reports with ReportLab\n- **Text/CSV and Excel Export** - Comma-separated values for spreadsheets\n- **NovoSPT/NovoLIQ Format** - Direct export to other Rocscience tools\n- **Print Functionality** - Customizable chart selection for printing\n\n### 🎨 User Interface\n- **Modern Design** - Clean, professional Bootstrap 5 styling\n- **Responsive Layout** - Adapts to different screen sizes\n- **Tabbed Interface** - Organized data entry, charts, and friction analysis\n- **Navigation Bar** - Full File/Tools/Help menus like desktop app\n- **Loading States** - Clear feedback for all operations\n- **Error Handling** - User-friendly error messages\n- **Dark Mode** - Secret \"Spookify\" Halloween theme (Shift+6+x+3) 🎃👻\n\n---\n\n## 🚀 Getting Started\n\n### Prerequisites\n- **Python 3.8+** with pip\n- **Node.js 16+** with npm\n- **Modern web browser** (Chrome, Firefox, Edge, Safari)\n\n### Quick Start\n\n**For detailed setup instructions, see [QUICKSTART.md](QUICKSTART.md)**\n\n```bash\n# 1. Start the backend (Terminal 1)\ncd backend\npython -m venv venv\nsource venv/bin/activate  # Windows: .\\venv\\Scripts\\Activate.ps1\npip install -r requirements.txt\npython app.py\n\n# 2. Start the frontend (Terminal 2)\ncd frontend\nnpm install\nnpm run dev\n\n# 3. Open browser to http://localhost:3000\n# 4. Register your account and start using the app!\n```\n\n---\n\n## 📖 Documentation\n\n- **[QUICKSTART.md](QUICKSTART.md)** - Complete setup guide with troubleshooting\n- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Detailed technical documentation\n- **[backend/README.md](backend/README.md)** - API endpoint documentation\n- **[frontend/README.md](frontend/README.md)** - Component architecture guide\n\n---\n\n## 🎯 Use Cases\n\n### Geotechnical Engineers\n- Quickly convert BPT field data to SPT N60 values\n- Apply friction and pressure corrections\n- Generate professional PDF reports for clients\n- Store and organize projects by site or client\n\n### Engineering Firms\n- Multi-user installation for team collaboration\n- Centralized project storage and management\n- Consistent calculation methods across projects\n- Easy data export to other analysis tools\n\n### Research & Education\n- Demonstrate different correlation methods\n- Visualize the effects of corrections\n- Compare multiple calculation approaches\n- Export data for further analysis\n\n---\n\n## 📊 Project Statistics\n\n### Backend (Python)\n- **8 Python modules** (~1,800 lines)\n- **17 API endpoints** (4 auth, 13 functional)\n- **4 correlation methods**\n- **SQLite database** with 2 tables\n- **7 unit tests** (all passing ✓)\n\n### Frontend (React)\n- **14 React components** (~2,500 lines)\n- **4 pages** (Login, Register, Projects, Calculator)\n- **3 chart types** (depth profiles, correlations, friction)\n- **2 theme modes** (normal + Spookify)\n- **20+ API methods**\n\n### Total Implementation\n- **~4,300 lines of code**\n- **8-10 hours development time**\n- **100% test coverage** on calculations\n- **Full feature parity** with original VB.NET app\n\n---\n\n## 🔬 Technical Stack\n\n### Backend Technologies\n- **Flask** 3.0.0 - Lightweight web framework\n- **Flask-Login** 0.6.3 - Session management\n- **Flask-CORS** 4.0.0 - Cross-origin support\n- **bcrypt** 4.1.1 - Password hashing\n- **ReportLab** 4.0.7 - PDF generation\n- **SQLite** - Embedded database\n\n### Frontend Technologies\n- **React** 18 - UI library\n- **React Router** 6 - Client-side routing\n- **Vite** - Fast build tool with HMR\n- **Bootstrap** 5 - UI components\n- **Plotly.js** - Interactive charts\n- **Axios** - HTTP client\n\n---\n\n## 🧪 Testing & Quality\n\n### Backend Testing\n```bash\ncd backend\npython test_calculations.py\n```\n**Result:** All 7 test suites passing ✓\n- Correlation methods validated against original VB.NET\n- Pressure correction algorithm verified\n- Edge cases and boundary conditions tested\n- Rounding options validated\n\n### Manual Testing Checklist\n- ✅ User registration and login\n- ✅ Project CRUD operations\n- ✅ Data entry and validation\n- ✅ All correlation methods\n- ✅ Friction and pressure corrections\n- ✅ Chart rendering and interactivity\n- ✅ PDF export generation\n- ✅ Text/CSV export\n- ✅ Session persistence\n- ✅ Spookify Easter egg mode\n\n---\n\n## 🎃 Easter Egg: Spookify Mode\n\nPress **Shift+6+x+3** anywhere in the app to activate the secret Halloween theme!\n\n**Features:**\n- 🌙 Dark mode with orange accents\n- 👻 Ghost cursor that follows your mouse\n- ✕ Cross markers on all chart data points\n- 🎃 Animated pumpkin indicator in navbar\n- 🦇 Works across all pages (login, projects, calculator)\n- 🔄 Resets on page refresh (keeps it secret!)\n\nPerfect for adding a festive touch on October 31st!\n\n---\n\n## 🔐 Security Features\n\n### Authentication & Authorization\n- **Bcrypt Password Hashing** - Industry-standard encryption\n- **Session-Based Auth** - Flask-Login integration\n- **Protected Endpoints** - Authentication required for all project operations\n- **User Ownership** - Projects isolated by user\n- **CORS Configuration** - Credentials support enabled\n\n### Best Practices\n- Passwords never stored in plain text\n- Sessions expire on logout\n- API endpoints validate user ownership\n- Database queries use parameterized statements\n- Input validation on all forms\n\n### Production Deployment Notes\nFor production use, ensure you:\n- Change Flask `SECRET_KEY` (use environment variable)\n- Configure specific CORS origins\n- Enable HTTPS\n- Implement rate limiting\n- Use PostgreSQL instead of SQLite\n- Add password complexity requirements\n- Implement session timeout\n- Set up regular database backups\n\nSee [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md) for complete deployment checklist.\n\n---\n\n## 🚧 Known Limitations\n\nCurrent implementation is designed for **small to medium team use**:\n\n- **SQLite Database** - Not suitable for high-concurrency (use PostgreSQL for production)\n- **No Password Reset** - Users cannot recover forgotten passwords (implement email verification)\n- **No OAuth/SSO** - Basic authentication only (consider adding social login)\n- **Single Server** - No horizontal scaling (deploy behind load balancer for scaling)\n- **No Real-time Collaboration** - One user per project at a time\n\nThese limitations are by design for simplicity and can be addressed in future versions.\n\n---\n\n## 📈 Performance\n\nTypical performance metrics:\n- **Backend Calculation:** ~100ms per batch (100 data points)\n- **Frontend Rendering:** 60 FPS chart interactions\n- **Database Queries:** <50ms for typical operations\n- **PDF Generation:** ~2s for 100 data points\n- **Page Load:** <1s on modern hardware\n\n---\n\n## 🤝 Contributing\n\nThis project maintains calculation accuracy with the original VB.NET desktop application.\n\nWhen contributing:\n1. **Verify Calculations** - Compare results with original app\n2. **Maintain Tests** - All calculation tests must pass\n3. **Document Changes** - Update relevant README files\n4. **Follow Structure** - Keep backend/frontend separation clear\n5. **Test Both Sides** - Backend API and frontend UI\n\n---\n\n## 📞 Support & Troubleshooting\n\n### Common Issues\nSee [QUICKSTART.md](QUICKSTART.md) for detailed troubleshooting of:\n- Backend won't start\n- Frontend connection errors\n- Database initialization issues\n- Authentication problems\n- Port conflicts\n\n### For Help\n1. Check error messages in terminal/browser console\n2. Review [QUICKSTART.md](QUICKSTART.md) troubleshooting section\n3. Verify prerequisites are installed correctly\n4. Check [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md) for architecture details\n\n---\n\n## 🎯 Future Enhancements\n\nPotential improvements for future versions:\n\n### Authentication & Security\n- Password reset via email\n- Email verification for new accounts\n- Two-factor authentication (2FA)\n- OAuth integration (Google, Microsoft)\n- User profile management\n\n### Collaboration & Sharing\n- Project sharing between users\n- Real-time collaborative editing\n- Project templates\n- Comments and annotations\n\n### Advanced Features\n- Excel file import/export\n- Batch file processing\n- Advanced filtering and search\n- Custom report templates\n- 3D visualizations\n- Mobile app (React Native)\n\n### Infrastructure\n- PostgreSQL for production\n- Automated backups\n- Admin dashboard\n- Usage analytics\n- API rate limiting\n- Horizontal scaling support\n\n---\n\n## 📄 License\n\nOriginal NovoBPT application copyright and licensing apply.\n\n---\n\n## 🏆 Project Status\n\n**Status:** ✅ COMPLETE + PRODUCTION READY\n\nThis web application successfully modernizes the original VB.NET desktop tool with:\n- ✅ Full calculation feature parity\n- ✅ Multi-user authentication system\n- ✅ Database-backed project storage\n- ✅ Modern, responsive web interface\n- ✅ Professional export capabilities\n- ✅ Comprehensive documentation\n- ✅ Tested and validated\n\n**Original Application:** NovoBPT (Visual Basic .NET Desktop App)  \n**Web Version:** NovoBPT Web (Python Flask + React)  \n**Migration Date:** October 31, 2025  \n**Development Time:** ~8-10 hours\n\n---\n\n**From Desktop to Web. From Single-User to Multi-User. From Legacy to Modern.** 🚀\n\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/BestNovoBPT?path=/README.md"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "pm-life-saver",
+      "teamId": "pm-life-saver",
+      "title": "PM Life Saver",
+      "description": "# Introduction \nThis project is a web-based Gantt chart app designed for project managers. Its key functionalities include:\n1. The ability to show both expected and actual timelines in the Gantt chart. This provides management with a better idea of how long to assign for future tasks.\n2. DevOps Work Items can be linked to, and information can be read in PM Life Saver.\n3. DevOps Work Item details (original start and end date, original estimate, multiple actual time segments, adjusted total time) are displayed for the selected task in the Gantt chart.\n4. The Actual time progression bar can be displayed in multiple segments in Gantt chart.\n5. Toggling between different formats (Gantt chart vs Table).\n6. A fun little surprise when a task has been marked as completed!\n7. Exporting the Gantt chart/table as a csv.\n\nThe Gantt chart and its corresponding table include the task name, start/end dates, and progress.\n\nThis app is locally hosted right now. Please see GanttChartDemo.gif for a gif of its functionalities.\n\n# Getting Started\nThis app was developed in Python using streamlit, plotly, and pandas. Cursor was used to develop the initial app and to modify the initial app with the features we wanted. We used DevOps API to link each task to their Work Item.\n\n# Build and Test\n1. Create a terminal that opens the folder contains this project\n2. Create a python virtual environment.\n```python -m venv venv```\n```venv/Scripts/activate```\n3. Install the requirement packages\n```pip install -r requirements.txt```\n4. Run ```streamlit run app.py``` and open the link the terminal gives.\n5. Follow Azure DevOps to create a personal access token (PAT): https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&viewFallbackFrom=vsts&tabs=Windows\n6. Put your PAT Token into DevOps API Settings\n7. Put work item ID to search work item in DevOps.\n8. Clear the fields after your search to restart your search.\n\n# Contribution\nRachel: UI mockup, identified features to include in the app, worked on the Gantt chart features, documentation\nGrace Hu: UI mockup, identified features to include in the app, worked on adding tasks and linking them to their DevOps Work Items, documentation\nBeverly: created the base app for everyone to work on, researched different deployment methods, added the fun features, documentation\n\nIf you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:\n- [ASP.NET Core](https://github.com/aspnet/Home)\n- [Visual Studio Code](https://github.com/Microsoft/vscode)\n- [Chakra Core](https://github.com/Microsoft/ChakraCore)\n\n# Next step\nDue to the time limits, some integrations are not done and some features are not implemented. Here is a list:\n1. Update Expected Start Date and Expected End Date from the Gantt Chart.\n2. Connecting it to a database to save the previous state.\n3. Adding a user login.\n4. Deployment. \n5. Progress tab and completion percentage.\n6. Actual start date and actual end date are not fully implemented with Gantt Chart.\n7. Show today's date in Gantt Chart.\n\n# License\nThis project is licensed under the MIT License.\n\n```\nMIT License\n\nCopyright (c) 2025 PM Life Saver Contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/PM%20Life%20Saver?path=/README.md"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "adaptive-rag",
+      "teamId": "abhi",
+      "title": "Adaptive RAG with RL for Geotechnical Engineering",
+      "description": "# Adaptive RAG with RL for Geotechnical Engineering\n\nA proof-of-concept retrieval-augmented generation system that dynamically adapts its document retrieval strategy using reinforcement learning principles, specifically designed for geotechnical engineering workflows and integrated with Rocscience's RS2 finite element analysis software.\n\n## Demo\n\n**Video Demo**: [Watch the demo](https://www.loom.com/share/917fae176c4a435ead36309dd1f4244e)\n\nThe demo showcases the adaptive RAG system integrated with RS2 bridge, including smart query detection, real-time status monitoring, and seamless transition from documentation search to computational analysis.\n\n## Purpose\n\nTraditional RAG systems use static retrieval strategies—retrieving a fixed number of documents regardless of query complexity. This system addresses that limitation by implementing an adaptive policy that learns when to retrieve more documents, when to use reranking, and when basic retrieval suffices. The system is built for geotechnical engineers who need both semantic search across technical documentation and computational analysis capabilities.\n\n## Innovation\n\nThe core innovation lies in moving from static to learning-based retrieval. Instead of always retrieving K=5 documents, the system uses a heuristic policy model that analyzes query characteristics to dynamically select both the number of documents and the retrieval strategy. The reward signal comes from an LLM-as-Judge approach where GPT-4-mini evaluates output quality across four dimensions: hallucination detection, comprehensiveness, relevance, and efficiency. This creates a continuous improvement loop where the system adapts based on actual performance metrics rather than manual tuning.\n\n- `embeddings.py`: FAISS vector store manager with OpenAI embeddings\n- `static_rag.py`: Baseline static RAG with fixed K=5 retrieval\n- `adaptive_rag.py`: Adaptive RAG with policy-driven retrieval\n- `policy.py`: Heuristic-based adaptive policy (query complexity analysis, dynamic K selection)\n- `reward_model.py`: LLM-as-Judge scorer for RAG quality evaluation\n- `reranker.py`: Cross-encoder reranking for improved relevance\n\n## Selling Point\n\nFor geotechnical engineers, this system bridges the gap between documentation search and computational analysis. You can ask natural language questions about slope stability, receive semantic search results from uploaded technical documents, and the system automatically suggests running RS2 finite element analysis when appropriate. The adaptive retrieval means simple queries get fast responses, while complex technical questions trigger deeper document retrieval and reranking.\n\nThe cross-platform bridge architecture allows engineers to develop and query from macOS while RS2 runs on a Windows VM, with seamless communication between systems. The RS2 integration detects when a query would benefit from computational analysis, presenting the option without requiring manual context switching.\n\nThe system collects real-time feedback on answer quality, allowing continuous refinement of retrieval strategies. This feedback loop turns every query into a training signal, meaning the system improves with use rather than requiring manual retraining.\n\n1. Install dependencies:\n```bash\ncd backend\npip install -r requirements.txt\n```\n\n2. Set up environment variables:\n```bash\ncp .env.example .env\n# Edit .env and add your OPENAI_API_KEY\n```\n\n3. Ingest knowledge base:\n```bash\npython ../scripts/ingest_data.py\n```\n\n4. Start FastAPI server:\n```bash\nuvicorn app.main:app --reload\n```\n\nServer will run on `http://localhost:8000`\n\n### Frontend Setup\n\n1. Install dependencies:\n```bash\ncd frontend\nnpm install\n```\n\n2. Start development server:\n```bash\nnpm run dev\n```\n\nFrontend will run on `http://localhost:3000`\n\n## Usage\n\n### Running Queries\n\n1. Open the frontend UI at `http://localhost:3000`\n2. Enter a geotechnical engineering query\n3. View side-by-side comparison of Static vs Adaptive RAG\n4. See policy decision visualization and improvement metrics\n\n### Running Benchmarks\n\n```bash\npython scripts/benchmark.py\n```\n\nThis will:\n- Run 15 benchmark queries\n- Compare Static vs Adaptive RAG\n- Generate `results/benchmark_results.csv` and `results/benchmark_summary.json`\n\n### Running Demo\n\n```bash\npython scripts/demo.py\n```\n\n## API Endpoints\n\n- `POST /query` - Query using adaptive RAG\n- `POST /query/static` - Query using static RAG baseline\n- `POST /compare` - Compare static vs adaptive RAG\n- `GET /metrics` - Get performance metrics\n- `GET /health` - Health check\n\n## Key Metrics\n\nThe system tracks:\n- Average Quality Score (reward model output)\n- Standard Deviation (consistency measure)\n- Average Documents Retrieved (efficiency)\n- Average Response Time (latency)\n- Query Complexity Distribution\n- Policy Decision Distribution (K=3/5/7 frequency)\n\n## Technologies\n\n**Backend**: Python 3.11+, FastAPI, LangChain, FAISS, OpenAI API, Sentence Transformers\n**Frontend**: React 18+, Next.js 14+, Tailwind CSS, Recharts, Framer Motion\n**Design**: Glassmorphism (backdrop-filter, gradients, shadows)\n\n## Results\n\nExpected improvements over static RAG:\n- 15%+ improvement in average reward score\n- Lower standard deviation (more consistent)\n- Better efficiency (fewer unnecessary documents retrieved)\n- Adaptive retrieval strategy based on query complexity\n\n## License\n\nMIT\n\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://dev.azure.com/abhisharma0053/rs-hackathon"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "wade-debugging-ui",
+      "teamId": "luca",
+      "title": "Wade (Debugging UI)",
+      "description": "Wade - is a Yet Another Debugging Window (yadw) - wade looks like an anagram of a \"yadw\" if you squint really hard, so that's why it's called Wade.\n\nIt's yet another debugging window! This is more of an experiment... I embedded the famous DearImGui inside a WinForms element inside a WPF Window! \n\nHow to use:\nGo to Developer Menu -> DearImGui Window\n\nAnd it's an API, so look at the below examples and PR to see its usage.\n\nHere's a screenshot:\n![image.png](https://rocscience.visualstudio.com/c5517f3f-c52e-4a50-8a4c-5611a458b9ab/_apis/git/repositories/fc99cf50-c1fb-437d-86bd-33236c171d47/pullRequests/22871/attachments/image.png)\n\nHere's a simple example of making a list box with all the nodes in an RFC project:\n```cs\n Wade.Wade.Window(\"Node Window\", null, (object userData) =>\n {\n     var workspace = Workspace.This;\n     if (workspace == null) return;\n\n     var proj = workspace.ActiveProject as RS3Project;\n     if (proj == null) return;\n\n     var geoms = proj.GeomGraph.Nodes.ToArray();\n     if (ImGui.BeginListBox(\"Nodes\"))\n     {\n         for (int i = 0; i < geoms.Length; ++i)\n         {\n             ImGui.PushID(i);\n\n             if (ImGui.Selectable(geoms[i].Name))\n             {\n\n             }\n\n             ImGui.PopID();\n         }\n     }\n     ImGui.EndListBox();\n });\n```\n\nRemember this is an immediate mode UI, it re-renders 12 times a second! This means, this list box is updated whenever the `Nodes` array changes. No need to hook up listeners and stuff.\n\nFiltering is as easy as skipping elements in the node list!\n```cs\n...\nfor (int i = 0; i < geoms.Length; ++i)\n{\n    if (geoms[i].Name.StartsWith(\"Cube\")) continue;\n\n    ImGui.PushID(i);\n    \n    if (ImGui.Selectable(geoms[i].Name))\n    {\n    }\n    ImGui.PopID();\n}\n...\n```\n\nHere's a gif of playing break-out where the nodes are the bricks! Every time you hit a brick a node gets deleted!!\n![imguibreakout.gif](https://rocscience.visualstudio.com/c5517f3f-c52e-4a50-8a4c-5611a458b9ab/_apis/git/repositories/fc99cf50-c1fb-437d-86bd-33236c171d47/pullRequests/22871/attachments/imguibreakout.gif)\n\nI don't know if I'll end up cleaning this up and actually using it. Although, it can be pretty useful if you want a quick debug window with controls that you can easily edit without having to setup an entire debug xaml window and hook up the signals which takes forever and sucks.\n\nThe break-out demo is mostly a joke, but it serves to highlight how powerful the imgui API is. You can pretty much draw anything you want! This makes visualizing certain problems a lot easier. You can have sliders, text boxes, radio buttons, etc, and since it updates every frame (12 a second), you never need to worry about data being out of sync.",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps PR",
+          "url": "https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common/pullrequest/22871"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "raylib-glb-viewer",
+      "teamId": "igor",
+      "title": "Raylib Minimal GLB Viewer with Python GUI & Telegram Integration",
+      "description": "# Raylib Minimal GLB Viewer with Python GUI \\& Telegram Integration\n\n\n\nThis project is a 3D model viewer built in C++ using Raylib and Pybind11, combined with a Python GUI using DearPyGui. It allows interactive viewing of GLB models, dynamic transformations, color adjustments, and integration with Telegram for sending model snapshots.\n\n\n\nFeatures\n\n3D Model Viewer\n\n\n\nLoad and view multiple .glb 3D models.\n\n\n\nSwitch between models dynamically.\n\n\n\nScale, recolor, and toggle wireframe rendering.\n\n\n\nShow/hide a grid in the scene.\n\n\n\nFirst-person camera controls for exploring the scene.\n\n\n\nScreenshot capture of the current viewport.\n\n\n\nPython GUI (DearPyGui)\n\n\n\nSlider to adjust model scale.\n\n\n\nCheckbox to toggle grid and wireframe mode.\n\n\n\nColor picker to change model color.\n\n\n\nButtons to navigate between models and preview images.\n\n\n\nButton to save the viewport and send images to Telegram.\n\n\n\nTelegram Integration\n\n\n\nSend current model image and viewport screenshot to a specified Telegram chat.\n\n\n\nAsynchronous sending to avoid blocking the GUI.\n\n\n\nSupports multiple images with captions.\n\n\n\nInstallation\n\nPrerequisites\n\n\n\nC++17 compatible compiler.\n\n\n\nRaylib\n\n&nbsp;library.\n\n\n\nPybind11\n\n&nbsp;for Python bindings.\n\n\n\nPython 3.8+ with packages:\n\n\n\ndearpygui\n\n\n\npython-telegram-bot (for Telegram integration)\n\n\n\nTelegram Bot Token and Chat ID.\n\n\n\nInstall Python dependencies\n\npip install dearpygui python-telegram-bot\n\n\n\nProject Structure\n\nproject/\n\n│\n\n├─ models/             # 3D models (.glb) and preview images (.jpg)\n\n├─ main.cpp            # C++ main code with Raylib renderer and Pybind11 integration\n\n└─ README.md\n\n\n\nExample Model Paths\n\nstd::vector<std::string> g\\_modelPaths = {\n\n&nbsp;   \"C:/models/berlin2.glb\",\n\n&nbsp;   \"C:/models/london2.glb\",\n\n&nbsp;   \"C:/models/minato2.glb\",\n\n&nbsp;   \"C:/models/toronto2.glb\"\n\n};\n\n\n\nUsage\n\n\n\nCompile the C++ code with your compiler linking Raylib and Pybind11.\n\n\n\nRun the executable; it will:\n\n\n\nLaunch the Raylib renderer in a separate thread.\n\n\n\nLaunch the Python DearPyGui GUI for interactive controls.\n\n\n\nGUI Controls\n\n\n\nScale slider: Adjust the size of the model.\n\n\n\nShow Grid checkbox: Toggle grid visibility.\n\n\n\nWireframe checkbox: Render model in wireframe mode.\n\n\n\nColor picker: Change the model color.\n\n\n\nPrev / Next buttons: Switch between models.\n\n\n\nSave Viewport: Capture the current viewport and send it to Telegram.\n\n\n\nTelegram Integration\n\n\n\nCreate a bot using BotFather\n\n&nbsp;and get your BOT\\_TOKEN.\n\n\n\nObtain your Telegram CHAT\\_ID.\n\n\n\nSet the variables in the Python code:\n\n\n\nBOT\\_TOKEN = \"YOUR\\_BOT\\_TOKEN\"\n\nCHAT\\_ID = \"YOUR\\_CHAT\\_ID\"\n\n\n\n\n\nClick Save Viewport in the GUI to send the current model image and viewport screenshot to your Telegram chat.\n\n\n\nNotes\n\n\n\nThe code uses atomic variables for thread-safe communication between the C++ renderer and Python GUI.\n\n\n\nScreenshots are saved asynchronously and sent via Telegram after capture.\n\n\n\nEnsure all file paths for models and images exist; otherwise, the GUI will display a placeholder message.\n\n\n\nDependencies\n\n\n\nRaylib\n\n\n\nPybind11\n\n\n\nDearPyGui\n\n\n\npython-telegram-bot\n\n\n\nLicense\n\n\n\nMIT License – free for personal and commercial use.\n\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/io"
+        },
+        {
+          "label": "Demo GIF",
+          "url": "https://rocscienceinc-my.sharepoint.com/personal/igor_milevskiy_rocscience_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Figor%5Fmilevskiy%5Frocscience%5Fcom%2FDocuments%2FShared%20with%20Everyone&ga=1"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "cursor-ui-rs3",
+      "teamId": "will",
+      "title": "Cursor UI in RS3",
+      "description": "Here is an analogy between cursor and our programs:\n\nCursor is the modeler, and through it you can modify your model. Your model is a workspace with multiple files and folders.\n\nThis pr adds some basic cursor features like highlighting when a value was changed in red and the new value in green so that you know what the ai did\n\n\nthe 'ai mode' button would be removed in production, and instead we would just turn it on whenever we let an ai control the application. This button was just added to simulate the ai doing stuff in the application..\n\nit provides a code review feature which lets you quickly navigate to where those changes occured instead of having to search through your entire model. I couldn't quite getting it to work. \n\nyou can choose to accept al changes, or undo all changes, just like in cursor using the green and red buttons that appear at the top next to the ai mode button.\n\nI've only made the ai changes visible for some parts of bolt and liner properties. \n\n\n![hackathon-demo.gif](https://rocscience.visualstudio.com/c5517f3f-c52e-4a50-8a4c-5611a458b9ab/_apis/git/repositories/fc99cf50-c1fb-437d-86bd-33236c171d47/pullRequests/22872/attachments/hackathon-demo.gif) \n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps PR",
+          "url": "https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common/pullrequest/22872"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "qa-demo-recorder",
+      "teamId": "qa-team",
+      "title": "QA Demo Recorder",
+      "description": "# Universal Sprint Demo Recorder\n\nA React-based application for recording, editing, and enhancing demo videos with automatic event detection, avatar narration, and hype mode effects. Perfect for creating engaging sprint demo highlights!\n\n## 🎯 Features\n\n### Core Functionality\n- **Screen Recording**: Capture your screen with optional microphone audio\n- **Event Detection**: Automatically detects clicks and interactions during recording\n- **Highlight Generation**: Creates short highlight reels from important events\n- **Video Export**: Export videos in WebM format with metadata (captions, summary, hype config)\n\n### Avatar Narration System\nChoose from 8 unique avatars that narrate your demo with character-specific personalities:\n- 🧙‍♂️ **Wizard**: Magical narrator with mystical phrases\n- 🎸 **Rockstar**: Energetic host with stage lighting effects\n- 🥷 **Ninja**: Stealthy explainer with smoke effects\n- 🏴‍☠️ **Pirate**: Adventurous guide with treasure effects\n- 👨‍🚀 **Astronaut**: Space explorer with star effects\n- 🕵️ **Detective**: Investigative narrator with magnifying glass effects\n- 👨‍🔬 **Scientist**: Knowledgeable expert with particle effects\n- 🤖 **Robot**: Tech-savvy assistant with scan effects\n\nEach avatar:\n- Provides unique narration phrases based on detected events\n- Triggers visual effects during important moments\n- Uses character-specific voice characteristics (rate, pitch, volume)\n- Avoids overlapping with your voice narration\n\n### Hype Mode Effects\nMake your demos more engaging with:\n- **Gamer Commentary**: Dramatic phrases overlaid on events\n- **Dramatic Zoom**: Automatic zoom on important interactions\n- **Particle Explosions**: Visual particle effects at click points\n- **Sound Effects**: Optional audio cues (placeholder for future)\n- **Customizable Intensity**: Low, Medium, High settings\n\n### Video Editing\n- **Trim Segments**: Select start and end points for highlight reels\n- **Text Overlays**: Add custom text with positioning (top/center/bottom) and color options\n- **Effect Markers**: Manually mark points for hype effects on uploaded videos\n\n### Video Upload & Processing\n- **Drag & Drop**: Upload existing videos (MP4, WebM, MOV, AVI)\n- **Format Support**: Works with multiple video formats\n- **Effect Application**: Apply hype effects to uploaded videos\n- **Manual Event Marking**: Click on video to add effect markers\n\n## 🚀 Getting Started\n\n### Prerequisites\n- **Node.js**: v16 or higher\n- **npm**: v7 or higher (comes with Node.js)\n\n### Installation\n\n1. **Clone the repository**\n   ```bash\n   git clone https://rocscience.visualstudio.com/RocShare/_git/QA-DemoRecorder\n   cd QA-DemoRecorder/demo-recorder\n   ```\n\n2. **Install dependencies**\n   ```bash\n   npm install\n   ```\n\n3. **Start the development server**\n   ```bash\n   npm run demo\n   # or\n   npm start\n   ```\n\n4. **Open in browser**\n   - Navigate to `http://localhost:5173` (or the port shown in terminal)\n   - Allow browser permissions for screen recording and microphone when prompted\n\n### Windows Quick Start\n\nIf Node.js is not in your PATH, use the provided batch script:\n\n```bash\nstart-demo.bat\n```\n\nThis script will:\n- Add Node.js to PATH temporarily\n- Install dependencies if needed\n- Start the development server\n\n## 📖 Usage Guide\n\n### Recording a Demo\n\n1. **Select Avatar** (optional): Choose a narrator avatar or skip to record without narration\n2. **Configure Settings**:\n   - Enable/disable Hype Mode\n   - Adjust hype intensity (Low/Medium/High)\n   - Toggle individual effects (commentary, zoom, particles, sound)\n3. **Start Recording**:\n   - Click \"Start Recording\"\n   - Grant screen sharing permission\n   - Grant microphone permission (optional, for voice narration)\n   - Perform your demo - clicks will be automatically detected\n4. **Stop Recording**: Click \"Stop\" when done\n5. **Process Video**: Click \"Process Highlights\" to generate a highlight reel\n6. **Export**: Download your video, captions, summary, and hype config\n\n### Uploading & Editing Videos\n\n1. **Upload Video**: Click \"Upload Video & Add Effects\" from the landing page\n2. **Select File**: Drag & drop or browse for a video file\n3. **Preview**: Video will load for preview\n4. **Add Effects**:\n   - Enable Hype Mode for uploaded video\n   - Click on the video to manually add effect markers\n   - Edit video to trim segments and add text overlays\n5. **Process**: Apply effects and export\n\n### Avatar Features\n\n- **Narration**: Avatars automatically narrate detected events with character-specific phrases\n- **Visual Effects**: Each avatar triggers unique visual effects (sparkles, spotlights, particles, etc.)\n- **Smart Timing**: Narration pauses when you're speaking to avoid audio overlap\n- **Test Effects**: Use the \"🧪 Test [Avatar] Effect\" button to see effects immediately\n\n## 🛠️ Technology Stack\n\n- **React 18**: UI framework\n- **TypeScript**: Type-safe JavaScript\n- **Vite**: Fast build tool and dev server\n- **Tailwind CSS**: Utility-first CSS framework\n- **Web APIs**:\n  - `getDisplayMedia`: Screen capture\n  - `getUserMedia`: Microphone access\n  - `MediaRecorder`: Video recording\n  - `SpeechSynthesis`: Text-to-speech for avatars\n\n## 📁 Project Structure\n\n```\ndemo-recorder/\n├── src/\n│   ├── components/\n│   │   ├── AvatarNarrator.tsx      # Avatar narration with TTS\n│   │   ├── AvatarSelection.tsx      # Avatar selection UI\n│   │   ├── EventTimeline.tsx        # Event timeline display\n│   │   ├── ExportInterface.tsx     # Export functionality\n│   │   ├── ExportPanel.tsx         # Export options UI\n│   │   ├── HypeModeSettings.tsx    # Hype mode configuration\n│   │   ├── LandingPage.tsx         # Main landing page\n│   │   ├── RecordingInterface.tsx  # Recording UI\n│   │   ├── RecordingControls.tsx   # Start/stop/pause controls\n│   │   ├── VideoEditor.tsx         # Video editing (trim, overlays)\n│   │   ├── VideoPlayer.tsx         # Video playback with effects\n│   │   ├── VideoPreview.tsx        # Live preview during recording\n│   │   └── VideoUpload.tsx         # Video upload component\n│   ├── hooks/\n│   │   ├── useEventDetector.ts     # Click/event detection\n│   │   ├── useHypeEffects.ts       # Hype mode logic\n│   │   ├── useScreenRecorder.ts    # Screen recording logic\n│   │   └── useVideoProcessor.ts    # Video processing\n│   ├── types/\n│   │   └── index.ts                # TypeScript type definitions\n│   ├── utils/\n│   │   ├── exportUtils.ts          # Export helpers\n│   │   ├── timestampUtils.ts       # Time formatting\n│   │   └── videoUtils.ts           # Video utilities\n│   ├── App.tsx                     # Main app component\n│   ├── main.tsx                    # React entry point\n│   └── index.css                   # Global styles & animations\n├── package.json\n├── vite.config.ts\n├── tsconfig.json\n├── start-demo.bat                  # Windows startup script\n└── README.md                       # This file\n```\n\n## 🎨 Customization\n\n### Adding New Avatars\n\n1. Add avatar info to `src/components/AvatarSelection.tsx`:\n   ```typescript\n   { id: 'your-avatar', name: 'Name', emoji: '🎭', description: 'Description' }\n   ```\n\n2. Add narration phrases to `src/components/AvatarNarrator.tsx`:\n   ```typescript\n   'your-avatar': [\n     `Your narration phrases with ${event.elementType}`\n   ]\n   ```\n\n3. Add voice characteristics in `speak()` function:\n   ```typescript\n   case 'your-avatar':\n     utterance.rate = 1.0;\n     utterance.pitch = 1.0;\n     utterance.volume = 0.9;\n   ```\n\n4. Add visual effect function to `src/components/VideoPlayer.tsx`:\n   ```typescript\n   const createYourAvatarEffect = (x: number, y: number) => { /* ... */ }\n   ```\n\n5. Add to effect map in `onEffectTrigger` callback\n\n### Adding New Hype Effects\n\n1. Add effect to `src/hooks/useHypeEffects.ts` initial state\n2. Create effect function in `src/components/VideoPlayer.tsx`\n3. Add CSS animations to `src/index.css` if needed\n4. Update `HypeModeSettings.tsx` UI if needed\n\n## 🐛 Troubleshooting\n\n### Video Not Playing\n- **Issue**: Exported video won't play\n- **Solution**: Browser `MediaRecorder` exports WebM format. Ensure your player supports WebM, or convert using FFmpeg\n\n### Effects Not Showing\n- **Issue**: Avatar effects not visible\n- **Solution**: \n  - Use the \"🧪 Test Effect\" button to verify effects work\n  - Check browser console (F12) for errors\n  - Ensure video container has `overflow: visible`\n\n### No Events Detected\n- **Issue**: No clicks/interactions detected during recording\n- **Solution**: \n  - Ensure you're clicking within the browser window\n  - Check that event detection is enabled\n  - Verify events appear in the Event Timeline during recording\n\n### Microphone Not Working\n- **Issue**: Voice not being recorded\n- **Solution**: \n  - Grant microphone permission when prompted\n  - Check browser settings for microphone access\n  - Verify microphone is not muted in system settings\n\n### Duration Shows \"Loading...\"\n- **Issue**: Video duration doesn't load\n- **Solution**: \n  - Wait a few seconds for video metadata to load\n  - Try seeking in the video to trigger metadata loading\n  - Check browser console for errors\n\n## 📝 Export Formats\n\n### Video\n- **Format**: WebM (VP9 video codec, Opus audio codec)\n- **Note**: MP4 conversion requires FFmpeg.wasm (not included in demo)\n\n### Supporting Files\n- **Captions**: SRT format (SubRip subtitle file)\n- **Summary**: TXT format (plain text summary)\n- **Hype Config**: JSON format (hype mode settings and effect markers)\n\n## 🔒 Browser Compatibility\n\n- **Chrome/Edge**: ✅ Full support (recommended)\n- **Firefox**: ✅ Full support\n- **Safari**: ⚠️ Limited support (screen capture may vary)\n- **Opera**: ✅ Full support\n\n## 📄 License\n\nInternal Rocscience project - see repository for license details.\n\n## 🤝 Contributing\n\n1. Create a feature branch\n2. Make your changes\n3. Test thoroughly\n4. Submit a pull request\n\n## 📧 Support\n\nFor issues or questions, contact the development team or create an issue in the repository.\n\n---\n\n**Repository**: https://rocscience.visualstudio.com/RocShare/_git/QA-DemoRecorder\n\n**Version**: 1.0.0\n\n**Last Updated**: 2024\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/QA_DemoRecorder"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "qa-halloween-game",
+      "teamId": "qa-team",
+      "title": "QA Halloween Game",
+      "description": "# Halloween Testing Game\n\nAn interactive Halloween-themed educational game built with React, GSAP, and HTML5 Canvas. Players catch ghosts and answer testing-related questions to earn points.\n\n## Features\n\n- Spooky mist-covered start screen with game rules\n- Interactive story with narration\n- Animated vampire character walking sequence\n- Haunted mansion with clickable windows\n- Ghost-catching mini-game with mouse/keyboard controls\n- Testing-related quiz questions\n- Score tracking system\n- 2-minute countdown timer\n- Pause functionality\n- Game over screen with score display\n\n## Technology Stack\n\n- **React** - UI framework\n- **GSAP** - Animations and transitions\n- **HTML5 Canvas** - Ghost-catching gameplay\n- **CSS** - Styling and effects\n\n## Getting Started\n\n### Prerequisites\n\n- Node.js (v18 or higher)\n- npm or yarn\n\n### Installation\n\n1. Install dependencies:\n```bash\nnpm install\n```\n\n2. Start the development server:\n```bash\nnpm run dev\n```\n\n3. Open your browser and navigate to the URL shown in the terminal (typically `http://localhost:5173`)\n\n## Game Flow\n\n1. **Start Screen** - Enter your name and click the glowing \"Start Game\" button\n2. **Story Screen** - Read the story (or skip it) to begin your adventure\n3. **Hill Scene** - Watch the vampire character walk and open the door\n4. **Mansion Scene** - Click the \"Enter If You Dare\" button after windows light up\n5. **Ghost Game** - Catch falling ghosts with your bucket\n6. **Questions** - Answer testing-related questions to earn/lose points\n7. **Game Over** - View your final score and play again\n\n## Controls\n\n- **Mouse** - Move bucket left/right\n- **Arrow Keys** - Move bucket left/right\n- **Space** - Pause/Resume game keyword cannot be used\n\n## Scoring\n\n- Correct answer: +10 points\n- Incorrect answer: -10 points\n\n## Project Structure\n\n```\nsrc/\n├── components/        # React components\n│   ├── StartScreen.jsx      # Start screen with rules\n│   ├── HillScene.jsx         # Hill scene with story and character\n│   ├── MansionScene.jsx      # Mansion scene with windows\n│   ├── DarkRoomScene.jsx     # Dark room scene (currently skipped)\n│   ├── GhostGame.jsx         # Ghost-catching game\n│   ├── QuestionModal.jsx     # Question popup modal\n│   ├── GameOver.jsx          # Game over screen\n│   ├── GameTimer.jsx         # Countdown timer\n│   ├── PauseButton.jsx       # Pause button\n│   └── ScoreDisplay.jsx      # Score display\n├── hooks/            # Custom React hooks\n│   └── useGameState.js      # Game state management\n├── data/             # Game data\n│   └── questions.js          # Testing-related questions\n├── App.jsx           # Main app component\n└── main.jsx          # Entry point\n```\n\n## Required Assets\n\nAll assets must be placed in the `/public` folder:\n\n### Audio Files\n\n1. **scary-violin-382735.mp3**\n   - Used in: HillScene (background ambient sound)\n   - Loops: Yes\n   - Volume: 50%\n\n2. **humming-sound-268134.mp3**\n   - Used in: MansionScene (background music)\n   - Loops: Yes\n   - Volume: 50%\n\n3. **spooky-halloween-effects-with-thunder-121665.mp3**\n   - Used in: GhostGame (background sound during gameplay)\n   - Loops: Yes\n   - Volume: 50%\n   - Note: Muted when question modal or pause modal is open\n\n4. **evil-laughing-423669.mp3**\n   - Used in: QuestionModal (incorrect answer sound)\n   - Loops: No\n   - Volume: 70%\n\n5. **ghost-horror-sound-382709.mp3**\n   - Used in: QuestionModal (correct answer sound)\n   - Loops: No\n   - Volume: 70%\n\n6. **i-see-you-creepy-ghost-whisper-401711.mp3**\n   - Used in: GameOver (game over screen sound)\n   - Loops: No\n   - Volume: 70%\n\n### Image Files\n\n1. **rocscience-logo.png**\n   - Used in: MansionScene (displayed on mansion roof)\n   - Size: Auto-scaled to fit roof\n\n2. **Game.png**\n   - Used in: GhostGame (background image for game canvas)\n   - Size: Full screen background\n\n## Asset Placement\n\n```\npublic/\n├── scary-violin-382735.mp3\n├── humming-sound-268134.mp3\n├── spooky-halloween-effects-with-thunder-121665.mp3\n├── evil-laughing-423669.mp3\n├── ghost-horror-sound-382709.mp3\n├── i-see-you-creepy-ghost-whisper-401711.mp3\n├── rocscience-logo.png\n└── Game.png\n```\n\n## Build\n\nTo create a production build:\n\n```bash\nnpm run build\n```\n\nThe built files will be in the `dist` directory.\n\n## Notes\n\n- All audio files use MP3 format for best browser compatibility\n- Audio volume is automatically set by the code\n- Background sounds are muted when modals (question/pause) are open\n- The game uses a custom pumpkin cursor throughout\n- Timer continues counting down even when question modal is open\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/QA_HalloweenGame"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "roc-analytics",
+      "teamId": "carter",
+      "title": "RocAnalytics",
+      "description": "# RocAnalytics - Hackathon Submission\n\n## Description\n\nRocAnalytics is a telemetry and analytics system for Rocscience desktop applications. It tracks user interactions (dialog usage, feature adoption, completion rates) and provides a real-time dashboard for product teams to gain insights into how customers use the software.\n\n![Dashboard Screenshot](Screenshot.png)\n\n**Key Features:**\n- Non-intrusive analytics collection with user consent\n- Real-time dashboard showing dialog usage, software version usage, and feature adoption\n- Easy integration via NuGet package\n- SQLite database with REST API for analytics queries\n\n- I was able to implement a simplified exception handling notification system as well so that we could get data related to used crashes but ran out of time for full integration and removed it. It can be considered \"future work\" that is certainly feasible. Can get details of crashes withour relying on bug reports.\n\n**Integrated Applications:**\n- **RocSurface** ([hackathon branch](https://rocscience.visualstudio.com/_git/RocSurface?path=%2F&version=GBhackathon))\n- **Dips9** ([hackathon branch](https://rocscience.visualstudio.com/Dips/_git/Dips9?version=GBhackathon))\n\n## Usage Instructions\n\n### 1. Start the Analytics Server\n\n```bash\npip install -r requirements.txt\npython main.py\n```\n\nThe server will start on http://localhost:5000\n\n### 2. View the Dashboard\n\nOpen your browser to **http://localhost:5000/dashboard/**\n\nThe dashboard displays:\n- Total events and unique dialogs tracked\n- Most used dialogs (bar chart)\n- Dialog completion rates\n- Feature discovery (identifies underutilized features)\n- Recent activity feed\n\n### 3. Run RocSurface or Dips9\n\nClone and run either integrated application from the hackathon branches above. \n\nAgree to provide permission for analytics. This is saved in local app data so will only come up on first launch.\n\nAs you interact with dialogs in the applications, analytics events are automatically sent to the server and displayed in real-time on the dashboard.\n\n### Test Application (Optional)\n\nA standalone test application is included for demo purposes. Follow Steps 1 & 2 and then Run it using the provided batch file:\n\n```bash\ncd Test_Application\nbuild-and-run.bat\n```\n\nUse the test app to generate sample analytics events of different types (Dialog, Feature, Lifecycle, RibbonButton). You can also play with different versions and dates to test the analytics tracking.\n\n---\n\n**Built with:** Python/FastAPI, SQLite, Chart.js  \n**NuGet Package:** Rocscience.Analytics (included in `RocAnalytics_Nuget/`)\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/RocAnalytics"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "rslog-mcp-server",
+      "teamId": "rslog-team",
+      "title": "RSLog MCP Server",
+      "description": "# RSLog MCP Server\n\nAn MCP (Model Context Protocol) server implementation for the Hackathon that exposes all public RSLog APIs, enabling seamless integration with AI agent workflows.\n\n## Overview\n\nThis project creates a comprehensive MCP server that provides AI agents with access to RSLog's public API endpoints through the Model Context Protocol. The integration spans multiple components:\n\n1. **MCP Server** (this repository) - FastMCP server exposing all RSLog API endpoints\n2. **Authentication System** - RSLog authentication integration in rsinsight\n3. **Frontend Integration** - UI toggle and sign-in functionality in rsgpt-fe\n4. **Backend Agent Integration** - MCP connection management system in rsgpt-ai-core\n\n## What This Repository Contains\n\n### MCP Server Implementation\n\nThis repository implements a FastMCP server (`rslog_mcp.py`) that:\n\n- **Exposes all public RSLog APIs** as MCP tools\n- Provides **type-safe data structures** using Pydantic models\n- **Covers all RSLog API categories**:\n  - Projects\n  - Boreholes\n  - Stratigraphy\n  - Samples\n  - Comments\n  - Piezometers\n  - Groundwater\n  - Reference Data\n\n- **Features**:\n  - Type-safe request/response models using Pydantic\n  - Bearer token authentication support\n  - Comprehensive API endpoint coverage\n  - Structured error handling\n\n### Key Files\n\n- `rslog_mcp.py` - Main FastMCP server implementation with all API tools\n- `rslog_mcp_staging.py` - Staging environment variant\n- `models.py` - Pydantic models for type-safe data structures\n- `enums.py` - Enum definitions for API categories and types\n- `executor_agent_prompt.md` - Executor agent instructions for RSLog tools\n- `planning_agent_prompt.md` - Planning agent instructions for task breakdown\n- `RSLOG_MCP_INTEGRATION.md` - Detailed integration guide for backend systems\n\n## Integration Architecture\n\n### 1. MCP Server (This Repository)\n\nThe MCP server is implemented using FastMCP and exposes RSLog API endpoints as MCP tools. Each tool corresponds to an RSLog API endpoint and includes:\n\n- Proper authentication handling via Bearer tokens\n- Type-safe input/output using Pydantic models\n- Comprehensive error handling\n- Full API endpoint coverage\n\n### 2. Authentication System (rsinsight)\n\nAn RSLog authentication system was integrated into rsinsight that:\n\n- Manages user authentication tokens for RSLog API access\n- Provides secure token management and refresh capabilities\n- Integrates with the existing authentication infrastructure\n\n### 3. Frontend Integration (rsgpt-fe)\n\nThe frontend was extended with:\n\n- **RSLog UI Toggle** - Allows users to enable/disable RSLog functionality\n- **RSLog Sign-In** - Authentication interface for RSLog access\n- Seamless integration with the existing UI/UX patterns\n\n### 4. Backend Agent Integration (rsgpt-ai-core)\n\nThe backend agents now use the MCP tool with a comprehensive connection management system. See the [integration guide](./RSLOG_MCP_INTEGRATION.md) for detailed implementation details.\n\n**Key Features:**\n- MCP connection management and pooling\n- Automatic tool discovery and loading\n- Support for WebSocket device tools + HTTPS MCP servers simultaneously\n- Per-request authentication token handling\n- Graceful error handling and fallback mechanisms\n\n**Related PR:**\n- [AI Server Integration PR](https://github.com/Rocscience/rsgpt-ai-core/pull/17) - Details on agent integration\n- [Frontend Integration PR](https://github.com/Rocscience/rsgpt-fe/pull/61) - Details on Authentication UI changes\n- [Backend Integrateion PR](https://github.com/Rocscience/rsgpt-be/pull/34) - Details on User Management\n\n## Usage\n\n### Running the MCP Server\n\n```bash\n# Install dependencies\npip install fastmcp requests pydantic\n\n# Run the server\npython rslog_mcp.py\n```\n\n### Configuration\n\nThe server uses Bearer token authentication. Configure the base URL and authentication as needed:\n\n```python\nBASE_URL = \"https://www.rslogonline.com\"  # RSLog API base URL\n```\n\nAuthentication tokens are passed via HTTP headers in MCP requests.\n\n## API Endpoints Exposed\n\nThe MCP server exposes tools for all RSLog API endpoints, organized by category:\n\n- **Projects** - Create, read, update, and manage projects\n- **Boreholes** - Manage borehole data and metadata\n- **Stratigraphy** - Handle stratigraphic layers and descriptions\n- **Samples** - Manage sample data and test results\n- **Comments** - Add and manage comments on various resources\n- **Piezometers** - Handle piezometer installation and data\n- **Groundwater** - Manage groundwater level data\n- **Reference Data** - Access reference data and lookup tables\n\nEach tool follows RSLog API conventions and includes proper validation and error handling.\n\n## Development\n\n### Project Structure\n\n```\nrsgpt-mcp-rslog/\n├── rslog_mcp.py              # Main MCP server implementation\n├── rslog_mcp_staging.py      # Staging environment variant\n├── models.py                 # Pydantic data models\n├── enums.py                  # Enum definitions\n├── executor_agent_prompt.md  # Executor agent instructions\n├── planning_agent_prompt.md  # Planning agent instructions\n├── RSLOG_MCP_INTEGRATION.md  # Backend integration guide\n└── README.md                 # This file\n```\n\n### Contributing\n\nWhen adding new API endpoints:\n\n1. Add the corresponding Pydantic model in `models.py`\n2. Create the MCP tool function in `rslog_mcp.py`\n3. Ensure proper authentication and error handling\n4. Update documentation as needed\n\n## Related Documentation\n\n- [RSLOG_MCP_INTEGRATION.md](./RSLOG_MCP_INTEGRATION.md) - Comprehensive integration guide for backend systems\n- [AI Server Integration PR](https://github.com/Rocscience/rsgpt-ai-core/pull/17) - Details on agent integration\n- [Frontend Integration PR](https://github.com/Rocscience/rsgpt-fe/pull/61) - Details on Authentication UI changes\n- [Backend Integrateion PR](https://github.com/Rocscience/rsgpt-be/pull/34) - Details on User Management\n\n## License\n\n[Add your license information here]\n\n## Acknowledgments\n\nBuilt for the Hackathon with integration across:\n- **rsinsight** - Authentication system\n- **rsgpt-fe** - Frontend UI components\n- **rsgpt-be** - Backend workflows\n- **rsgpt-ai-core** - AI server agent workflows\n\n## Technologies:\n- FastMCP, OpenAI Agent SDK, FastAPI",
+      "images": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Rocscience/rsgpt-mcp-rslog"
+        },
+        {
+          "label": "Demo Recording",
+          "url": "https://rocscienceinc-my.sharepoint.com/personal/danial_khan_rocscience_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fdanial_khan_rocscience_com%2FDocuments%2FRSLog_Rsinsight_Hackathon_Demo.mov&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ct=1762180776002&or=OWA-NT-Mail&cid=1a1c08f6-131d-3167-62fa-bf517094b58d&ga=1&startedResponseCatch=true&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.c12a00a1-e102-4944-b738-235beba61e62"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "cpt-settlement-calculator",
+      "teamId": "steve",
+      "title": "CPT Settlement Calculator",
+      "description": "# CPT Analysis & Settlement Calculator\n\nA comprehensive geotechnical engineering web application for analyzing Cone Penetration Test (CPT) data and calculating settlement using Settle3 correlations and methodologies.\n\n## 🚀 Quick Start\n\n### Option 1: Simple Installation (Recommended)\n```bash\n# 1. Clone the repository\ngit clone https://github.com/stevech-AI/cpt-analysis-settlement-calculator.git\ncd cpt-analysis-settlement-calculator\n\n# 2. Install dependencies\npip install -r requirements.txt\n\n# 3. Run the application\nstreamlit run app.py\n```\n\n### Option 2: Using pyproject.toml\n```bash\n# 1. Clone the repository\ngit clone https://github.com/stevech-AI/cpt-analysis-settlement-calculator.git\ncd cpt-analysis-settlement-calculator\n\n# 2. Install dependencies\npip install .\n\n# 3. Run the application\nstreamlit run app.py\n```\n\n**That's it!** The app will automatically open at `http://localhost:8501` in your browser.\n\n📖 **For detailed installation instructions and troubleshooting, see [INSTALL.md](INSTALL.md)**\n\n---\n\n## 🧪 Testing with Sample Data\n\nThe repository includes real CPT test data files in the `test_data/` folder:\n\n```bash\n# After running the app, upload any of these files:\ntest_data/sample_cpt1.txt  # 1 layer, uniform soft soil\ntest_data/sample_cpt2.txt  # 5 layers, 1,930mm settlement ⭐ Recommended\ntest_data/sample_cpt3.txt  # 1 layer, shorter profile\n```\n\n**Quick Test:**\n1. Start the app: `streamlit run app.py`\n2. Go to \"📤 Upload CPT Data\" tab\n3. Upload `test_data/sample_cpt2.txt`\n4. Navigate to \"Settlement Analysis\" tab\n5. Click \"Calculate Settlement\" to see ~1,930mm total settlement results!\n\nSee [test_data/README.md](test_data/README.md) for detailed information about each sample file.\n\n## Features\n\n### 1. CPT Data Processing\n- **Excel file upload** supporting multiple CPT datasets\n- Automatic column detection for depth, qc, fs, and u2\n- Normalization calculations (Qt, Fr, Bq, Ic) using Robertson methodology\n- Support for various data formats and headers\n\n### 2. Soil Classification\n- **Robertson (2009)** soil classification charts\n- Automated soil behavior type identification\n- Interactive Qt-Fr classification plots with Ic contours\n- Soil type distribution analysis\n\n### 3. Automated Soil Layering\n- Layer identification based on Ic transitions\n- User-adjustable minimum layer thickness\n- Automatic merging of thin layers\n- Visual layer profiles with depth and thickness\n\n### 4. CPT Correlations\nCalculate key settlement parameters from CPT data:\n- **Young's Modulus (E)** - for immediate settlement\n- **Constrained Modulus (M)**\n- **Compression Index (Cc)** - for consolidation settlement\n- **Recompression Index (Cr)**\n- **Over-Consolidation Ratio (OCR)**\n- **Friction Angle (φ)** - for sandy soils\n- **Undrained Shear Strength (Su)** - for clayey soils\n- **Permeability (k)**\n\n### 5. Settlement Analysis\n- **Immediate (Elastic) Settlement** calculations\n- **Consolidation Settlement** for clay layers\n- Total settlement estimation\n- Layer-by-layer settlement breakdown\n- Support for various loading configurations\n\n### 6. Interactive Visualizations\n- CPT profile plots (qc, fs, u2, Qt, Ic)\n- Robertson classification charts with data points\n- Parameter correlation graphs\n- Settlement distribution by layer\n- Multi-CPT comparison views\n\n### 7. Export Functionality\n- **Excel** exports with complete analysis data\n- **PDF** comprehensive reports\n- **CSV** layer summaries\n- Settlement calculation results\n\n## How to Use\n\n### 1. Upload CPT Data\n- Navigate to the \"📤 Upload CPT Data\" tab\n- Upload one or more Excel files containing CPT data\n- Files should have columns for: Depth, qc (cone resistance), fs (sleeve friction), and optionally u2 (pore pressure)\n- The app will automatically detect column names\n\n### 2. Configure Parameters\nUse the sidebar to set:\n- **Unit Weight of Soil** (kN/m³)\n- **Water Table Depth** (m)\n- **Minimum Layer Thickness** (m)\n- **Net Area Ratio** for cone\n\n### 3. View CPT Profiles\n- Select CPTs to display\n- Choose profile type (qc, Rf, u2, Qt, Ic)\n- Compare multiple CPTs side-by-side\n\n### 4. Explore Soil Classification\n- View Robertson (2009) classification charts\n- See soil type distribution\n- Analyze Ic contours\n\n### 5. Review Soil Layers\n- View automated layer identification\n- Export layer data\n- Adjust layer thickness parameters if needed\n\n### 6. Analyze Correlations\n- Review calculated parameters for each layer\n- Compare E, Cc, Cr, OCR across layers\n- Export complete analysis to Excel\n\n### 7. Calculate Settlement\n- Input loading configuration:\n  - Applied load (kN)\n  - Footing dimensions (m)\n  - Footing depth (m)\n- View immediate and consolidation settlement\n- Export settlement results and PDF reports\n\n## Test Data Files\n\nReal CPT field data is included in the `test_data/` folder for testing:\n- `sample_cpt1.txt` - 1 layer organic clay profile (0mm settlement)\n- `sample_cpt2.txt` - 5 layer profile showing significant settlement (1,930mm) ⭐\n- `sample_cpt3.txt` - Single layer profile with shorter depth range (0mm settlement)\n\nAll files are tab-delimited format: Depth | qc | fs | u2\n\nSee [test_data/README.md](test_data/README.md) for complete details.\n\n## Methodology\n\n### Soil Classification\nBased on **Robertson (2009)** normalized CPT methodology:\n- Normalized cone resistance: Qt = (qt - σvo) / σ'vo\n- Normalized friction ratio: Fr = [fs / (qt - σvo)] × 100%\n- Soil behavior type index: Ic = √[(3.47 - log Qt)² + (log Fr + 1.22)²]\n\n### Correlations\nSettlement parameters derived from published correlations:\n- **E**: α_E × (qt - σvo), where α_E = 0.015 × 10^(0.55×Ic + 1.68)\n- **Cc**: Based on plasticity index correlations (Jain et al. 2015)\n- **Cr**: GMDH-type neural network (Kordnaeij et al. 2015)\n- **OCR**: k × (qt / σ'vo), where k varies with soil type\n- **M**: α_M × qt, where α_M varies with Qtn\n\n### Settlement Calculations\n- **Immediate Settlement**: S = Σ(Δσ × H / E) for each layer\n- **Consolidation Settlement**: Terzaghi's theory with Cc and Cr\n- Accounts for over-consolidation and stress history\n\n## Technical Details\n\n### Built With\n- **Streamlit** - Web application framework\n- **Pandas** - Data processing\n- **NumPy** - Numerical calculations\n- **Plotly** - Interactive visualizations\n- **SciPy** - Scientific computations\n- **FPDF** - PDF report generation\n\n### References\n- Robertson, P.K. (2009). \"Interpretation of cone penetration tests - a unified approach\"\n- Settle3 CPT Theory Manual (Rocscience)\n- Terzaghi's Consolidation Theory\n\n## Notes\n\n- The app performs calculations based on empirical correlations which have limitations\n- Results should be verified by qualified geotechnical engineers\n- Engineering judgment is required for final design decisions\n- Parameters may need adjustment based on local experience and soil conditions\n\n## Support\n\nFor questions about geotechnical engineering principles or settlement calculations, consult relevant technical literature and standards.",
+      "images": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/stevech-AI/cpt-analysis-settlement-calculator"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "blue-jays-angry-birds",
+      "teamId": "steve",
+      "title": "Blue Jays Angry Birds Easter Egg",
+      "description": "Angry Birds in Python\n=====================\n[Youtube Video](https://www.youtube.com/watch?v=B7G5JtCFepE&feature=youtu.be)\n\n![Alt text](/resources/images/angry-birds-image.png?raw=true \"angry-birds\")\n\nRequirements\n------------\n- Python 3.9 or higher\n- Install dependencies:\n```bash\npip install -r requirements.txt\n```\nor\n```bash\npip3 install -r requirements.txt\n```\n\nTo play\n-------\n1. Clone the project:\n   ```bash\n   git clone <repository-url>\n   cd angry-birds-python\n   ```\n\n2. Install dependencies:\n   ```bash\n   pip install -r requirements.txt\n   ```\n\n3. Run the game (from project root):\n   ```bash\n   python3 src/main.py\n   ```\n   or on Windows:\n   ```bash\n   python src/main.py\n   ```\n\n**Note:** Make sure to run from the project root directory, not from inside the `src` folder.\n\nZero Gravity\n------------\n![Alt text](/resources/images/gravity-zero.png?raw=true \"angry-birds\")\n* To activate the \"zero gravity mode\" press key s.\n* To back to normal mode press key n.\n\nActivate &  Deactivate the wall\n-------------------------------\n![Alt text](/resources/images/walls.png?raw=true \"angry-birds\")\n* To activate or deactivate the wall press key w.\n\nJoin the project\n----------------\nThe project is Open Source. Feel free to contribute.\nPlease help me to keep this project updated! Thanks you very much :)",
+      "images": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/stevech-AI/blue-jays-angry-bird"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "block-engine",
+      "teamId": "luke",
+      "title": "BlockEngine",
+      "description": "# BlockEngine\n\nA geometric modeling library for computing 3D blocks (enclosed regions) formed by analytical plane intersections, designed to improve upon triangle-based approximation methods.\n\n## Introduction\n\nThis project serves as a demonstration of using Cursor (AI-assisted development) to tackle a complex geometry and algorithmic problem. The development experience revealed some interesting insights:\n\n**Summary of Results:**\n- Kind of very annoying. It seems like it makes good progress on stuff... but then totally falls apart.\n\n## Motivation\n\n### Problems with Existing Approaches (ROC Slope / Tunnel Block Engine)\n\nCurrent implementations in tools like ROC Slope and Tunnel Block Engine face several significant limitations:\n\n#### 1. **Triangle-Based Approximations**\n- Joints (discontinuities) are approximated as triangular meshes/discs\n- This approximation leads to:\n  - **Poor multi-threading**: Complex mesh operations don't parallelize well\n  - **Excessive computation**: Triangle-triangle intersections are computationally expensive\n  - **Approximation errors**: Discrete meshing introduces numerical artifacts\n\n#### 2. **Precision Requirements**\n- The system requires highly precise values for parameters like \"persistence\" (thresholds for joint continuity)\n- These values are typically:\n  - Not well-known or poorly constrained\n  - Difficult to measure in practice\n  - Sensitive to slight variations\n\n#### 3. **Computational Inefficiency**\n- Making even small changes to joint properties requires:\n  - **Full recomputation** of all blocks\n  - **Complete regeneration** of the entire block structure\n  - **No incremental updates** possible\n\n### Our Approach: Analytical Plane-Based Geometry\n\nThis project addresses these issues by treating joints as **analytical planes** rather than discrete approximations:\n\n#### **Analytical Plane Representation**\n- Joints are represented as infinite analytical planes (normal vector + point)\n- Eliminates approximation errors from triangulation\n- Provides mathematically exact intersection calculations\n\n#### **Plane Intersection Graph Structure**\n- Creates a **tree/graph structure** of plane intersections:\n  - Vertices represent intersection points (where 3+ planes meet)\n  - Edges represent intersection lines (where 2 planes meet)\n  - Faces represent bounded regions on each plane\n  - Regions represent fully enclosed volumes (blocks)\n\n#### **Computational Advantages**\n1. **More Efficient**: Plane-plane intersection is computationally simpler than triangle-triangle intersection\n2. **Better Parallelization**: Graph operations can be more easily parallelized\n3. **Incremental Updates**: The graph structure allows for:\n   - **Local updates**: Changes to one plane affect only connected regions\n   - **Incremental recomputation**: Only affected subgraphs need updating\n   - **No full recomputation** required for small changes\n\n#### **Flexible Persistence Functions**\n- The graph-based structure enables:\n  - **Post-processing application** of persistence functions\n  - **Exotic persistence metrics** that can be applied after block computation\n  - **Iterative refinement** without recomputing the entire structure\n  - **Multiple persistence models** can be evaluated on the same graph\n\n### Architecture Overview\n\nThe library is organized into several key components:\n\n- **Plane Grouping**: Groups parallel/near-parallel planes for efficiency\n- **Intersection Computation**: Calculates plane-plane and three-plane intersections\n- **Graph Construction**: Builds face adjacency graphs representing topological relationships\n- **Enclosed Region Detection**: Identifies fully enclosed volumes (blocks) from the graph structure\n\n## Project Structure\n\n```\nBlockEngine.Core/          - Core geometric algorithms and data structures\nBlockEngine.Visualization/ - 3D visualization using OpenTK\nBlockEngine.Demo/          - Demo application with multiple test scenarios\nBlockEngine.Core.Tests/    - Unit tests for core functionality\n```\n\n## Getting Started\n\n### Prerequisites\n\n- .NET 8.0 SDK\n- Visual Studio 2022 or VS Code (recommended)\n\n### Building\n\n```bash\ndotnet build BlockEngine.sln\n```\n\n### Running the Demo\n\n```bash\ndotnet run --project BlockEngine.Demo/BlockEngine.Demo.csproj\n```\n\n### Running Tests\n\n```bash\ndotnet test BlockEngine.Core.Tests/BlockEngine.Core.Tests.csproj\n```\n\n## Demo Controls\n\n- **Left mouse + drag**: Rotate camera\n- **Mouse wheel**: Zoom in/out\n- **Number keys (0-9)**: Switch between scenarios\n- **PageUp/+**: Increase plane size\n- **PageDown/-**: Decrease plane size\n- **T**: Toggle between original and processed (grouped) planes\n- **R**: Toggle showing enclosed regions (computed from face adjacency graph)\n- **ESC**: Close window\n\n![alt text](Planes.png \"Title\")\n\n![alt text](Block.png \"Title\")\n\n## Future Work\n\n- Performance optimization. There are many, many steps here that are very, very poorly implemented.\n- the demo I think is still not rendering some blocks? I think?\n- Incremental graph update algorithms\n- Advanced persistence function implementations\n\n\n",
+      "images": [],
+      "links": [
+        {
+          "label": "Azure DevOps",
+          "url": "https://rocscience.visualstudio.com/Hackathons/_git/Hackathon-BlockEngine2"
+        }
+      ],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0
+      },
+      "specialAwards": []
+    }
+  ],
+  "config": {
+    "categories": [
+      {
+        "id": "workScope",
+        "label": "Amount of Work/Scope",
+        "weight": 1
+      },
+      {
+        "id": "polish",
+        "label": "Polish (UI UX)",
+        "weight": 1
+      },
+      {
+        "id": "funUseful",
+        "label": "Fun/Usefulness",
+        "weight": 1
+      },
+      {
+        "id": "creativity",
+        "label": "Creativity",
+        "weight": 1
+      },
+      {
+        "id": "innovation",
+        "label": "Innovation",
+        "weight": 1
+      }
+    ],
+    "specialAwards": [
+      {
+        "id": "most-fun",
+        "name": "Most Fun",
+        "emoji": "🎉"
+      },
+      {
+        "id": "best-ui",
+        "name": "Best UI",
+        "emoji": "🎨"
+      },
+      {
+        "id": "most-likely-used",
+        "name": "Most Likely To Be Used",
+        "emoji": "⭐"
+      },
+      {
+        "id": "most-innovative",
+        "name": "Most Innovative",
+        "emoji": "💡"
+      },
+      {
+        "id": "best-technical",
+        "name": "Best Technical Achievement",
+        "emoji": "🔧"
+      }
+    ]
+  }
+}

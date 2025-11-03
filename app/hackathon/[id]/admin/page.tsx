@@ -1,0 +1,714 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
+import { HackathonData, Project, SpecialAward, HackathonsList, HackathonInfo } from '@/lib/types';
+
+export default function AdminPage() {
+  const params = useParams();
+  const hackathonId = params.id as string;
+  
+  const [password, setPassword] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [data, setData] = useState<HackathonData | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState('');
+  const [showAwardsManager, setShowAwardsManager] = useState(false);
+  const [showHackathonSettings, setShowHackathonSettings] = useState(false);
+  const [editingAward, setEditingAward] = useState<SpecialAward | null>(null);
+  const [newAwardName, setNewAwardName] = useState('');
+  const [newAwardEmoji, setNewAwardEmoji] = useState('🏆');
+  const [hackathonsList, setHackathonsList] = useState<HackathonsList | null>(null);
+  const [currentHackathon, setCurrentHackathon] = useState<HackathonInfo | null>(null);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchData();
+      fetchHackathonsList();
+    }
+  }, [isAuthenticated]);
+
+  const fetchData = async () => {
+    const response = await fetch(`/api/data?hackathonId=${hackathonId}`);
+    const result = await response.json();
+    setData(result);
+  };
+
+  const fetchHackathonsList = async () => {
+    const response = await fetch('/api/hackathons');
+    const result = await response.json();
+    setHackathonsList(result);
+    const current = result.hackathons.find((h: HackathonInfo) => h.id === hackathonId);
+    setCurrentHackathon(current || null);
+  };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simple password check - in production, use proper auth
+    if (password === 'hackathon2024' || password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+    } else {
+      alert('Incorrect password');
+    }
+  };
+
+  const handleSave = async () => {
+    if (!data || !selectedProject) return;
+
+    setSaving(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ hackathonId, data }),
+      });
+
+      if (response.ok) {
+        setMessage('✓ Changes saved successfully!');
+        setTimeout(() => setMessage(''), 3000);
+      } else {
+        setMessage('✗ Error saving changes');
+      }
+    } catch (error) {
+      setMessage('✗ Error saving changes');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const saveHackathonSettings = async () => {
+    if (!hackathonsList || !currentHackathon) return;
+
+    setSaving(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/hackathons', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(hackathonsList),
+      });
+
+      if (response.ok) {
+        setMessage('✓ Hackathon settings saved!');
+        setTimeout(() => setMessage(''), 3000);
+      } else {
+        setMessage('✗ Error saving settings');
+      }
+    } catch (error) {
+      setMessage('✗ Error saving settings');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const updateHackathonInfo = (field: keyof HackathonInfo, value: string | boolean) => {
+    if (!hackathonsList || !currentHackathon) return;
+
+    const updatedHackathon = { ...currentHackathon, [field]: value };
+    const updatedList = {
+      hackathons: hackathonsList.hackathons.map(h =>
+        h.id === hackathonId ? updatedHackathon : h
+      ),
+    };
+
+    setCurrentHackathon(updatedHackathon);
+    setHackathonsList(updatedList);
+  };
+
+  const updateProjectScore = (projectId: string, categoryId: string, value: number) => {
+    if (!data) return;
+
+    const updatedProjects = data.projects.map(project => {
+      if (project.id === projectId) {
+        const updatedProject = {
+          ...project,
+          scores: {
+            ...project.scores,
+            [categoryId]: value,
+          },
+        };
+        if (selectedProject?.id === projectId) {
+          setSelectedProject(updatedProject);
+        }
+        return updatedProject;
+      }
+      return project;
+    });
+
+    setData({ ...data, projects: updatedProjects });
+  };
+
+  const updateProjectDescription = (projectId: string, description: string) => {
+    if (!data) return;
+
+    const updatedProjects = data.projects.map(project => {
+      if (project.id === projectId) {
+        const updatedProject = { ...project, description };
+        if (selectedProject?.id === projectId) {
+          setSelectedProject(updatedProject);
+        }
+        return updatedProject;
+      }
+      return project;
+    });
+
+    setData({ ...data, projects: updatedProjects });
+  };
+
+  const updateProjectTitle = (projectId: string, title: string) => {
+    if (!data) return;
+
+    const updatedProjects = data.projects.map(project => {
+      if (project.id === projectId) {
+        const updatedProject = { ...project, title };
+        if (selectedProject?.id === projectId) {
+          setSelectedProject(updatedProject);
+        }
+        return updatedProject;
+      }
+      return project;
+    });
+
+    setData({ ...data, projects: updatedProjects });
+  };
+
+  const toggleSpecialAward = (projectId: string, awardId: string) => {
+    if (!data) return;
+
+    const updatedProjects = data.projects.map(project => {
+      if (project.id === projectId) {
+        const hasAward = project.specialAwards.includes(awardId);
+        const updatedProject = {
+          ...project,
+          specialAwards: hasAward
+            ? project.specialAwards.filter(a => a !== awardId)
+            : [...project.specialAwards, awardId],
+        };
+        if (selectedProject?.id === projectId) {
+          setSelectedProject(updatedProject);
+        }
+        return updatedProject;
+      }
+      return project;
+    });
+
+    setData({ ...data, projects: updatedProjects });
+  };
+
+  const addSpecialAward = () => {
+    if (!data || !newAwardName.trim()) return;
+
+    const newAward: SpecialAward = {
+      id: newAwardName.toLowerCase().replace(/\s+/g, '-'),
+      name: newAwardName.trim(),
+      emoji: newAwardEmoji,
+    };
+
+    setData({
+      ...data,
+      config: {
+        ...data.config,
+        specialAwards: [...data.config.specialAwards, newAward],
+      },
+    });
+
+    setNewAwardName('');
+    setNewAwardEmoji('🏆');
+    setMessage('✓ Award added! Remember to save changes.');
+    setTimeout(() => setMessage(''), 3000);
+  };
+
+  const updateSpecialAward = (awardId: string, name: string, emoji: string) => {
+    if (!data) return;
+
+    const updatedAwards = data.config.specialAwards.map(award =>
+      award.id === awardId ? { ...award, name, emoji } : award
+    );
+
+    setData({
+      ...data,
+      config: {
+        ...data.config,
+        specialAwards: updatedAwards,
+      },
+    });
+  };
+
+  const deleteSpecialAward = (awardId: string) => {
+    if (!data) return;
+    if (!confirm('Are you sure you want to delete this award? It will be removed from all projects.')) return;
+
+    // Remove from config
+    const updatedAwards = data.config.specialAwards.filter(award => award.id !== awardId);
+
+    // Remove from all projects
+    const updatedProjects = data.projects.map(project => ({
+      ...project,
+      specialAwards: project.specialAwards.filter(a => a !== awardId),
+    }));
+
+    setData({
+      ...data,
+      config: {
+        ...data.config,
+        specialAwards: updatedAwards,
+      },
+      projects: updatedProjects,
+    });
+
+    if (selectedProject) {
+      const updated = updatedProjects.find(p => p.id === selectedProject.id);
+      if (updated) setSelectedProject(updated);
+    }
+
+    setMessage('✓ Award deleted! Remember to save changes.');
+    setTimeout(() => setMessage(''), 3000);
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
+        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+          <h1 className="text-2xl font-bold text-gray-900 mb-6">Admin Login</h1>
+          <form onSubmit={handleLogin}>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Enter admin password"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Login
+            </button>
+          </form>
+          <Link href={`/hackathon/${hackathonId}`} className="block text-center text-blue-600 hover:text-blue-800 mt-4 text-sm">
+            ← Back to Results
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (!data) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+              <div className="flex items-center gap-3 mt-1">
+                <p className="text-gray-600">Edit scores, descriptions, and awards</p>
+                {currentHackathon && (
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    currentHackathon.resultsPublished 
+                      ? 'bg-green-100 text-green-800' 
+                      : 'bg-yellow-100 text-yellow-800'
+                  }`}>
+                    {currentHackathon.resultsPublished ? '✓ Results Published' : '📝 Draft Mode'}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="flex gap-3">
+              {message && (
+                <span className={`px-4 py-2 rounded-lg ${
+                  message.includes('✓') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                }`}>
+                  {message}
+                </span>
+              )}
+              <button
+                onClick={() => {
+                  setShowHackathonSettings(!showHackathonSettings);
+                  setShowAwardsManager(false);
+                }}
+                className="px-4 py-2 border border-purple-500 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
+              >
+                ⚙️ Hackathon Settings
+              </button>
+              <button
+                onClick={() => {
+                  setShowAwardsManager(!showAwardsManager);
+                  setShowHackathonSettings(false);
+                }}
+                className="px-4 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              >
+                🏆 Manage Awards
+              </button>
+              <Link
+                href={`/hackathon/${hackathonId}`}
+                className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                View Site
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hackathon Settings */}
+        {showHackathonSettings && currentHackathon && (
+          <div className="mb-6 bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">⚙️ Hackathon Settings</h2>
+            
+            <div className="space-y-4">
+              {/* Emoji */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Emoticon
+                </label>
+                <input
+                  type="text"
+                  value={currentHackathon.emoji}
+                  onChange={(e) => updateHackathonInfo('emoji', e.target.value)}
+                  className="w-24 px-3 py-2 border border-gray-300 rounded-lg text-center text-3xl focus:ring-2 focus:ring-purple-500"
+                  maxLength={2}
+                  placeholder="🎃"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Choose an emoji that represents this hackathon
+                </p>
+              </div>
+
+              {/* Title */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Title
+                </label>
+                <input
+                  type="text"
+                  value={currentHackathon.name}
+                  onChange={(e) => updateHackathonInfo('name', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                  placeholder="Halloween Hackathon 2025"
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Description
+                </label>
+                <textarea
+                  value={currentHackathon.description}
+                  onChange={(e) => updateHackathonInfo('description', e.target.value)}
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                  placeholder="Describe this hackathon event..."
+                />
+              </div>
+
+              {/* Date (read-only info) */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Date
+                </label>
+                <input
+                  type="text"
+                  value={currentHackathon.date}
+                  disabled
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100 text-gray-600"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Date cannot be changed (it's part of the hackathon ID)
+                </p>
+              </div>
+
+              {/* Publish Results Toggle */}
+              <div className="pt-4 border-t">
+                <div className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg">
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Publish Results</h3>
+                    <p className="text-sm text-gray-600 mt-1">
+                      When published, the Top 3 rankings will be visible to everyone.
+                      <br />
+                      Keep unpublished while you're still entering scores.
+                    </p>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={currentHackathon.resultsPublished}
+                      onChange={(e) => updateHackathonInfo('resultsPublished', e.target.checked)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-purple-600"></div>
+                    <span className="ml-3 text-sm font-medium text-gray-900">
+                      {currentHackathon.resultsPublished ? 'Published ✓' : 'Draft'}
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Save Button */}
+              <div className="pt-4">
+                <button
+                  onClick={saveHackathonSettings}
+                  disabled={saving}
+                  className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:bg-gray-400"
+                >
+                  {saving ? 'Saving...' : 'Save Hackathon Settings'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Awards Manager */}
+        {showAwardsManager && (
+          <div className="mb-6 bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">🏆 Special Awards Manager</h2>
+            
+            {/* Add New Award */}
+            <div className="mb-6 p-4 bg-blue-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-3">Add New Award</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="md:col-span-2">
+                  <input
+                    type="text"
+                    value={newAwardName}
+                    onChange={(e) => setNewAwardName(e.target.value)}
+                    placeholder="Award name (e.g., Best Demo)"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={newAwardEmoji}
+                    onChange={(e) => setNewAwardEmoji(e.target.value)}
+                    placeholder="Emoji"
+                    className="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center text-2xl focus:ring-2 focus:ring-blue-500"
+                    maxLength={2}
+                  />
+                  <button
+                    onClick={addSpecialAward}
+                    disabled={!newAwardName.trim()}
+                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400"
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mt-2">
+                💡 Tip: Use emojis like 🎉 🎨 ⭐ 💡 🔧 🏅 🚀 ✨ 🎯 🌟
+              </p>
+            </div>
+
+            {/* Existing Awards */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-3">Current Awards</h3>
+              <div className="space-y-2">
+                {data.config.specialAwards.map(award => (
+                  <div key={award.id} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <input
+                      type="text"
+                      value={award.emoji}
+                      onChange={(e) => updateSpecialAward(award.id, award.name, e.target.value)}
+                      className="w-16 px-2 py-1 border border-gray-300 rounded text-center text-2xl"
+                      maxLength={2}
+                    />
+                    <input
+                      type="text"
+                      value={award.name}
+                      onChange={(e) => updateSpecialAward(award.id, e.target.value, award.emoji)}
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg"
+                    />
+                    <button
+                      onClick={() => deleteSpecialAward(award.id)}
+                      className="px-3 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Project List */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Projects</h2>
+              <div className="space-y-2 max-h-[calc(100vh-250px)] overflow-y-auto">
+                {data.projects.map(project => {
+                  const team = data.teams.find(t => t.id === project.teamId);
+                  return (
+                    <button
+                      key={project.id}
+                      onClick={() => setSelectedProject(project)}
+                      className={`w-full text-left p-3 rounded-lg transition-colors ${
+                        selectedProject?.id === project.id
+                          ? 'bg-blue-100 border-2 border-blue-500'
+                          : 'bg-gray-50 hover:bg-gray-100 border-2 border-transparent'
+                      }`}
+                    >
+                      <div className="font-medium text-gray-900">{project.title}</div>
+                      <div className="text-xs text-gray-600">{team?.name}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Edit Panel */}
+          <div className="lg:col-span-2">
+            {selectedProject ? (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <h2 className="text-2xl font-bold text-gray-900">{selectedProject.title}</h2>
+                    <p className="text-gray-600">
+                      {data.teams.find(t => t.id === selectedProject.teamId)?.name}
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleSave}
+                    disabled={saving}
+                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400"
+                  >
+                    {saving ? 'Saving...' : 'Save Changes'}
+                  </button>
+                </div>
+
+                {/* Project Title */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-gray-900 mb-3">Project Title</h3>
+                  <input
+                    type="text"
+                    value={selectedProject.title}
+                    onChange={(e) => updateProjectTitle(selectedProject.id, e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter project title"
+                  />
+                </div>
+
+                {/* Scores */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-gray-900 mb-3">Scores (1-5)</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {data.config.categories.map(category => (
+                      <div key={category.id}>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          {category.label}
+                        </label>
+                        <input
+                          type="number"
+                          min="0"
+                          max="5"
+                          step="1"
+                          value={selectedProject.scores[category.id]}
+                          onChange={(e) => updateProjectScore(
+                            selectedProject.id,
+                            category.id,
+                            parseInt(e.target.value) || 0
+                          )}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Special Awards */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-gray-900 mb-3">Special Awards</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {data.config.specialAwards.map(award => (
+                      <button
+                        key={award.id}
+                        onClick={() => toggleSpecialAward(selectedProject.id, award.id)}
+                        className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
+                          selectedProject.specialAwards.includes(award.id)
+                            ? 'bg-yellow-400 text-yellow-900 font-medium'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        <span className="text-xl">{award.emoji}</span>
+                        <span>
+                          {selectedProject.specialAwards.includes(award.id) ? '✓ ' : ''}
+                          {award.name}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                  {data.config.specialAwards.length === 0 && (
+                    <p className="text-sm text-gray-500 mt-2">
+                      No awards defined yet. Click "🏆 Manage Awards" to add some!
+                    </p>
+                  )}
+                </div>
+
+                {/* Description */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-gray-900 mb-3">Description (Markdown)</h3>
+                  <textarea
+                    value={selectedProject.description}
+                    onChange={(e) => updateProjectDescription(selectedProject.id, e.target.value)}
+                    rows={10}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+                    placeholder="Use markdown formatting..."
+                  />
+                  <p className="text-xs text-gray-500 mt-2">
+                    Supports Markdown: ## Headings, **bold**, *italic*, [links](url), bullet lists, etc.
+                  </p>
+                </div>
+
+                {/* Links */}
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-3">Project Links</h3>
+                  <div className="space-y-2">
+                    {selectedProject.links.map((link, index) => (
+                      <div key={index} className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                        <span className="text-sm font-medium text-gray-700">{link.label}:</span>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-blue-600 hover:text-blue-800 truncate flex-1"
+                        >
+                          {link.url}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg shadow-md p-12 text-center text-gray-500">
+                Select a project to edit
+              </div>
+            )}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
