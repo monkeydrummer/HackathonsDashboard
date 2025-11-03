@@ -66,6 +66,7 @@ Example: http://localhost:3000/hackathon/2025-10-31/admin
 - **🏆 Manage Awards** - Create and customize special awards
 - **⚙️ Hackathon Settings** - Edit hackathon details and publish/unpublish results
 - **📊 Edit Project Details** - Update scores, descriptions, and assign awards to projects
+- **📝 Judges Notes** - Add markdown-formatted notes from judges (visible to all viewers)
 
 To change the password, create a `.env.local` file:
 
