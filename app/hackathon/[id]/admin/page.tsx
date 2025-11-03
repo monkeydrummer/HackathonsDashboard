@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { HackathonData, Project, SpecialAward, HackathonsList, HackathonInfo, Team } from '@/lib/types';
+import { calculateOverallScore, formatScore, getScoreColor } from '@/lib/utils';
 
 export default function AdminPage() {
   const params = useParams();
@@ -29,6 +30,7 @@ export default function AdminPage() {
   const [showProjectManager, setShowProjectManager] = useState(false);
   const [newProjectTitle, setNewProjectTitle] = useState('');
   const [newProjectTeam, setNewProjectTeam] = useState('');
+  const [showCategoryManager, setShowCategoryManager] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -470,6 +472,22 @@ export default function AdminPage() {
     }
   };
 
+  const updateCategoryWeight = (categoryId: string, weight: number) => {
+    if (!data) return;
+
+    const updatedCategories = data.config.categories.map(cat =>
+      cat.id === categoryId ? { ...cat, weight } : cat
+    );
+
+    setData({
+      ...data,
+      config: {
+        ...data.config,
+        categories: updatedCategories,
+      },
+    });
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
@@ -541,6 +559,7 @@ export default function AdminPage() {
                   setShowAwardsManager(false);
                   setShowTeamManager(false);
                   setShowProjectManager(false);
+                  setShowCategoryManager(false);
                 }}
                 className="px-4 py-2 border border-purple-500 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
               >
@@ -548,10 +567,23 @@ export default function AdminPage() {
               </button>
               <button
                 onClick={() => {
+                  setShowCategoryManager(!showCategoryManager);
+                  setShowProjectManager(false);
+                  setShowTeamManager(false);
+                  setShowAwardsManager(false);
+                  setShowHackathonSettings(false);
+                }}
+                className="px-4 py-2 border border-indigo-500 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors"
+              >
+                ⚖️ Score Categories
+              </button>
+              <button
+                onClick={() => {
                   setShowProjectManager(!showProjectManager);
                   setShowTeamManager(false);
                   setShowAwardsManager(false);
                   setShowHackathonSettings(false);
+                  setShowCategoryManager(false);
                 }}
                 className="px-4 py-2 border border-orange-500 text-orange-600 rounded-lg hover:bg-orange-50 transition-colors"
               >
@@ -563,6 +595,7 @@ export default function AdminPage() {
                   setShowAwardsManager(false);
                   setShowHackathonSettings(false);
                   setShowProjectManager(false);
+                  setShowCategoryManager(false);
                 }}
                 className="px-4 py-2 border border-green-500 text-green-600 rounded-lg hover:bg-green-50 transition-colors"
               >
@@ -574,6 +607,7 @@ export default function AdminPage() {
                   setShowHackathonSettings(false);
                   setShowTeamManager(false);
                   setShowProjectManager(false);
+                  setShowCategoryManager(false);
                 }}
                 className="px-4 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
               >
@@ -695,6 +729,58 @@ export default function AdminPage() {
                   {saving ? 'Saving...' : 'Save Hackathon Settings'}
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Score Categories Manager */}
+        {showCategoryManager && (
+          <div className="mb-6 bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">⚖️ Score Categories & Weights</h2>
+            
+            <div className="mb-4 p-4 bg-indigo-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-2">About Weights</h3>
+              <p className="text-sm text-gray-700">
+                Adjust the weight of each scoring category to reflect its importance. 
+                Higher weights mean the category has more influence on the overall score.
+                <br />
+                <span className="font-medium">Example:</span> If "Innovation" has weight 2 and "Polish" has weight 1, 
+                Innovation counts twice as much toward the final score.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              {data.config.categories.map(category => (
+                <div key={category.id} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900">{category.label}</h4>
+                      <p className="text-xs text-gray-500 mt-1">ID: {category.id}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <label className="text-sm font-medium text-gray-700">
+                        Weight:
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        max="10"
+                        step="0.5"
+                        value={category.weight}
+                        onChange={(e) => updateCategoryWeight(category.id, parseFloat(e.target.value) || 1)}
+                        className="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center focus:ring-2 focus:ring-indigo-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p className="text-sm text-gray-700">
+                <span className="font-semibold">💡 Tip:</span> The weights will be applied when calculating overall scores. 
+                Projects are ranked based on the weighted average of all category scores.
+              </p>
             </div>
           </div>
         )}
@@ -1016,10 +1102,18 @@ export default function AdminPage() {
           {/* Project List */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Projects</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">
+                Projects
+                <span className="text-sm font-normal text-gray-500 ml-2">
+                  ({data.projects.filter(p => calculateOverallScore(p.scores, data.config.categories) > 0).length}/{data.projects.length} reviewed)
+                </span>
+              </h2>
               <div className="space-y-2 max-h-[calc(100vh-250px)] overflow-y-auto">
                 {data.projects.map(project => {
                   const team = data.teams.find(t => t.id === project.teamId);
+                  const overallScore = calculateOverallScore(project.scores, data.config.categories);
+                  const isReviewed = overallScore > 0;
+                  
                   return (
                     <button
                       key={project.id}
@@ -1030,8 +1124,26 @@ export default function AdminPage() {
                           : 'bg-gray-50 hover:bg-gray-100 border-2 border-transparent'
                       }`}
                     >
-                      <div className="font-medium text-gray-900">{project.title}</div>
-                      <div className="text-xs text-gray-600">{team?.name}</div>
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex-1 min-w-0">
+                          <div className="font-medium text-gray-900 flex items-center gap-2">
+                            {isReviewed ? (
+                              <span className="text-green-500 text-xs">✓</span>
+                            ) : (
+                              <span className="text-orange-500 text-xs">⚠</span>
+                            )}
+                            <span className="truncate">{project.title}</span>
+                          </div>
+                          <div className="text-xs text-gray-600">{team?.name}</div>
+                        </div>
+                        {isReviewed && (
+                          <div className="flex-shrink-0">
+                            <span className={`text-sm font-bold ${getScoreColor(overallScore)}`}>
+                              {formatScore(overallScore)}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </button>
                   );
                 })}
@@ -1044,11 +1156,27 @@ export default function AdminPage() {
             {selectedProject ? (
               <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex justify-between items-start mb-6">
-                  <div>
+                  <div className="flex-1">
                     <h2 className="text-2xl font-bold text-gray-900">{selectedProject.title}</h2>
                     <p className="text-gray-600">
                       {data.teams.find(t => t.id === selectedProject.teamId)?.name}
                     </p>
+                    {(() => {
+                      const overallScore = calculateOverallScore(selectedProject.scores, data.config.categories);
+                      return overallScore > 0 ? (
+                        <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-lg">
+                          <span className="text-sm font-medium text-gray-600">Overall Score:</span>
+                          <span className={`text-xl font-bold ${getScoreColor(overallScore)}`}>
+                            {formatScore(overallScore)}
+                          </span>
+                          <span className="text-sm text-gray-500">/ 5.0</span>
+                        </div>
+                      ) : (
+                        <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-orange-50 rounded-lg border border-orange-200">
+                          <span className="text-sm font-medium text-orange-700">⚠ Not yet reviewed</span>
+                        </div>
+                      );
+                    })()}
                   </div>
                   <button
                     onClick={handleSave}

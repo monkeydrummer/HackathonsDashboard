@@ -208,14 +208,14 @@
         }
       ],
       "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0
+        "workScope": 3,
+        "polish": 3,
+        "funUseful": 4,
+        "creativity": 3,
+        "innovation": 3
       },
       "specialAwards": [],
-      "judgesNotes": "Cool tool! I can definitely see the usefulness of this.\n\n## Like:\n-- Good code structure (view models, views)\n-- It has tests! yay\n-- Program seems stable (no crashes)\n-- Fairly intuitive\n\n## Improvements:\n-- Ability to search/filter repos\n-- Some way to 'cancel' operations - I got stuck when loading a repository that had thousands of branches\n-- Show more data, like # of branches\n-- General UI improvements (better progress metrics, UI layout, icons, etc.)"
+      "judgesNotes": "Cool tool! I can definitely see the usefulness of this.\n\n## Like:\n- Good code structure (view models, views)\n- It has tests! yay\n- Program seems stable (no crashes)\n- Fairly intuitive\n- Good documentation\n\n## Improvements:\n- Ability to search/filter repos\n- Some way to 'cancel' operations - I got stuck when loading a repository that had thousands of branches\n- Show more data, like # of branches\n- General UI improvements (better progress metrics, UI layout, icons, etc.)"
     },
     {
       "id": "alpha-ai",
