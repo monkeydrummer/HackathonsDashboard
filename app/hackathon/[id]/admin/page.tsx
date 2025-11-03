@@ -26,6 +26,9 @@ export default function AdminPage() {
   const [editingTeam, setEditingTeam] = useState<string | null>(null);
   const [newTeamName, setNewTeamName] = useState('');
   const [newTeamMembers, setNewTeamMembers] = useState('');
+  const [showProjectManager, setShowProjectManager] = useState(false);
+  const [newProjectTitle, setNewProjectTitle] = useState('');
+  const [newProjectTeam, setNewProjectTeam] = useState('');
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -345,6 +348,110 @@ export default function AdminPage() {
     setTimeout(() => setMessage(''), 3000);
   };
 
+  const addProject = () => {
+    if (!data || !newProjectTitle.trim() || !newProjectTeam) return;
+
+    const projectId = newProjectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    
+    const newProject: Project = {
+      id: projectId,
+      teamId: newProjectTeam,
+      title: newProjectTitle.trim(),
+      description: '',
+      images: [],
+      links: [],
+      scores: {
+        workScope: 0,
+        polish: 0,
+        funUseful: 0,
+        creativity: 0,
+        innovation: 0,
+      },
+      specialAwards: [],
+    };
+
+    // Add project to team's projects list
+    const updatedTeams = data.teams.map(team =>
+      team.id === newProjectTeam
+        ? { ...team, projects: [...team.projects, projectId] }
+        : team
+    );
+
+    setData({
+      ...data,
+      projects: [...data.projects, newProject],
+      teams: updatedTeams,
+    });
+
+    setNewProjectTitle('');
+    setNewProjectTeam('');
+    setMessage('✓ Project added! Remember to save changes.');
+    setTimeout(() => setMessage(''), 3000);
+  };
+
+  const deleteProject = (projectId: string) => {
+    if (!data) return;
+    if (!confirm('Are you sure you want to delete this project?')) return;
+
+    const project = data.projects.find(p => p.id === projectId);
+    
+    // Remove project from team's projects list
+    const updatedTeams = data.teams.map(team =>
+      team.id === project?.teamId
+        ? { ...team, projects: team.projects.filter(p => p !== projectId) }
+        : team
+    );
+
+    const updatedProjects = data.projects.filter(p => p.id !== projectId);
+
+    setData({
+      ...data,
+      projects: updatedProjects,
+      teams: updatedTeams,
+    });
+
+    if (selectedProject?.id === projectId) {
+      setSelectedProject(null);
+    }
+
+    setMessage('✓ Project deleted! Remember to save changes.');
+    setTimeout(() => setMessage(''), 3000);
+  };
+
+  const updateProjectTeam = (projectId: string, newTeamId: string) => {
+    if (!data) return;
+
+    const project = data.projects.find(p => p.id === projectId);
+    if (!project) return;
+
+    const oldTeamId = project.teamId;
+
+    // Remove from old team
+    const updatedTeams = data.teams.map(team => {
+      if (team.id === oldTeamId) {
+        return { ...team, projects: team.projects.filter(p => p !== projectId) };
+      } else if (team.id === newTeamId) {
+        return { ...team, projects: [...team.projects, projectId] };
+      }
+      return team;
+    });
+
+    // Update project's teamId
+    const updatedProjects = data.projects.map(p =>
+      p.id === projectId ? { ...p, teamId: newTeamId } : p
+    );
+
+    setData({
+      ...data,
+      projects: updatedProjects,
+      teams: updatedTeams,
+    });
+
+    if (selectedProject?.id === projectId) {
+      setSelectedProject({ ...selectedProject, teamId: newTeamId });
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
@@ -415,6 +522,7 @@ export default function AdminPage() {
                   setShowHackathonSettings(!showHackathonSettings);
                   setShowAwardsManager(false);
                   setShowTeamManager(false);
+                  setShowProjectManager(false);
                 }}
                 className="px-4 py-2 border border-purple-500 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
               >
@@ -422,9 +530,21 @@ export default function AdminPage() {
               </button>
               <button
                 onClick={() => {
+                  setShowProjectManager(!showProjectManager);
+                  setShowTeamManager(false);
+                  setShowAwardsManager(false);
+                  setShowHackathonSettings(false);
+                }}
+                className="px-4 py-2 border border-orange-500 text-orange-600 rounded-lg hover:bg-orange-50 transition-colors"
+              >
+                📋 Manage Projects
+              </button>
+              <button
+                onClick={() => {
                   setShowTeamManager(!showTeamManager);
                   setShowAwardsManager(false);
                   setShowHackathonSettings(false);
+                  setShowProjectManager(false);
                 }}
                 className="px-4 py-2 border border-green-500 text-green-600 rounded-lg hover:bg-green-50 transition-colors"
               >
@@ -435,6 +555,7 @@ export default function AdminPage() {
                   setShowAwardsManager(!showAwardsManager);
                   setShowHackathonSettings(false);
                   setShowTeamManager(false);
+                  setShowProjectManager(false);
                 }}
                 className="px-4 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
               >
@@ -556,6 +677,119 @@ export default function AdminPage() {
                   {saving ? 'Saving...' : 'Save Hackathon Settings'}
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Project Manager */}
+        {showProjectManager && (
+          <div className="mb-6 bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">📋 Project Manager</h2>
+            
+            {/* Add New Project */}
+            <div className="mb-6 p-4 bg-orange-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-3">Add New Project</h3>
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Project Title
+                  </label>
+                  <input
+                    type="text"
+                    value={newProjectTitle}
+                    onChange={(e) => setNewProjectTitle(e.target.value)}
+                    placeholder="e.g., Stereonet Aim Trainer"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Assign to Team
+                  </label>
+                  <select
+                    value={newProjectTeam}
+                    onChange={(e) => setNewProjectTeam(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
+                  >
+                    <option value="">Select a team...</option>
+                    {data.teams.map(team => (
+                      <option key={team.id} value={team.id}>
+                        {team.name} ({team.members.join(', ')})
+                      </option>
+                    ))}
+                  </select>
+                  {data.teams.length === 0 && (
+                    <p className="text-xs text-red-500 mt-1">
+                      No teams available. Create a team first in the Team Manager.
+                    </p>
+                  )}
+                </div>
+                <button
+                  onClick={addProject}
+                  disabled={!newProjectTitle.trim() || !newProjectTeam}
+                  className="w-full px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors disabled:bg-gray-400"
+                >
+                  Add Project
+                </button>
+              </div>
+            </div>
+
+            {/* Existing Projects */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-3">Current Projects ({data.projects.length})</h3>
+              <div className="space-y-3">
+                {data.projects.map(project => {
+                  const team = data.teams.find(t => t.id === project.teamId);
+                  
+                  return (
+                    <div key={project.id} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-gray-900">{project.title}</h4>
+                          <div className="mt-2">
+                            <label className="block text-xs font-medium text-gray-600 mb-1">
+                              Assigned Team:
+                            </label>
+                            <select
+                              value={project.teamId}
+                              onChange={(e) => updateProjectTeam(project.id, e.target.value)}
+                              className="px-3 py-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-orange-500"
+                            >
+                              {data.teams.map(t => (
+                                <option key={t.id} value={t.id}>
+                                  {t.name}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          <p className="text-xs text-gray-500 mt-2">
+                            ID: {project.id} | Team: {team?.name || 'Unknown'}
+                          </p>
+                        </div>
+                        <div className="flex gap-2 ml-4">
+                          <button
+                            onClick={() => setSelectedProject(project)}
+                            className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-lg hover:bg-blue-200 transition-colors"
+                          >
+                            Edit Details
+                          </button>
+                          <button
+                            onClick={() => deleteProject(project.id)}
+                            className="px-3 py-1 bg-red-100 text-red-600 text-sm rounded-lg hover:bg-red-200 transition-colors"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {data.projects.length === 0 && (
+                <p className="text-sm text-gray-500 text-center py-8">
+                  No projects yet. Add your first project above!
+                </p>
+              )}
             </div>
           </div>
         )}
