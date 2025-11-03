@@ -59,6 +59,13 @@ The admin interface is available at `/hackathon/[id]/admin` for each hackathon.
 
 Example: http://localhost:3000/hackathon/2025-10-31/admin
 
+### Admin Features
+
+- **👥 Manage Teams** - Create, edit, and delete teams and their members
+- **🏆 Manage Awards** - Create and customize special awards
+- **⚙️ Hackathon Settings** - Edit hackathon details and publish/unpublish results
+- **📊 Edit Projects** - Update scores, descriptions, and assign awards to projects
+
 To change the password, create a `.env.local` file:
 
 ```env
