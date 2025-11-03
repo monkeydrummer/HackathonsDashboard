@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { HackathonData, Project, SpecialAward, HackathonsList, HackathonInfo } from '@/lib/types';
+import { HackathonData, Project, SpecialAward, HackathonsList, HackathonInfo, Team } from '@/lib/types';
 
 export default function AdminPage() {
   const params = useParams();
@@ -17,11 +17,15 @@ export default function AdminPage() {
   const [message, setMessage] = useState('');
   const [showAwardsManager, setShowAwardsManager] = useState(false);
   const [showHackathonSettings, setShowHackathonSettings] = useState(false);
+  const [showTeamManager, setShowTeamManager] = useState(false);
   const [editingAward, setEditingAward] = useState<SpecialAward | null>(null);
   const [newAwardName, setNewAwardName] = useState('');
   const [newAwardEmoji, setNewAwardEmoji] = useState('🏆');
   const [hackathonsList, setHackathonsList] = useState<HackathonsList | null>(null);
   const [currentHackathon, setCurrentHackathon] = useState<HackathonInfo | null>(null);
+  const [editingTeam, setEditingTeam] = useState<string | null>(null);
+  const [newTeamName, setNewTeamName] = useState('');
+  const [newTeamMembers, setNewTeamMembers] = useState('');
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -274,6 +278,73 @@ export default function AdminPage() {
     setTimeout(() => setMessage(''), 3000);
   };
 
+  const addTeam = () => {
+    if (!data || !newTeamName.trim()) return;
+
+    const teamId = newTeamName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const members = newTeamMembers.split(',').map(m => m.trim()).filter(m => m.length > 0);
+
+    const newTeam = {
+      id: teamId,
+      name: newTeamName.trim(),
+      members: members,
+      projects: [],
+    };
+
+    setData({
+      ...data,
+      teams: [...data.teams, newTeam],
+    });
+
+    setNewTeamName('');
+    setNewTeamMembers('');
+    setMessage('✓ Team added! Remember to save changes.');
+    setTimeout(() => setMessage(''), 3000);
+  };
+
+  const updateTeam = (teamId: string, name: string, members: string[]) => {
+    if (!data) return;
+
+    const updatedTeams = data.teams.map(team =>
+      team.id === teamId ? { ...team, name, members } : team
+    );
+
+    setData({
+      ...data,
+      teams: updatedTeams,
+    });
+  };
+
+  const deleteTeam = (teamId: string) => {
+    if (!data) return;
+
+    const team = data.teams.find(t => t.id === teamId);
+    const projectsForTeam = data.projects.filter(p => p.teamId === teamId);
+
+    if (projectsForTeam.length > 0) {
+      if (!confirm(`This team has ${projectsForTeam.length} project(s). Deleting the team will also delete these projects. Are you sure?`)) return;
+    } else {
+      if (!confirm('Are you sure you want to delete this team?')) return;
+    }
+
+    // Remove team and its projects
+    const updatedTeams = data.teams.filter(t => t.id !== teamId);
+    const updatedProjects = data.projects.filter(p => p.teamId !== teamId);
+
+    setData({
+      ...data,
+      teams: updatedTeams,
+      projects: updatedProjects,
+    });
+
+    if (selectedProject && selectedProject.teamId === teamId) {
+      setSelectedProject(null);
+    }
+
+    setMessage('✓ Team deleted! Remember to save changes.');
+    setTimeout(() => setMessage(''), 3000);
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
@@ -343,6 +414,7 @@ export default function AdminPage() {
                 onClick={() => {
                   setShowHackathonSettings(!showHackathonSettings);
                   setShowAwardsManager(false);
+                  setShowTeamManager(false);
                 }}
                 className="px-4 py-2 border border-purple-500 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
               >
@@ -350,8 +422,19 @@ export default function AdminPage() {
               </button>
               <button
                 onClick={() => {
+                  setShowTeamManager(!showTeamManager);
+                  setShowAwardsManager(false);
+                  setShowHackathonSettings(false);
+                }}
+                className="px-4 py-2 border border-green-500 text-green-600 rounded-lg hover:bg-green-50 transition-colors"
+              >
+                👥 Manage Teams
+              </button>
+              <button
+                onClick={() => {
                   setShowAwardsManager(!showAwardsManager);
                   setShowHackathonSettings(false);
+                  setShowTeamManager(false);
                 }}
                 className="px-4 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
               >
@@ -473,6 +556,133 @@ export default function AdminPage() {
                   {saving ? 'Saving...' : 'Save Hackathon Settings'}
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Team Manager */}
+        {showTeamManager && (
+          <div className="mb-6 bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">👥 Team Manager</h2>
+            
+            {/* Add New Team */}
+            <div className="mb-6 p-4 bg-green-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-3">Add New Team</h3>
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Team Name
+                  </label>
+                  <input
+                    type="text"
+                    value={newTeamName}
+                    onChange={(e) => setNewTeamName(e.target.value)}
+                    placeholder="e.g., Alpha.ai Team"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Team Members (comma-separated)
+                  </label>
+                  <input
+                    type="text"
+                    value={newTeamMembers}
+                    onChange={(e) => setNewTeamMembers(e.target.value)}
+                    placeholder="e.g., Ted, Ali, Arnav"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Separate member names with commas
+                  </p>
+                </div>
+                <button
+                  onClick={addTeam}
+                  disabled={!newTeamName.trim()}
+                  className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400"
+                >
+                  Add Team
+                </button>
+              </div>
+            </div>
+
+            {/* Existing Teams */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-3">Current Teams ({data.teams.length})</h3>
+              <div className="space-y-3">
+                {data.teams.map(team => {
+                  const isEditing = editingTeam === team.id;
+                  const teamProjects = data.projects.filter(p => p.teamId === team.id);
+                  
+                  return (
+                    <div key={team.id} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      {isEditing ? (
+                        <div className="space-y-3">
+                          <input
+                            type="text"
+                            defaultValue={team.name}
+                            onBlur={(e) => {
+                              const newMembers = team.members; // Keep existing for now
+                              updateTeam(team.id, e.target.value, newMembers);
+                            }}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg font-semibold"
+                          />
+                          <textarea
+                            defaultValue={team.members.join(', ')}
+                            onBlur={(e) => {
+                              const newMembers = e.target.value.split(',').map(m => m.trim()).filter(m => m.length > 0);
+                              updateTeam(team.id, team.name, newMembers);
+                            }}
+                            placeholder="Member names, comma-separated"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                            rows={2}
+                          />
+                          <button
+                            onClick={() => setEditingTeam(null)}
+                            className="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
+                          >
+                            Done Editing
+                          </button>
+                        </div>
+                      ) : (
+                        <div>
+                          <div className="flex items-start justify-between mb-2">
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-gray-900">{team.name}</h4>
+                              <p className="text-sm text-gray-600 mt-1">
+                                <span className="font-medium">Members:</span> {team.members.join(', ')}
+                              </p>
+                              <p className="text-xs text-gray-500 mt-1">
+                                {teamProjects.length} project{teamProjects.length !== 1 ? 's' : ''}
+                                {teamProjects.length > 0 && ': ' + teamProjects.map(p => p.title).join(', ')}
+                              </p>
+                            </div>
+                            <div className="flex gap-2 ml-4">
+                              <button
+                                onClick={() => setEditingTeam(team.id)}
+                                className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-lg hover:bg-blue-200 transition-colors"
+                              >
+                                Edit
+                              </button>
+                              <button
+                                onClick={() => deleteTeam(team.id)}
+                                className="px-3 py-1 bg-red-100 text-red-600 text-sm rounded-lg hover:bg-red-200 transition-colors"
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              {data.teams.length === 0 && (
+                <p className="text-sm text-gray-500 text-center py-8">
+                  No teams yet. Add your first team above!
+                </p>
+              )}
             </div>
           </div>
         )}
