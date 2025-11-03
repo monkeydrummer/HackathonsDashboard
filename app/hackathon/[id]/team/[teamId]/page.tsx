@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getData, getTeam, getTeamProjects, getHackathonsList } from "@/lib/data";
-import { calculateOverallScore, formatScore, getScoreColor } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -74,9 +73,6 @@ export default async function TeamPage({ params }: { params: Promise<{ id: strin
 
         <div className="space-y-8">
           {projects.map(project => {
-            const overallScore = calculateOverallScore(project.scores, data.config.categories);
-            const hasScore = overallScore > 0;
-
             // Find current project index in all projects
             const currentIndex = allProjects.findIndex(p => p.id === project.id);
             const previousProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
@@ -159,29 +155,6 @@ export default async function TeamPage({ params }: { params: Promise<{ id: strin
                 </div>
 
                 <div className="p-6">
-                  {/* Score Breakdown */}
-                  {hasScore && (
-                    <div className="mb-6 pb-6 border-b">
-                      <h4 className="font-semibold text-gray-900 mb-3">Score Breakdown</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                        {data.config.categories.map(category => {
-                          const score = project.scores[category.id];
-                          return (
-                            <div key={category.id} className="text-center">
-                              <div className="text-2xl font-bold text-gray-900">
-                                {score > 0 ? score : '-'}
-                                <span className="text-sm text-gray-500">/5</span>
-                              </div>
-                              <div className="text-xs text-gray-600 mt-1">
-                                {category.label}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
                   {/* Description */}
                   <div className="mb-6">
                     <h4 className="font-semibold text-gray-900 mb-3">Description</h4>
