@@ -387,6 +387,7 @@ export default function AdminPage() {
         funUseful: 0,
         creativity: 0,
         innovation: 0,
+        doesItWork: 0,
       },
       specialAwards: [],
     };
