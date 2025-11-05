@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getHackathonsList } from "@/lib/data";
 
 export default async function Home() {
@@ -10,8 +11,17 @@ export default async function Home() {
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
+            <div className="flex items-center justify-center mb-4">
+              <Image
+                src="/images/rocscience_logo.jpg"
+                alt="Rocscience"
+                width={200}
+                height={60}
+                className="h-12 w-auto"
+              />
+            </div>
             <h1 className="text-4xl font-bold text-gray-900">
-              🏆 Hackathon Dashboard
+              Rocscience Hackathon Dashboard
             </h1>
             <p className="text-gray-600 mt-2">
               View results from all our hackathon events

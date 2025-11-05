@@ -92,6 +92,34 @@ export default function AdminPage() {
     }
   };
 
+  const saveTeamData = async () => {
+    if (!data) return;
+
+    setSaving(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ hackathonId, data }),
+      });
+
+      if (response.ok) {
+        setMessage('✓ Team changes saved successfully!');
+        setTimeout(() => setMessage(''), 3000);
+      } else {
+        setMessage('✗ Error saving team changes');
+      }
+    } catch (error) {
+      setMessage('✗ Error saving team changes');
+    } finally {
+      setSaving(false);
+    }
+  };
+
   const saveHackathonSettings = async () => {
     if (!hackathonsList || !currentHackathon) return;
 
@@ -984,7 +1012,7 @@ export default function AdminPage() {
                           <button
                             onClick={async () => {
                               setEditingTeam(null);
-                              await handleSave();
+                              await saveTeamData();
                             }}
                             className="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
                           >
