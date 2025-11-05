@@ -960,25 +960,32 @@ export default function AdminPage() {
                         <div className="space-y-3">
                           <input
                             type="text"
+                            id={`team-name-${team.id}`}
                             defaultValue={team.name}
-                            onBlur={(e) => {
-                              const newMembers = team.members; // Keep existing for now
+                            onChange={(e) => {
+                              const membersInput = document.getElementById(`team-members-${team.id}`) as HTMLTextAreaElement;
+                              const newMembers = membersInput.value.split(',').map(m => m.trim()).filter(m => m.length > 0);
                               updateTeam(team.id, e.target.value, newMembers);
                             }}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg font-semibold"
                           />
                           <textarea
+                            id={`team-members-${team.id}`}
                             defaultValue={team.members.join(', ')}
-                            onBlur={(e) => {
+                            onChange={(e) => {
+                              const nameInput = document.getElementById(`team-name-${team.id}`) as HTMLInputElement;
                               const newMembers = e.target.value.split(',').map(m => m.trim()).filter(m => m.length > 0);
-                              updateTeam(team.id, team.name, newMembers);
+                              updateTeam(team.id, nameInput.value, newMembers);
                             }}
                             placeholder="Member names, comma-separated"
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                             rows={2}
                           />
                           <button
-                            onClick={() => setEditingTeam(null)}
+                            onClick={async () => {
+                              setEditingTeam(null);
+                              await handleSave();
+                            }}
                             className="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
                           >
                             Done Editing
