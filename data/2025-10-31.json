@@ -217,14 +217,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/EugenesSubmission"
         }
       ],
-      "scores": {
-        "workScope": 3,
-        "polish": 3,
-        "funUseful": 4,
-        "creativity": 3,
-        "innovation": 3,
-        "doesItWork": 5
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CWQcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Cool tool! I can definitely see the usefulness of this.\n\n## Like:\n- Good code structure (view models, views)\n- It has tests! yay\n- Program seems stable (no crashes)\n- Fairly intuitive\n- Good documentation\n\n## Improvements:\n- Ability to search/filter repos\n- Some way to 'cancel' operations - I got stuck when loading a repository that had thousands of branches\n- Show more data, like # of branches\n- General UI improvements (better progress metrics, UI layout, icons, etc.)\n- Some performance issues (need to virtualize the grid)"
     },
@@ -240,14 +233,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/Alpha.ai/pullrequest/22873"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 3,
-        "funUseful": 4,
-        "creativity": 2,
-        "innovation": 3,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEJLfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Likes:\n- Nice combination of tools to create a working app\n- UI is clean and simple, and I was able to understand what was happening fairly quickly\n- thank you for giving me screenshots and a breakdown of work\n\nImprovements:\n- A trading algorithm app is kind of AI coding's \"hello world\", IMO :)\n- Wish this was somewhat Rocscience related\n- Your team finished early - I think you could have used the remaining time to add features/polish the UI more!\n- It's not that I don't 'believe' this could work, but I'm a little skeptical - every single stock I tried had a nearly perfect 'win' rate, and some of the returns generated were mind-boggling. Would be nice to comment on the limitations of 'real use' of this thing."
     },
@@ -263,14 +249,7 @@
           "url": "C:\\Users\\JeremySmith\\source\\repos\\Hackathons\\Anton John"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 3,
-        "funUseful": 4,
-        "creativity": 4,
-        "innovation": 2,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDg0kLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [
         "most-fun"
       ],
@@ -288,14 +267,7 @@
           "url": "https://rocscience.visualstudio.com/Slide%202018/_git/Slide%202018/pullrequest/22884"
         }
       ],
-      "scores": {
-        "workScope": 2,
-        "polish": 2,
-        "funUseful": 4,
-        "creativity": 5,
-        "innovation": 2,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCJh1kXHJEVzUDGRIgIFMjChJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEIDfHF/Ag0ORhUNCChTBHpRFCoBDg0kLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [
         "most-fun"
       ],
@@ -313,14 +285,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/TriOurBest"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 3,
-        "funUseful": 4,
-        "creativity": 4,
-        "innovation": 4,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Likes:\n- I'm a fan of keyboard/mouse macros like this, so this looks very useful!\n- Great that you have tests!\n- Seems to work pretty well and be generic enough to be useful across a variety of applications\n- Saving/loading functionality is great\n\nImprovements:\n- Looks a little 'brittle' in terms of needing everything to be in exactly the same position on screen in order for recordings to work properly\n- More polished UI would be great\n- Show more details about the loaded/recorded recording\n- have a way to quickly switch between a couple of different recordings\n- having it be able to truly 'automate' rather than having to manually run the recording every time"
     },
@@ -336,14 +301,7 @@
           "url": "https://rocscience.visualstudio.com/RSWall/_git/RSWall/pullrequest/22881"
         }
       ],
-      "scores": {
-        "workScope": 2,
-        "polish": 4,
-        "funUseful": 3,
-        "creativity": 3,
-        "innovation": 2,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCJh1kXHJEVzUDGRIgIFMgIBJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDg0kLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Likes:\n- Fairly polished UI\n- Nice to see you use the Cursor design workflow I presented\n- It works!\n\nImprovements:\n- Would have been great to see some actual cards with some graphics\n- UI is fairly cluttered and a bit unorganized - actual 'game' elements should be at the top\n- Somewhat 'basic', would have been cool to see something more 'RSWall' related since it's inside that app"
     },
@@ -359,14 +317,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/RSRunout/pullrequest/22885"
         }
       ],
-      "scores": {
-        "workScope": 5,
-        "polish": 4,
-        "funUseful": 5,
-        "creativity": 3,
-        "innovation": 4,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCOh1kXHJEVzUDGRIgIFMgIBJEMg81HjcsJgM0Q2RDe18dXi8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [
         "most-likely-used"
       ],
@@ -384,14 +335,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/BestNovoBPT?path=/README.md"
         }
       ],
-      "scores": {
-        "workScope": 5,
-        "polish": 5,
-        "funUseful": 4,
-        "creativity": 4,
-        "innovation": 4,
-        "doesItWork": 5
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCOh1kXHJEVzUDGRIgIFMgMBJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWQcyVlw=",
       "specialAwards": [
         "most-ambitious",
         "best-ui"
@@ -410,14 +354,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/PM%20Life%20Saver?path=/README.md"
         }
       ],
-      "scores": {
-        "workScope": 3,
-        "polish": 2,
-        "funUseful": 4,
-        "creativity": 3,
-        "innovation": 3,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMjChJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [
         "best-easter-egg"
       ],
@@ -435,14 +372,7 @@
           "url": "https://dev.azure.com/abhisharma0053/rs-hackathon"
         }
       ],
-      "scores": {
-        "workScope": 5,
-        "polish": 4,
-        "funUseful": 4,
-        "creativity": 4,
-        "innovation": 5,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCOh1kXHJEVzUDGRIgIFMgIBJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkUkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [
         "best-technical",
         "most-innovative"
@@ -461,14 +391,7 @@
           "url": "https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common/pullrequest/22871"
         }
       ],
-      "scores": {
-        "workScope": 3,
-        "polish": 3,
-        "funUseful": 3,
-        "creativity": 5,
-        "innovation": 4,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEIDfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Likes:\n- Cool proof of concept!\n- Breakout demo is fun\n- Appreciate the innovation here\n\nImprovements:\n- You finished early, I think you could have used the rest of the time to quickly create something more impressive than the breakout demo\n- More of an experiment than anything else, would have been neat to see some actual examples of powerful debugging that you could do with this"
     },
@@ -488,14 +411,7 @@
           "url": "https://rocscienceinc-my.sharepoint.com/personal/igor_milevskiy_rocscience_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Figor%5Fmilevskiy%5Frocscience%5Fcom%2FDocuments%2FShared%20with%20Everyone&ga=1"
         }
       ],
-      "scores": {
-        "workScope": 3,
-        "polish": 3,
-        "funUseful": 3,
-        "creativity": 3,
-        "innovation": 4,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Cool tool!!\n\nLikes:\n- Great that you were able to combine a C++ backend with a Python interface.\n- Very responsive, like that you can 'walk around' the model\n- Telegram integration is a neat feature\n\nImprovements:\n- A more polished UI would be nice\n- Not sure how useful it is to change the color of the whole model"
     },
@@ -511,14 +427,7 @@
           "url": "https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common/pullrequest/22872"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 3,
-        "funUseful": 3,
-        "creativity": 3,
-        "innovation": 4,
-        "doesItWork": 3
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": [],
       "judgesNotes": "This is a cool proof of concept Will.\n\nLikes:\n- Ambitious!\n- Very practical tool, when paired with a chat thing, could see it being very useful\n- This allows us to see how the UI and the workflow might look\n\nImprovements:\n- A shame you couldn't get the 'review' functionality working, what would have been neat\n- I have concerns about the amount of 'custom' stuff that would have to be in here for each dialog/control to make this kind of thing work. You might have to build this kind of thing from the ground up rather than being able to bolt it onto existing stuff"
     },
@@ -534,14 +443,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/QA_DemoRecorder"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 3,
-        "funUseful": 4,
-        "creativity": 3,
-        "innovation": 5,
-        "doesItWork": 1
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDkUkLCRGUAJkTyE3MSsBWi8cKg9CEAcyVlw=",
       "specialAwards": [
         "most-innovative"
       ],
@@ -559,14 +461,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/QA_HalloweenGame"
         }
       ],
-      "scores": {
-        "workScope": 3,
-        "polish": 3,
-        "funUseful": 3,
-        "creativity": 4,
-        "innovation": 2,
-        "doesItWork": 3
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDg0kLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": [
         "spookiest-game"
       ],
@@ -584,14 +479,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/RocAnalytics"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 3,
-        "funUseful": 4,
-        "creativity": 4,
-        "innovation": 4,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Very nice idea and implementation Carter!\n\nLikes:\n- A great idea, something we really need\n- looks like you managed the integration into existing code in a fairly painless way\n- Test application is nice, as is the fact you created a real nuget and added it into a couple applications\n\nImprovements:\n- I think there's probably an even more elegant solution that requires less file changes\n- Bit of a nitpick, but having the system update in real time is probably overkill - should probably just send analytics on a crash or when program closes? \n- Would have liked to see some actual tests rather than just a test application "
     },
@@ -611,14 +499,7 @@
           "url": "https://rocscienceinc-my.sharepoint.com/personal/danial_khan_rocscience_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fdanial_khan_rocscience_com%2FDocuments%2FRSLog_Rsinsight_Hackathon_Demo.mov&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&ct=1762180776002&or=OWA-NT-Mail&cid=1a1c08f6-131d-3167-62fa-bf517094b58d&ga=1&startedResponseCatch=true&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.c12a00a1-e102-4944-b738-235beba61e62"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 3,
-        "funUseful": 5,
-        "creativity": 2,
-        "innovation": 5,
-        "doesItWork": 5
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXi8wKQMGAzUNSS8NUQo5Jl0mBEJLfHF/Ag0ORhUNCChTBHpRFCoBDkUkLCRGUAJkTyE3MSsBWi8cKg9CWQcyVlw=",
       "specialAwards": [
         "most-likely-used"
       ],
@@ -636,14 +517,7 @@
           "url": "https://github.com/stevech-AI/cpt-analysis-settlement-calculator"
         }
       ],
-      "scores": {
-        "workScope": 4,
-        "polish": 2,
-        "funUseful": 4,
-        "creativity": 3,
-        "innovation": 4,
-        "doesItWork": 3
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjChJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": [
         "most-ambitious"
       ],
@@ -661,14 +535,7 @@
           "url": "https://github.com/stevech-AI/blue-jays-angry-bird"
         }
       ],
-      "scores": {
-        "workScope": 1,
-        "polish": 3,
-        "funUseful": 4,
-        "creativity": 1,
-        "innovation": 1,
-        "doesItWork": 3
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCKh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEJKfHF/Ag0ORhUNCChTBHpRFCoBDgwkLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Unable to compile this initially - I got Cursor to fix it though! But make sure you commit something that works please :)\n\nLikes:\n- Go Jays Go\n\nImprovements:\n- Not much here really, would have been great to see this done up from scratch rather than just slightly modify an existing project"
     },
@@ -684,14 +551,7 @@
           "url": "https://rocscience.visualstudio.com/Hackathons/_git/Hackathon-BlockEngine2"
         }
       ],
-      "scores": {
-        "workScope": 5,
-        "polish": 2,
-        "funUseful": 4,
-        "creativity": 4,
-        "innovation": 4,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCOh1kXHJEVzUDGRIgIFMjChJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [],
       "judgesNotes": "Likes:\n- Interesting and clever idea\n- Effective proof of concept\n- Good that tests are present!\n- Tool seems fairly performative\n\nImprovements:\n- very basic UI\n- some quality of life improvements like zooming all when loading a new model would be nice\n- view resets when changing size of planes\n- is it just me, or are the view controls all 'backwards'?\n- a 'randomized planes' option would be nice"
     },
@@ -703,14 +563,7 @@
       "judgesNotes": "Very neat idea, using real boreholes as a doodlejump 'level'!\n\nLikes:\n- Smart idea using the pdf as context\n- Good to see you using the advanced workflow (feature plan markdown documents)\n- Great integration with RSLog\n\nImprovements:\n- Wish you could have got some simple sprites in for that extra wow factor\n- Would have liked to see a couple more 'unique' game mechanisms for different soil types",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 3,
-        "polish": 2,
-        "funUseful": 4,
-        "creativity": 4,
-        "innovation": 3,
-        "doesItWork": 4
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMjChJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": [
         "most-fun"
       ]

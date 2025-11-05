@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { HackathonData, Project, SpecialAward, HackathonsList, HackathonInfo, Team } from '@/lib/types';
 import { calculateOverallScore, formatScore, getScoreColor } from '@/lib/utils';
+import { verifyPassword } from '@/lib/auth';
 
 export default function AdminPage() {
   const params = useParams();
@@ -56,8 +57,8 @@ export default function AdminPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple password check - in production, use proper auth
-    if (password === 'hackathon2024' || password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+    // Verify against obfuscated password
+    if (verifyPassword(password)) {
       setIsAuthenticated(true);
     } else {
       alert('Incorrect password');
