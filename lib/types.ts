@@ -16,6 +16,7 @@ export interface Scores {
   funUseful: number;
   creativity: number;
   innovation: number;
+  doesItWork: number;
 }
 
 export interface Project {

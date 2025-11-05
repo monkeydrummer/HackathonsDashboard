@@ -136,3 +136,5 @@ Need help? Check out:
 - **MULTI-HACKATHON-GUIDE.md** - Guide for managing multiple events
 - **QUICKSTART.md** - Quick setup guide
 
+
+

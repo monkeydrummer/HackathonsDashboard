@@ -31,6 +31,7 @@ export default function AdminPage() {
   const [newProjectTitle, setNewProjectTitle] = useState('');
   const [newProjectTeam, setNewProjectTeam] = useState('');
   const [showCategoryManager, setShowCategoryManager] = useState(false);
+  const [projectSortBy, setProjectSortBy] = useState<'score-desc' | 'score-asc' | 'alpha' | 'team'>('score-desc');
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -1102,14 +1103,47 @@ export default function AdminPage() {
           {/* Project List */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">
-                Projects
-                <span className="text-sm font-normal text-gray-500 ml-2">
-                  ({data.projects.filter(p => calculateOverallScore(p.scores, data.config.categories) > 0).length}/{data.projects.length} reviewed)
-                </span>
-              </h2>
-              <div className="space-y-2 max-h-[calc(100vh-250px)] overflow-y-auto">
-                {data.projects.map(project => {
+              <div className="mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-2">
+                  Projects
+                  <span className="text-sm font-normal text-gray-500 ml-2">
+                    ({data.projects.filter(p => calculateOverallScore(p.scores, data.config.categories) > 0).length}/{data.projects.length} reviewed)
+                  </span>
+                </h2>
+                <div className="flex items-center gap-2">
+                  <label className="text-xs font-medium text-gray-600">Sort by:</label>
+                  <select
+                    value={projectSortBy}
+                    onChange={(e) => setProjectSortBy(e.target.value as any)}
+                    className="text-xs px-2 py-1 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="score-desc">Score (High to Low)</option>
+                    <option value="score-asc">Score (Low to High)</option>
+                    <option value="alpha">Alphabetical</option>
+                    <option value="team">Team Name</option>
+                  </select>
+                </div>
+              </div>
+              <div className="space-y-2 max-h-[calc(100vh-300px)] overflow-y-auto">
+                {[...data.projects].sort((a, b) => {
+                  const scoreA = calculateOverallScore(a.scores, data.config.categories);
+                  const scoreB = calculateOverallScore(b.scores, data.config.categories);
+                  const teamA = data.teams.find(t => t.id === a.teamId);
+                  const teamB = data.teams.find(t => t.id === b.teamId);
+                  
+                  switch (projectSortBy) {
+                    case 'score-desc':
+                      return scoreB - scoreA;
+                    case 'score-asc':
+                      return scoreA - scoreB;
+                    case 'alpha':
+                      return a.title.localeCompare(b.title);
+                    case 'team':
+                      return (teamA?.name || '').localeCompare(teamB?.name || '');
+                    default:
+                      return 0;
+                  }
+                }).map(project => {
                   const team = data.teams.find(t => t.id === project.teamId);
                   const overallScore = calculateOverallScore(project.scores, data.config.categories);
                   const isReviewed = overallScore > 0;

@@ -182,3 +182,5 @@ Each hackathon can have its own scoring categories! Just edit the `config.catego
 
 **You're all set to run multiple hackathons!** 🚀
 
+
+

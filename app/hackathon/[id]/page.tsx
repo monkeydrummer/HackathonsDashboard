@@ -24,10 +24,11 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
   // Get top 3 projects
   const top3Projects = projectsWithScores.slice(0, 3);
   
-  // Get remaining projects sorted alphabetically by title
-  const remainingProjects = projectsWithScores.slice(3).sort((a, b) => 
-    a.title.localeCompare(b.title)
-  );
+  // Get all projects sorted alphabetically by title for the "All Projects" section
+  const allProjectsAlphabetical = [...data.projects].map(project => ({
+    ...project,
+    overallScore: calculateOverallScore(project.scores, data.config.categories)
+  })).sort((a, b) => a.title.localeCompare(b.title));
 
   // Get special award winners
   const awardWinners = data.projects.filter(p => p.specialAwards.length > 0);
@@ -119,10 +120,10 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
           </section>
         )}
 
-        {/* All Projects (or "All Other Projects" if results are published) */}
+        {/* All Projects */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            📋 {hackathonInfo?.resultsPublished ? 'All Other Projects' : 'All Projects'}
+            📋 All Projects
           </h2>
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="overflow-x-auto">
@@ -141,7 +142,7 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {(hackathonInfo?.resultsPublished ? remainingProjects : projectsWithScores).map((project) => {
+                  {allProjectsAlphabetical.map((project) => {
                     const team = data.teams.find(t => t.id === project.teamId);
                     
                     return (
