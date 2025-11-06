@@ -1,61 +1,26 @@
-import { promises as fs } from 'fs';
-import path from 'path';
 import { HackathonData, HackathonsList, Project, Team } from './types';
-import { decodeScores, encodeScores, isObfuscated } from './obfuscate';
+import { 
+  getHackathonsList as getHackathonsListFromStorage,
+  getHackathonData,
+  saveHackathonData,
+  saveHackathonsList as saveHackathonsListToStorage
+} from './storage';
 
-const dataDir = path.join(process.cwd(), 'data');
-const hackathonsPath = path.join(dataDir, 'hackathons.json');
-
+// Re-export storage functions with original names for compatibility
 export async function getHackathonsList(): Promise<HackathonsList> {
-  const fileContents = await fs.readFile(hackathonsPath, 'utf8');
-  return JSON.parse(fileContents);
+  return getHackathonsListFromStorage();
+}
+
+export async function saveHackathonsList(list: HackathonsList): Promise<void> {
+  return saveHackathonsListToStorage(list);
 }
 
 export async function getData(hackathonId: string): Promise<HackathonData> {
-  const hackathonsList = await getHackathonsList();
-  const hackathon = hackathonsList.hackathons.find(h => h.id === hackathonId);
-  
-  if (!hackathon) {
-    throw new Error(`Hackathon ${hackathonId} not found`);
-  }
-
-  const dataPath = path.join(dataDir, hackathon.dataFile);
-  const fileContents = await fs.readFile(dataPath, 'utf8');
-  const rawData: any = JSON.parse(fileContents);
-  
-  // Decode obfuscated scores
-  const data: HackathonData = {
-    ...rawData,
-    projects: rawData.projects.map((project: any) => ({
-      ...project,
-      scores: isObfuscated(project.scores) 
-        ? decodeScores(project.scores)
-        : project.scores
-    }))
-  };
-  
-  return data;
+  return getHackathonData(hackathonId);
 }
 
 export async function saveData(hackathonId: string, data: HackathonData): Promise<void> {
-  const hackathonsList = await getHackathonsList();
-  const hackathon = hackathonsList.hackathons.find(h => h.id === hackathonId);
-  
-  if (!hackathon) {
-    throw new Error(`Hackathon ${hackathonId} not found`);
-  }
-
-  // Encode scores before saving
-  const dataToSave = {
-    ...data,
-    projects: data.projects.map(project => ({
-      ...project,
-      scores: encodeScores(project.scores as any)
-    }))
-  };
-
-  const dataPath = path.join(dataDir, hackathon.dataFile);
-  await fs.writeFile(dataPath, JSON.stringify(dataToSave, null, 2), 'utf8');
+  return saveHackathonData(hackathonId, data);
 }
 
 export async function getTeam(hackathonId: string, teamId: string): Promise<Team | undefined> {

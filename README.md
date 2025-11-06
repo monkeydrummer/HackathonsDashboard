@@ -20,7 +20,8 @@ A modern, interactive dashboard for displaying hackathon results with team pages
 - **TypeScript** for type safety
 - **TailwindCSS** for styling
 - **React Markdown** for description rendering
-- **JSON** file-based data storage
+- **Vercel KV** for production data storage (editable in production!)
+- **JSON** file-based storage for development
 
 ## Getting Started
 
@@ -136,37 +137,34 @@ See **MULTI-HACKATHON-GUIDE.md** for detailed instructions on adding new hackath
 
 ## Deployment to Vercel
 
-### Option 1: Deploy via Vercel CLI
+> **⚠️ Important for Production Deployments**  
+> Vercel's filesystem is read-only, so the admin interface won't be able to save changes using JSON files.  
+> **Solution**: This project now uses **Vercel KV** (Redis-based storage) for production deployments.
 
-1. Install Vercel CLI:
-```bash
-npm install -g vercel
-```
+### 📘 Complete Deployment Guide
 
-2. Deploy:
-```bash
-vercel
-```
+See **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)** for comprehensive step-by-step instructions on:
 
-3. Follow the prompts to complete deployment
+- ✅ Deploying to Vercel with editable admin interface
+- ✅ Setting up Vercel KV storage (free tier available)
+- ✅ Seeding your data to the cloud
+- ✅ Environment variables configuration
+- ✅ Troubleshooting common issues
 
-### Option 2: Deploy via Vercel Website
+### Quick Steps
 
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Click "Import Project"
-4. Select your repository
-5. Click "Deploy"
+1. Push code to GitHub
+2. Import to Vercel
+3. Create a Vercel KV database (Storage tab)
+4. Redeploy
+5. Seed the database (instructions in deployment guide)
 
 ### Environment Variables
 
-After deployment, set the admin password in Vercel:
+Set in your Vercel project settings:
 
-1. Go to your project settings on Vercel
-2. Navigate to "Environment Variables"
-3. Add:
-   - Name: `NEXT_PUBLIC_ADMIN_PASSWORD`
-   - Value: Your secure password
+- **`NEXT_PUBLIC_ADMIN_PASSWORD`** - Your admin password (optional, defaults to `hackathon2024`)
+- **KV variables** - Automatically added by Vercel when you create a KV database
 
 ## Scoring System
 
