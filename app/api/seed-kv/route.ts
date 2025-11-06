@@ -3,8 +3,8 @@ import { seedKVFromFiles } from '@/lib/storage';
 import { verifyPassword } from '@/lib/auth';
 
 /**
- * API endpoint to seed Vercel KV storage from JSON files
- * This should be called once after deploying to Vercel and setting up KV
+ * API endpoint to seed Upstash Redis storage from JSON files
+ * This should be called once after deploying to Vercel and setting up Upstash Redis
  * 
  * Usage: POST /api/seed-kv with { "password": "your-admin-password" }
  */
@@ -20,12 +20,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check if KV is configured
-    if (!process.env.KV_REST_API_URL) {
+    // Check if Redis is configured
+    if (!process.env.UPSTASH_REDIS_REST_URL) {
       return NextResponse.json(
         { 
-          error: 'KV storage is not configured. Please set up Vercel KV first.',
-          message: 'Visit your Vercel dashboard → Storage → Create KV Database'
+          error: 'Redis storage is not configured. Please set up Upstash Redis first.',
+          message: 'Visit your Vercel dashboard → Storage → Create Database → Upstash Redis'
         },
         { status: 400 }
       );
@@ -36,13 +36,13 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Successfully seeded KV storage from JSON files'
+      message: 'Successfully seeded Redis storage from JSON files'
     });
   } catch (error) {
-    console.error('Error seeding KV:', error);
+    console.error('Error seeding Redis:', error);
     return NextResponse.json(
       { 
-        error: 'Failed to seed KV storage',
+        error: 'Failed to seed Redis storage',
         details: error instanceof Error ? error.message : 'Unknown error'
       },
       { status: 500 }
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 export async function GET() {
   return NextResponse.json(
     { 
-      error: 'Method not allowed. Use POST with admin password to seed KV storage.',
+      error: 'Method not allowed. Use POST with admin password to seed Redis storage.',
       usage: 'POST /api/seed-kv with body: { "password": "your-admin-password" }'
     },
     { status: 405 }

@@ -3,34 +3,37 @@ import path from 'path';
 import { HackathonData, HackathonsList } from './types';
 import { decodeScores, encodeScores, isObfuscated } from './obfuscate';
 
-// Conditionally import Vercel KV only in production
-let kv: any = null;
+// Conditionally import Upstash Redis only in production
+let redis: any = null;
 
-// Initialize KV storage in production
-const initKV = async () => {
-  if (process.env.KV_REST_API_URL && !kv) {
-    const { kv: kvClient } = await import('@vercel/kv');
-    kv = kvClient;
+// Initialize Redis storage in production
+const initRedis = async () => {
+  if (process.env.UPSTASH_REDIS_REST_URL && !redis) {
+    const { Redis } = await import('@upstash/redis');
+    redis = new Redis({
+      url: process.env.UPSTASH_REDIS_REST_URL,
+      token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+    });
   }
 };
 
-// Check if we're using KV storage (production)
-const useKV = () => {
-  return process.env.NODE_ENV === 'production' && process.env.KV_REST_API_URL;
+// Check if we're using Redis storage (production)
+const useRedis = () => {
+  return process.env.NODE_ENV === 'production' && process.env.UPSTASH_REDIS_REST_URL;
 };
 
 /**
  * Get the list of all hackathons
  */
 export async function getHackathonsList(): Promise<HackathonsList> {
-  if (useKV()) {
-    await initKV();
-    const data = await kv.get('hackathons-list');
+  if (useRedis()) {
+    await initRedis();
+    const data = await redis.get('hackathons-list');
     if (data) {
       return data as HackathonsList;
     }
-    // If not in KV, fall back to filesystem (for initial setup)
-    console.warn('Hackathons list not found in KV, falling back to filesystem');
+    // If not in Redis, fall back to filesystem (for initial setup)
+    console.warn('Hackathons list not found in Redis, falling back to filesystem');
   }
   
   // Filesystem fallback (development)
@@ -44,9 +47,9 @@ export async function getHackathonsList(): Promise<HackathonsList> {
  * Save the list of all hackathons
  */
 export async function saveHackathonsList(list: HackathonsList): Promise<void> {
-  if (useKV()) {
-    await initKV();
-    await kv.set('hackathons-list', list);
+  if (useRedis()) {
+    await initRedis();
+    await redis.set('hackathons-list', list);
   } else {
     // Filesystem (development)
     const dataDir = path.join(process.cwd(), 'data');
@@ -59,15 +62,15 @@ export async function saveHackathonsList(list: HackathonsList): Promise<void> {
  * Get hackathon data by ID
  */
 export async function getHackathonData(hackathonId: string): Promise<HackathonData> {
-  if (useKV()) {
-    await initKV();
-    const data = await kv.get(`hackathon:${hackathonId}`);
+  if (useRedis()) {
+    await initRedis();
+    const data = await redis.get(`hackathon:${hackathonId}`);
     if (data) {
-      // Data in KV is already decoded
+      // Data in Redis is already decoded
       return data as HackathonData;
     }
-    // If not in KV, fall back to filesystem (for initial setup)
-    console.warn(`Hackathon ${hackathonId} not found in KV, falling back to filesystem`);
+    // If not in Redis, fall back to filesystem (for initial setup)
+    console.warn(`Hackathon ${hackathonId} not found in Redis, falling back to filesystem`);
   }
 
   // Filesystem fallback (development)
@@ -110,10 +113,10 @@ export async function saveHackathonData(hackathonId: string, data: HackathonData
     }))
   };
 
-  if (useKV()) {
-    await initKV();
-    // Store decoded version in KV for faster access
-    await kv.set(`hackathon:${hackathonId}`, data);
+  if (useRedis()) {
+    await initRedis();
+    // Store decoded version in Redis for faster access
+    await redis.set(`hackathon:${hackathonId}`, data);
   } else {
     // Filesystem (development)
     const hackathonsList = await getHackathonsList();
@@ -130,15 +133,15 @@ export async function saveHackathonData(hackathonId: string, data: HackathonData
 }
 
 /**
- * Initialize KV storage from filesystem data (run once during deployment)
+ * Initialize Redis storage from filesystem data (run once during deployment)
  */
-export async function seedKVFromFiles(): Promise<void> {
-  if (!useKV()) {
-    console.log('Not using KV storage, skipping seed');
+export async function seedRedisFromFiles(): Promise<void> {
+  if (!useRedis()) {
+    console.log('Not using Redis storage, skipping seed');
     return;
   }
 
-  await initKV();
+  await initRedis();
   
   try {
     const dataDir = path.join(process.cwd(), 'data');
@@ -147,8 +150,8 @@ export async function seedKVFromFiles(): Promise<void> {
     const hackathonsPath = path.join(dataDir, 'hackathons.json');
     const hackathonsData = await fs.readFile(hackathonsPath, 'utf8');
     const hackathonsList: HackathonsList = JSON.parse(hackathonsData);
-    await kv.set('hackathons-list', hackathonsList);
-    console.log('✓ Seeded hackathons list to KV');
+    await redis.set('hackathons-list', hackathonsList);
+    console.log('✓ Seeded hackathons list to Redis');
     
     // Seed each hackathon's data
     for (const hackathon of hackathonsList.hackathons) {
@@ -156,7 +159,7 @@ export async function seedKVFromFiles(): Promise<void> {
       const fileContents = await fs.readFile(dataPath, 'utf8');
       const rawData: any = JSON.parse(fileContents);
       
-      // Decode scores for KV storage
+      // Decode scores for Redis storage
       const data: HackathonData = {
         ...rawData,
         projects: rawData.projects.map((project: any) => ({
@@ -167,14 +170,17 @@ export async function seedKVFromFiles(): Promise<void> {
         }))
       };
       
-      await kv.set(`hackathon:${hackathon.id}`, data);
-      console.log(`✓ Seeded hackathon ${hackathon.id} to KV`);
+      await redis.set(`hackathon:${hackathon.id}`, data);
+      console.log(`✓ Seeded hackathon ${hackathon.id} to Redis`);
     }
     
-    console.log('✓ All data seeded to KV storage successfully');
+    console.log('✓ All data seeded to Redis storage successfully');
   } catch (error) {
-    console.error('Error seeding KV storage:', error);
+    console.error('Error seeding Redis storage:', error);
     throw error;
   }
 }
+
+// Keep the old function name for backward compatibility
+export const seedKVFromFiles = seedRedisFromFiles;
 

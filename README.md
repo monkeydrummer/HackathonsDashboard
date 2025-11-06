@@ -20,7 +20,7 @@ A modern, interactive dashboard for displaying hackathon results with team pages
 - **TypeScript** for type safety
 - **TailwindCSS** for styling
 - **React Markdown** for description rendering
-- **Vercel KV** for production data storage (editable in production!)
+- **Upstash Redis** for production data storage (editable in production!)
 - **JSON** file-based storage for development
 
 ## Getting Started
@@ -139,15 +139,15 @@ See **MULTI-HACKATHON-GUIDE.md** for detailed instructions on adding new hackath
 
 > **⚠️ Important for Production Deployments**  
 > Vercel's filesystem is read-only, so the admin interface won't be able to save changes using JSON files.  
-> **Solution**: This project now uses **Vercel KV** (Redis-based storage) for production deployments.
+> **Solution**: This project uses **Upstash Redis** (via Vercel Marketplace) for production deployments.
 
 ### 📘 Complete Deployment Guide
 
 See **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)** for comprehensive step-by-step instructions on:
 
 - ✅ Deploying to Vercel with editable admin interface
-- ✅ Setting up Vercel KV storage (free tier available)
-- ✅ Seeding your data to the cloud
+- ✅ Setting up Upstash Redis via Vercel Marketplace (free tier: 256MB, 500K commands/month)
+- ✅ Seeding your data to Redis
 - ✅ Environment variables configuration
 - ✅ Troubleshooting common issues
 
@@ -155,16 +155,20 @@ See **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)** for comprehensive step-by
 
 1. Push code to GitHub
 2. Import to Vercel
-3. Create a Vercel KV database (Storage tab)
+3. Add Upstash Redis from Storage tab (Marketplace)
 4. Redeploy
 5. Seed the database (instructions in deployment guide)
 
 ### Environment Variables
 
-Set in your Vercel project settings:
+Automatically set by Vercel when you connect Upstash Redis:
 
-- **`NEXT_PUBLIC_ADMIN_PASSWORD`** - Your admin password (optional, defaults to `hackathon2024`)
-- **KV variables** - Automatically added by Vercel when you create a KV database
+- **`UPSTASH_REDIS_REST_URL`** - Redis database URL
+- **`UPSTASH_REDIS_REST_TOKEN`** - Authentication token
+
+Optional (you set):
+
+- **`NEXT_PUBLIC_ADMIN_PASSWORD`** - Your admin password (defaults to `hackathon2024`)
 
 ## Scoring System
 

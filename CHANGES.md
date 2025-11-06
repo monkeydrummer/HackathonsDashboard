@@ -1,29 +1,39 @@
 # Recent Changes - Vercel Production Support
 
-## Summary
+## Latest Update (November 2025)
 
-Fixed the issue where the admin interface couldn't save changes in production on Vercel. The filesystem on Vercel is read-only, so the JSON file-based storage didn't work. Now the app uses **Vercel KV** (Redis key-value store) for production deployments while keeping JSON files for local development.
+**Migrated from deprecated Vercel KV to Upstash Redis**
+
+- Vercel KV was deprecated in June 2025 and replaced with Marketplace integrations
+- Updated to use `@upstash/redis` package instead of `@vercel/kv`
+- Changed environment variables to `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`
+- Updated deployment documentation with current 2025 Vercel Marketplace process
+- **Free tier**: 256MB storage, 500K commands/month (more generous than old Vercel KV!)
+
+## Original Implementation
+
+Fixed the issue where the admin interface couldn't save changes in production on Vercel. The filesystem on Vercel is read-only, so the JSON file-based storage didn't work. Now the app uses **Upstash Redis** (via Vercel Marketplace) for production deployments while keeping JSON files for local development.
 
 ## What Changed
 
 ### 1. **New Dependencies**
-- Added `@vercel/kv` package for cloud storage
+- Added `@upstash/redis` package for cloud storage (previously `@vercel/kv` - now deprecated)
 
 ### 2. **New Files**
 - **`lib/storage.ts`** - Storage abstraction layer
-  - Automatically uses Vercel KV in production
+  - Automatically uses Upstash Redis in production
   - Falls back to JSON files in development
   - Handles data encoding/decoding
-  - Includes seeding function to migrate data to KV
+  - Includes seeding function to migrate data to Redis
 
-- **`app/api/seed-kv/route.ts`** - API endpoint to seed KV storage
+- **`app/api/seed-kv/route.ts`** - API endpoint to seed Redis storage
   - Protected by admin password
-  - Copies JSON data to Vercel KV
+  - Copies JSON data to Upstash Redis
   - Called once after deployment
 
 - **`VERCEL_DEPLOYMENT.md`** - Comprehensive deployment guide
   - Step-by-step Vercel deployment instructions
-  - KV setup guide
+  - Upstash Redis setup via Marketplace
   - Troubleshooting section
   - Environment variables documentation
 
@@ -56,21 +66,21 @@ User edits → API routes → lib/storage.ts → JSON files in /data
 
 ### Production Mode (Vercel)
 ```
-User edits → API routes → lib/storage.ts → Vercel KV (Redis)
+User edits → API routes → lib/storage.ts → Upstash Redis
 ```
 
 The storage layer automatically detects the environment and uses the appropriate storage method:
 - **Development**: Reads/writes JSON files
-- **Production**: Reads/writes Vercel KV
+- **Production**: Reads/writes Upstash Redis
 
 ## Migration Path
 
 ### For Existing Deployments:
 1. Update your code from the repository
-2. Run `npm install` to get `@vercel/kv`
-3. Create a Vercel KV database in your Vercel dashboard
+2. Run `npm install` to get `@upstash/redis`
+3. Connect Upstash Redis from Vercel Marketplace (Storage tab)
 4. Redeploy the application
-5. Seed the KV database using `/api/seed-kv` endpoint
+5. Seed the Redis database using `/api/seed-kv` endpoint
 
 ### For New Deployments:
 Follow the instructions in **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)**
@@ -78,25 +88,24 @@ Follow the instructions in **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)**
 ## Benefits
 
 ✅ **Editable in Production** - Admin interface now works on Vercel  
-✅ **No External Services** - Uses Vercel's built-in KV storage  
-✅ **Free Tier Available** - Vercel KV free tier is generous  
+✅ **Marketplace Integration** - Easy setup via Vercel Marketplace  
+✅ **Generous Free Tier** - 256MB storage, 500K commands/month  
 ✅ **Backward Compatible** - Local development still uses JSON files  
 ✅ **Automatic Detection** - No manual configuration needed  
-✅ **Fast Performance** - Redis-based storage is very fast
+✅ **Fast Performance** - Redis-based storage is very fast  
+✅ **Better Support** - Upstash actively maintained (Vercel KV deprecated)
 
 ## Costs
 
-- **Vercel KV Free Tier**: 256 MB storage, 3,000 commands/day
-- Perfect for hackathon dashboards (typical usage: <1 MB, <100 commands/day)
-- If you exceed limits, upgrade to Vercel Pro ($20/month)
+- **Upstash Redis Free Tier**: 256 MB storage, 500,000 commands/month
+- Perfect for hackathon dashboards (typical usage: <1 MB, <20,000 commands/month)
+- If you exceed limits: $0.20 per 100K additional commands (pay-as-you-go)
 
 ## Environment Variables
 
 ### Required for Production:
-- `KV_REST_API_URL` - Automatically set by Vercel
-- `KV_REST_API_TOKEN` - Automatically set by Vercel
-- `KV_REST_API_READ_ONLY_TOKEN` - Automatically set by Vercel
-- `KV_URL` - Automatically set by Vercel
+- `UPSTASH_REDIS_REST_URL` - Automatically set by Vercel/Upstash
+- `UPSTASH_REDIS_REST_TOKEN` - Automatically set by Vercel/Upstash
 
 ### Optional:
 - `NEXT_PUBLIC_ADMIN_PASSWORD` - Custom admin password (defaults to "hackathon2024")
@@ -113,10 +122,10 @@ npm run dev
 
 ### Production Testing:
 1. Deploy to Vercel
-2. Create KV database
+2. Connect Upstash Redis from Marketplace
 3. Seed data using `/api/seed-kv`
 4. Visit your deployed site's admin page
-5. Edit and save - changes persist in Vercel KV
+5. Edit and save - changes persist in Upstash Redis
 
 ## Troubleshooting
 
@@ -125,7 +134,8 @@ See the **Troubleshooting** section in [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMEN
 ## Questions?
 
 - Check [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for detailed instructions
-- Check [Vercel KV Documentation](https://vercel.com/docs/storage/vercel-kv)
+- Check [Upstash Redis Documentation](https://docs.upstash.com/redis)
+- Check [Vercel Storage Documentation](https://vercel.com/docs/storage)
 - Check browser console for client-side errors
 - Check Vercel deployment logs for server-side errors
 
