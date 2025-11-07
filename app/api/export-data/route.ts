@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getHackathonsList, getHackathonData } from '@/lib/data';
+import { getHackathonsList, getData } from '@/lib/data';
 import { verifyPassword } from '@/lib/auth';
 import { encodeScores } from '@/lib/obfuscate';
 
@@ -25,7 +25,7 @@ export async function GET(request: Request) {
 
     // If hackathonId provided, export single hackathon
     if (hackathonId) {
-      const data = await getHackathonData(hackathonId);
+      const data = await getData(hackathonId);
       
       // Encode scores for privacy (same as stored in JSON files)
       const exportData = {
@@ -93,7 +93,7 @@ export async function POST(request: Request) {
     };
 
     for (const hackathon of hackathonsList.hackathons) {
-      const data = await getHackathonData(hackathon.id);
+      const data = await getData(hackathon.id);
       
       // Encode scores for privacy
       const exportData = {
