@@ -184,3 +184,5 @@ Each hackathon can have its own scoring categories! Just edit the `config.catego
 
 
 
+
+

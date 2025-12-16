@@ -59,3 +59,5 @@ files.forEach(file => {
 console.log('\n✓ Done! All scores have been obfuscated.');
 console.log('Note: The scores are now encoded strings instead of objects.');
 
+
+

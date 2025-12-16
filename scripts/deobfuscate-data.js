@@ -63,3 +63,5 @@ files.forEach(file => {
 
 console.log('\n✓ Done! All scores have been deobfuscated.');
 
+
+

@@ -31,3 +31,5 @@ console.log(encoded);
 console.log('\nUpdate OBFUSCATED_DEFAULT_PASSWORD in lib/auth.ts with this value.');
 console.log('');
 
+
+
