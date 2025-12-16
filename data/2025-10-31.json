@@ -35,7 +35,7 @@
     },
     {
       "id": "liam",
-      "name": "Liam",
+      "name": "Liam Sy",
       "members": [
         "Liam"
       ],
@@ -201,6 +201,16 @@
       ],
       "projects": [
         "rslog-doodlejump"
+      ]
+    },
+    {
+      "id": "liam-patterson",
+      "name": "Liam Patterson",
+      "members": [
+        "Liam"
+      ],
+      "projects": [
+        "gint-bulk-import"
       ]
     }
   ],
@@ -567,6 +577,17 @@
       "specialAwards": [
         "most-fun"
       ]
+    },
+    {
+      "id": "gint-bulk-import",
+      "teamId": "liam-patterson",
+      "title": "gINT Bulk Import",
+      "description": "- This should extend existing functionality to import individual files, but allow for many 10s-100s of files to be uploaded and handled in the background.\n- User can upload a batch of .mdb or .gpj files and mark them for import to RSLog.\n\n- Did not get it to a workable state, many issues that I didn't have time to resolve due to scheduling conflicts & meetings\n\n![image.png](https://dev.azure.com/novotechsoftware/8193cd8b-a935-4582-8517-68acfcdf335e/_apis/git/repositories/2ac0200e-e2ca-49c5-ab08-2cb8313771ca/pullRequests/3749/attachments/image.png) \n![image (2).png](https://dev.azure.com/novotechsoftware/8193cd8b-a935-4582-8517-68acfcdf335e/_apis/git/repositories/2ac0200e-e2ca-49c5-ab08-2cb8313771ca/pullRequests/3749/attachments/image%20%282%29.png) \n![image (3).png](https://dev.azure.com/novotechsoftware/8193cd8b-a935-4582-8517-68acfcdf335e/_apis/git/repositories/2ac0200e-e2ca-49c5-ab08-2cb8313771ca/pullRequests/3749/attachments/image%20%283%29.png) ",
+      "judgesNotes": "Likes:\n- Looks like a useful feature!\n- Feels like a 'real' tool that will probably go into RSLog at some point?\n- Nice to see you try the planning features with md files\n- Fair amount of actual 'files' added, seems like a good start\n\nImprovements:\n- Some simple UI polishing could go a long way\n- Hard to see the full potential when it's not fully working",
+      "images": [],
+      "links": [],
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CEQcyVlw=",
+      "specialAwards": []
     }
   ],
   "config": {

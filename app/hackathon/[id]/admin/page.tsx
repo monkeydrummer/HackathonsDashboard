@@ -533,7 +533,7 @@ export default function AdminPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                 placeholder="Enter admin password"
               />
             </div>
@@ -671,7 +671,7 @@ export default function AdminPage() {
                   type="text"
                   value={currentHackathon.emoji}
                   onChange={(e) => updateHackathonInfo('emoji', e.target.value)}
-                  className="w-24 px-3 py-2 border border-gray-300 rounded-lg text-center text-3xl focus:ring-2 focus:ring-purple-500"
+                  className="w-24 px-3 py-2 border border-gray-300 rounded-lg text-center text-3xl focus:ring-2 focus:ring-purple-500 text-gray-900"
                   maxLength={2}
                   placeholder="🎃"
                 />
@@ -689,7 +689,7 @@ export default function AdminPage() {
                   type="text"
                   value={currentHackathon.name}
                   onChange={(e) => updateHackathonInfo('name', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
                   placeholder="Halloween Hackathon 2025"
                 />
               </div>
@@ -703,7 +703,7 @@ export default function AdminPage() {
                   value={currentHackathon.description}
                   onChange={(e) => updateHackathonInfo('description', e.target.value)}
                   rows={3}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
                   placeholder="Describe this hackathon event..."
                 />
               </div>
@@ -799,7 +799,7 @@ export default function AdminPage() {
                         step="0.5"
                         value={category.weight}
                         onChange={(e) => updateCategoryWeight(category.id, parseFloat(e.target.value) || 1)}
-                        className="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center focus:ring-2 focus:ring-indigo-500"
+                        className="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center focus:ring-2 focus:ring-indigo-500 text-gray-900"
                       />
                     </div>
                   </div>
@@ -834,7 +834,7 @@ export default function AdminPage() {
                     value={newProjectTitle}
                     onChange={(e) => setNewProjectTitle(e.target.value)}
                     placeholder="e.g., Stereonet Aim Trainer"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 text-gray-900"
                   />
                 </div>
                 <div>
@@ -844,7 +844,7 @@ export default function AdminPage() {
                   <select
                     value={newProjectTeam}
                     onChange={(e) => setNewProjectTeam(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 text-gray-900"
                   >
                     <option value="">Select a team...</option>
                     {data.teams.map(team => (
@@ -888,7 +888,7 @@ export default function AdminPage() {
                             <select
                               value={project.teamId}
                               onChange={(e) => updateProjectTeam(project.id, e.target.value)}
-                              className="px-3 py-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-orange-500"
+                              className="px-3 py-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-orange-500 text-gray-900"
                             >
                               {data.teams.map(t => (
                                 <option key={t.id} value={t.id}>
@@ -947,7 +947,7 @@ export default function AdminPage() {
                     value={newTeamName}
                     onChange={(e) => setNewTeamName(e.target.value)}
                     placeholder="e.g., Alpha.ai Team"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-900"
                   />
                 </div>
                 <div>
@@ -959,7 +959,7 @@ export default function AdminPage() {
                     value={newTeamMembers}
                     onChange={(e) => setNewTeamMembers(e.target.value)}
                     placeholder="e.g., Ted, Ali, Arnav"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-900"
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     Separate member names with commas
@@ -996,7 +996,7 @@ export default function AdminPage() {
                               const newMembers = membersInput.value.split(',').map(m => m.trim()).filter(m => m.length > 0);
                               updateTeam(team.id, e.target.value, newMembers);
                             }}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg font-semibold"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg font-semibold text-gray-900"
                           />
                           <textarea
                             id={`team-members-${team.id}`}
@@ -1007,7 +1007,7 @@ export default function AdminPage() {
                               updateTeam(team.id, nameInput.value, newMembers);
                             }}
                             placeholder="Member names, comma-separated"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
                             rows={2}
                           />
                           <button
@@ -1078,7 +1078,7 @@ export default function AdminPage() {
                     value={newAwardName}
                     onChange={(e) => setNewAwardName(e.target.value)}
                     placeholder="Award name (e.g., Best Demo)"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900"
                   />
                 </div>
                 <div className="flex gap-2">
@@ -1087,7 +1087,7 @@ export default function AdminPage() {
                     value={newAwardEmoji}
                     onChange={(e) => setNewAwardEmoji(e.target.value)}
                     placeholder="Emoji"
-                    className="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center text-2xl focus:ring-2 focus:ring-blue-500"
+                    className="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center text-2xl focus:ring-2 focus:ring-blue-500 text-gray-900"
                     maxLength={2}
                   />
                   <button
@@ -1114,14 +1114,14 @@ export default function AdminPage() {
                       type="text"
                       value={award.emoji}
                       onChange={(e) => updateSpecialAward(award.id, award.name, e.target.value)}
-                      className="w-16 px-2 py-1 border border-gray-300 rounded text-center text-2xl"
+                      className="w-16 px-2 py-1 border border-gray-300 rounded text-center text-2xl text-gray-900"
                       maxLength={2}
                     />
                     <input
                       type="text"
                       value={award.name}
                       onChange={(e) => updateSpecialAward(award.id, e.target.value, award.emoji)}
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
                     />
                     <button
                       onClick={() => deleteSpecialAward(award.id)}
@@ -1152,7 +1152,7 @@ export default function AdminPage() {
                   <select
                     value={projectSortBy}
                     onChange={(e) => setProjectSortBy(e.target.value as any)}
-                    className="text-xs px-2 py-1 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                    className="text-xs px-2 py-1 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 text-gray-900"
                   >
                     <option value="score-desc">Score (High to Low)</option>
                     <option value="score-asc">Score (Low to High)</option>
@@ -1265,7 +1265,7 @@ export default function AdminPage() {
                     type="text"
                     value={selectedProject.title}
                     onChange={(e) => updateProjectTitle(selectedProject.id, e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900"
                     placeholder="Enter project title"
                   />
                 </div>
@@ -1290,7 +1290,7 @@ export default function AdminPage() {
                             category.id,
                             parseInt(e.target.value) || 0
                           )}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900"
                         />
                       </div>
                     ))}
@@ -1333,7 +1333,7 @@ export default function AdminPage() {
                     value={selectedProject.description}
                     onChange={(e) => updateProjectDescription(selectedProject.id, e.target.value)}
                     rows={10}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 font-mono text-sm text-gray-900"
                     placeholder="Use markdown formatting..."
                   />
                   <p className="text-xs text-gray-500 mt-2">
@@ -1351,7 +1351,7 @@ export default function AdminPage() {
                     value={selectedProject.judgesNotes || ''}
                     onChange={(e) => updateProjectJudgesNotes(selectedProject.id, e.target.value)}
                     rows={6}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 font-mono text-sm bg-yellow-50"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 font-mono text-sm bg-yellow-50 text-gray-900"
                     placeholder="Add notes from judges... (e.g., highlights, feedback, commendations)"
                   />
                   <p className="text-xs text-gray-500 mt-2">

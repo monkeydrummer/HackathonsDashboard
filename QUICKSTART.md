@@ -1,5 +1,7 @@
 # Quick Start Guide
 
+> **📝 Note**: This guide is for **local development**. For deploying to Vercel with an editable admin interface, see **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)**.
+
 ## Your Dashboard is Ready! 🎉
 
 I've created a fully functional hackathon dashboard with all your data already imported.
