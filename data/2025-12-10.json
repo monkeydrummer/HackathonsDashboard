@@ -190,14 +190,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
@@ -208,14 +201,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
@@ -226,14 +212,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
@@ -244,14 +223,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
@@ -262,122 +234,73 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
       "id": "cristian-salvalaggio-armen-uzunian-project",
       "teamId": "cristian-salvalaggio-armen-uzunian",
       "title": "Report Generator - Cristian Salvalaggio & Armen Uzunian",
-      "description": "Project submission for Hackathon 2: The Revenge",
+      "description": "![gif1](/images/armen-cristian_h2_1.gif)\n![gif2](/images/armen-cristian_h2_2.gif)\n\n# AI Report Generator\n[Repo Link](https://rocscience.visualstudio.com/Hackathons/_git/ArmenCristianReportGenerator)\n\nA Streamlit-based web application that generates professional PDF and markdown reports from multiple file types (PDF, DOCX, markdown, text, images) using customizable templates and optional LLM-powered content enhancement.\n\n## Overview\n\nThis project provides an intuitive web interface for combining content from various document formats into unified, professionally formatted reports. Users can upload multiple files, select from pre-built templates (academic, business, technical), customize the output, and generate polished PDF or markdown documents.\n\n## Key Features\n\n- **Multi-format Support**: Process PDF, DOCX, markdown, text files, and images\n- **Template System**: Choose from academic, business, or technical report templates\n- **LLM Enhancement**: Optional OpenAI integration for content improvement and formatting\n- **Live Preview**: See your report before generating\n- **Export Options**: Download as PDF or markdown\n\n## Quick Start\n\n### Prerequisites\n- Python 3.8 or higher\n- OpenAI API key (optional, for LLM features)\n\n### Installation\n\n1. Navigate to the application directory:\n   ```bash\n   cd ai-report-generator\n   ```\n\n2. Create and activate a virtual environment:\n   ```bash\n   # Windows\n   python -m venv venv\n   venv\\Scripts\\activate\n   \n   # Linux/Mac\n   python -m venv venv\n   source venv/bin/activate\n   ```\n\n3. Install dependencies:\n   ```bash\n   pip install -r requirements.txt\n   ```\n\n4. (Optional) Set up environment variables:\n   ```bash\n   # Copy the example file\n   copy .env.example .env  # Windows\n   # or\n   cp .env.example .env    # Linux/Mac\n   \n   # Edit .env and add your OPENAI_API_KEY\n   ```\n\n5. Run the application:\n   ```bash\n   python -m streamlit run app.py\n   ```\n\nThe application will open at `http://localhost:8501`\n\nFor detailed setup instructions, see [GETTING_STARTED.md](GETTING_STARTED.md).\n\n## Project Structure\n\n```\nArmenCristianReportGenerator/\n├── ai-report-generator/          # Main application directory\n│   ├── app.py                    # Streamlit application entry point\n│   ├── pages/                    # Multi-page Streamlit interface\n│   ├── components/               # Reusable UI components\n│   ├── utils/                    # Core processing modules\n│   ├── templates/                # Report templates\n│   └── requirements.txt          # Python dependencies\n├── GETTING_STARTED.md            # Detailed setup guide\n└── README.md                     # This file\n```\n\n## Technology Stack\n\n- **Frontend**: Streamlit\n- **Backend**: Python 3.8+\n- **PDF Generation**: WeasyPrint / ReportLab\n- **LLM Integration**: OpenAI API\n- **File Processing**: pypdf, python-docx, Pillow, langchain\n\n## Documentation\n\n- **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup and installation guide\n- **[ai-report-generator/README.md](ai-report-generator/README.md)** - Application-specific documentation\n- **[ai-report-generator/docs/](ai-report-generator/docs/)** - Architecture, components, and development roadmap\n\n## Usage\n\n1. **Upload Files**: Select multiple files from your computer\n2. **Choose Template**: Pick a template style or provide custom instructions\n3. **Configure**: Set title, author, date, and optional logo\n4. **Preview**: Review the generated content\n5. **Generate**: Download your report as PDF or markdown\n\n## Development\n\nThis is a hackathon project. For development guidelines and roadmap, see the [documentation](ai-report-generator/docs/) in the application directory.\n\n## License\n\nHackathon project - internal use only.\n",
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
       "id": "angela-li-liam-sy-project",
       "teamId": "angela-li-liam-sy",
       "title": "Report Generator - Angela Li & Liam Sy",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "![Screenshot](/images/angela-liam-h2-1.png)\nLink to repo: [https://rocscience.visualstudio.com/Hackathons/_git/AngelaLiamReportGenerator](https://rocscience.visualstudio.com/Hackathons/_git/AngelaLiamReportGenerator)\n \nShould just work if you have nuget.org configured\n\nBreakdown of work:\n\nAngela:\nContent manager functionality\nExport to Word and PDF\nInsert PDF in document\nDevExpress Rich Text Editor\n\nLiam:\nLatex equation editor\nAI data extractor from input files - tried to get data, eqn, and images from pdfs but not much success\n3D model to PDF - this doesn't fully work but you can export the 3d model into a pdf, wasn't able to get the link working\nMarkdown and text file support and reading - Able to parse md from .md and .txt files and equations in latex\n\nHere is the screen recording:\n[https://www.loom.com/share/4df5edfeb8004422a6908d605cf5b331](https://www.loom.com/share/4df5edfeb8004422a6908d605cf5b331)",
+      "judgesNotes": "- This is an interesting way to approach this problem!\n- One of the easiest to get up and running\n- Good use of existing controls e.g. devexpress rich text editor\n- I like the 'content manager'\n\n- I wish the AI part was a bit more integrated/prevalent - maybe able to summarize whole documents rather than just try to extract tables or images\n- The loom video was only recording one window, so I wasn't able to see lots of the things you were referring to in the video",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
       "id": "luca-duran-connor-burns-project",
       "teamId": "luca-duran-connor-burns",
       "title": "Report Generator - Luca Duran & Connor Burns",
-      "description": "Project submission for Hackathon 2: The Revenge",
+      "description": "# ReportGPT - AI-Powered Engineering Report Generator\n\nAn AI-powered application for generating professional engineering reports from multiple input sources (text, markdown, PDFs, images).\n\n## 🎬 Demo Video\n\n[▶️ Watch Demo Video](https://rocscience.visualstudio.com/Hackathons/_git/ReportGPTConnorLuca?path=/demovideo.mp4)\n\n*Click the link above to watch ReportGPT in action!*\n\n## 📸 Screenshot\n\n![ReportGPT Screenshot](/images/luca-connor_h2_1.png)\n\n*Live preview showing AI-generated report sections with editing and reordering capabilities*\n\n## ⚡ **NEW USER? → [START HERE!](https://rocscience.visualstudio.com/Hackathons/_git/ReportGPTConnorLuca?path=/START_HERE.md)** ⚡\n\n### Quick Start: Just double-click `start.bat` 🚀\n\n## 🚀 Quick Start - One Click!\n\n### Prerequisites\n- .NET 9 SDK\n- Visual Studio 2022 or VS Code\n\n### Running the Application (Easy Way!)\n\n**Just double-click:** `start.bat`\n\nThat's it! The script will:\n1. ✅ Start the Backend server (http://localhost:5000)\n2. ✅ Start the Frontend server (https://localhost:53966)\n3. ✅ Open your browser automatically\n4. ✅ You're ready to generate reports!\n\n**To stop:** Double-click `stop.ps1`\n\n---\n\n### Manual Start (Alternative)\n\n**Terminal 1 - Backend:**\n```bash\ncd ReportGPT\ndotnet run\n```\n\n**Terminal 2 - Frontend:**\n```bash\ncd ReportGPT.Frontend\ndotnet run\n```\n\nThen navigate to `https://localhost:53966`\n\nSee [README_LAUNCHER.md](README_LAUNCHER.md) for more details.\n\n## 📁 Project Structure\n\n```\nReportGPT/\n├── ReportGPT.Interop/          ← Coder 1: Contracts & DTOs (COMPLETED ✓)\n│   ├── Models/                 \n│   ├── Enums/                  \n│   └── Services/               \n├── ReportGPT.Frontend/         ← Coder 1: UI & PDF Generation (IN PROGRESS)\n│   ├── Pages/                  \n│   ├── Components/             \n│   └── wwwroot/                \n└── ReportGPT/                  ← Coder 2: Backend Implementation (PENDING)\n    └── Services/               \n```\n\n## 👥 Team Responsibilities\n\n### Coder 1 (Frontend) - Status: ✅ COMPLETE & INTEGRATED\n- ✅ **Feature 1**: Interop Contracts & DTOs\n- ✅ **Landing Page**: File upload, config form, professional UI\n- ✅ **Section Cards**: Beautiful structured section display\n- ✅ **Inline Editing**: Edit sections independently\n- ✅ **Image Display**: Images render within sections\n- ✅ **Backend Integration**: Connected to AI service\n\n### Coder 2 (Backend) - Status: ✅ COMPLETE & INTEGRATED\n- ✅ **AI Processor**: OpenAI integration (gpt-4o-mini)\n- ✅ **Section Extraction**: Intelligent text analysis\n- ✅ **Image Intelligence**: Auto-assigns images to sections\n- ✅ **REST API**: Returns structured data\n- ✅ **Report Service**: Fully functional\n\n## 🎯 Current Status - ✅ FULLY INTEGRATED!\n\n### What Works Now:\n✅ Professional UI with section cards  \n✅ File upload (text, markdown, images)  \n✅ **AI-powered section extraction**  \n✅ **Intelligent image placement**  \n✅ **Inline section editing**  \n✅ Backend + Frontend fully integrated  \n✅ Beautiful responsive design  \n✅ One-click launcher scripts  \n\n### What's Next (Polish):\n- 📄 PDF generation from sections\n- 🎨 Drag-and-drop reordering\n- ✨ Better markdown rendering (Markdig)\n- 📊 Loading progress indicators\n\n## 📚 Documentation\n\n### Quick Start\n- **[README_LAUNCHER.md](README_LAUNCHER.md)** - One-click launcher guide ⭐\n- **[INTEGRATION_COMPLETE.md](INTEGRATION_COMPLETE.md)** - Integration details ⭐\n- **[QUICK_START.md](QUICK_START.md)** - Quick start guide ⭐\n\n### Planning & Architecture\n- [Product Brief](product_brief.md) - Business context and requirements\n- [Feature Plan](FEATURE_PLAN.md) - All 5 backend features\n- [Team Collaboration Guide](TEAM_COLLABORATION.md) - Workflow and responsibilities\n- [Engineering Requirements](ENGINEERING_REQUIREMENTS.md) - Technical specifications\n- [Frontend Plan](docs/features/FRONTEND_PLAN.md) - UI implementation details\n\n### Integration Guides\n- [Structured Sections Update](STRUCTURED_SECTIONS_UPDATE.md) - Architecture pivot\n- [Integration Status](INTEGRATION_STATUS.md) - Pre-integration state\n- [Integration Summary](INTEGRATION_SUMMARY.md) - Complete summary\n\n## 🛠️ Technology Stack\n\n### Frontend\n- Blazor Server (.NET 9)\n- Pure C# components\n- MathJax (for LaTeX formulas)\n- DinkToPdf (for PDF generation)\n\n### Backend\n- .NET 9\n- OpenAI/Azure OpenAI API\n- PdfPig (PDF text extraction)\n- Markdig (Markdown processing)\n- ImageSharp (Image processing)\n\n## 🧪 Testing\n\n### Quick Test\n1. Double-click `start.bat`\n2. Upload a text/markdown file\n3. (Optional) Upload 1-2 images\n4. Click \"Generate Report\"\n5. See AI-generated structured sections! 🎉\n\n### Test Cases\n✅ **Text Only**: AI extracts sections from content  \n✅ **Text + Images**: AI intelligently assigns images to sections  \n✅ **Multiple Files**: Content from all files combined  \n✅ **Section Editing**: Click \"Edit\" to modify content  \n✅ **Image Display**: Images render inline with sections\n\n## 🎨 Features\n\n### AI-Powered Section Extraction\n- Upload text/markdown files\n- GPT-4o-mini analyzes content\n- Automatically organizes into sections\n- Professional structure\n\n### Intelligent Image Placement\n- Upload images with your documents\n- AI determines which section each image belongs to\n- Based on content analysis and filenames\n- Images display inline with relevant sections\n\n### Interactive Section Cards\n- Each section in its own card\n- Click \"Edit\" to modify content\n- Markdown tables render correctly\n- Professional styling with hover effects\n\n### Easy to Use\n- One-click launcher (`start.bat`)\n- Upload files via drag-and-drop\n- Instant preview\n- No configuration needed\n\n## 🎉 Hackathon Requirements - Status\n\nBased on \"Hackathon 2 - Info Session unredacted.pdf\":\n\n✅ Multiple file inputs (text, markdown, images)  \n✅ Professional, customizable reports  \n✅ Nice UI for file selection and configuration  \n✅ **Live editing** - Edit sections independently  \n✅ **AI processing** - GPT-4o-mini integration  \n✅ **Intelligent image placement** - AI assigns images  \n✅ **Structured sections** - Beautiful card layout  \n🔄 PDF generation (next polish step)  \n🔄 Drag-and-drop reordering (next polish step)  \n\n## 🚧 Future Enhancements\n\n- [ ] PDF generation from sections\n- [ ] Actual drag-and-drop reordering (currently visual only)\n- [ ] Add/remove sections dynamically\n- [ ] Move images between sections\n- [ ] Better markdown rendering (Markdig)\n- [ ] MathJax for LaTeX formulas\n- [ ] Export to multiple formats\n\n## 📞 Support\n\nFor questions or issues, refer to the planning documents or coordinate with your team partner!\n\n---\n\n**Generated by ReportGPT Team** 🤖\n\n\n",
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
       "id": "eric-wang-beverly-yang-project",
       "teamId": "eric-wang-beverly-yang",
       "title": "Report Generator - Eric Wang & Beverly Yang",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "# 🏗️ AI-Powered Geotechnical Report Generator\n\nAn intelligent, locally-hosted Streamlit application that generates professional geotechnical engineering reports using AI. Upload your investigation data, select a template, and let AI create comprehensive, well-structured reports in multiple formats.\n\n![Python](https://img.shields.io/badge/Python-3.8%2B-blue)\n![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)\n![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-green)\n![License](https://img.shields.io/badge/License-Internal%20Use-orange)\n\n---\n\n## 📋 Table of Contents\n\n- [Features](#-features)\n- [Quick Start](#-quick-start)\n- [Installation](#-installation)\n- [Configuration](#-configuration)\n- [Usage Guide](#-usage-guide)\n- [Supported Formats](#-supported-formats)\n- [Architecture](#-architecture)\n- [Troubleshooting](#-troubleshooting)\n- [Best Practices](#-best-practices)\n- [Project Structure](#-project-structure)\n\n---\n\n## ✨ Features\n\n### 🤖 **AI-Powered Generation**\n- Utilizes OpenAI's GPT-4 models to analyze geotechnical data\n- Intelligent document classification and content extraction\n- Context-aware section generation following engineering standards\n\n### 📁 **Multi-Format Input**\n- **Documents**: PDF, DOCX, TXT, Markdown\n- **Data Files**: CSV, XLSX\n- **Images**: PNG, JPG, JPEG\n\n### 📄 **Template System**\n- Upload your own report templates (Markdown or PDF)\n- AI extracts structure and style from existing reports\n- Use default professional geotechnical template\n- Section-based instructions for consistent formatting\n\n### ⬇️ **Multiple Export Formats**\n- **Markdown** (.md) - Clean, portable text format\n- **HTML** (.html) - Web-ready with professional styling\n- **PDF** (.pdf) - Print-ready professional documents\n- **Word** (.docx) - Editable Microsoft Word format\n---\n\n## 🚀 Quick Start\n\n### Prerequisites\n\n- **Python 3.8 or higher** - [Download here](https://www.python.org/downloads/)\n- **OpenAI API Key** - [Get one here](https://platform.openai.com/api-keys)\n- **Internet Connection** - Required for AI processing\n\n### Installation\n\n1. **Clone or download this repository**\n\n2. **Navigate to the project directory**\n\n   cd path\\to\\Agentic-Report-generator-EW-BY\n2. **Create and activate a virtual environment**\n\n   python -m venv venv\n   venv\\Scripts\\activate\n2. **Install dependencies:**\n\n   pip install -r requirements.txt\n   3. **Set up your OpenAI API key:**\n   \n   Create a `.env` file in the project root:\n   OPENAI_API_KEY=sk-your-actual-api-key-here\n   4. **Launch the application:**\n   \n   **Windows:**\n   run_dashboard.bat\n      **Mac/Linux:**\n   ./run_dashboard.sh\n      **Or directly:**\n   streamlit run app.py\n   5. **Access the dashboard:**\n   - Opens automatically in your browser\n   - Or navigate to: `http://localhost:8501`\n\n---\n\n## 🔧 Configuration\n\n### Required Setup\n\n#### 1. OpenAI API Key\n\nThe application requires an OpenAI API key to function. Get one from [OpenAI Platform](https://platform.openai.com/api-keys).\n\n**Option 1: Using .env file (Recommended)**\n# Create .env file in project root\nOPENAI_API_KEY=sk-your-key-here**Option 2: Environment Variable**\n# Windows (PowerShell)\n$env:OPENAI_API_KEY=\"sk-your-key-here\"\n\n# Mac/Linux\nexport OPENAI_API_KEY=\"sk-your-key-here\"### Optional Configuration\n\n- **AI Model Selection**: Choose between GPT-4o, GPT-4o-mini, GPT-4-turbo, GPT-3.5-turbo\n- **Report Metadata**: Project name, author, date\n- **Include/Exclude**: Images, metadata sections\n\n---\n\n## 📖 Usage Guide\n\n### Step 1: Input Tab - Upload Files\n\n1. Navigate to the **📁 Input** tab\n2. **Upload Data Files:**\n   - Click \"Upload your files\"\n   - Select PDFs, Word docs, text files, spreadsheets, or images\n   - Multiple files supported\n   \n3. **Upload Template:**\n   - Upload a Markdown template, OR\n   - Upload a PDF report (AI will extract the structure)\n\n4. **Configure Report:**\n   - Select output format (Markdown, PDF, HTML, DOCX)\n   - Enter report title\n   - Add project name\n   - Add author name\n   - Set report date\n\n5. **Generate:**\n   - Click **🚀 Generate Report**\n   - Wait for processing (typically 30-90 seconds)\n\n### Step 2: Template Tab - Review Structure\n\n- View template sections automatically detected\n- See the template preview\n- Verify section headings match your needs\n\n### Step 3: Report Tab - View & Download\n\n1. **Select Sections:**\n   - Choose which sections to include\n   \n2. **Preview:**\n   - View the generated report content\n   - Check formatting and content quality\n   \n3. **Download:**\n   - Select desired format from dropdown\n   - Click **📥 Download** button\n   - File saves with timestamp\n\n---\n\n## 📦 Supported Formats\n\n### Input Formats\n\n| Type | Extensions | Notes |\n|------|------------|-------|\n| **Documents** | `.pdf`, `.docx`, `.txt`, `.md` | Text extraction with classification |\n| **\n\n## Work breakdown\nEric: backend\nBeverly: frontend\n\n## Limitations and future work \n The figure below was the planned architecture; however, we did not have enough time to create all of the AI agents. Future work includes linking multiple AI agents for specific sections to the dashboard, as this will result in more accurate reports.\n\n ![System Architecture](Notes/Design%20Diagram.png)",
+      "judgesNotes": "- I don't think Streamlit/python is the best choice for this kind of app\n\nThings I noticed:\n- when nothing uploaded, the 'report' section had a 'bad link' image or something\n- unclear what 'Include Metadata' does\n- was unable to accept a 'gif'\n- got lots of 'unable to generate report' messages, but no reason why\n- inconsistent results - seemed to depend on the 'template' that I fed it. \n- despite seeming to 'succeeded' based on the terminal output, it still showed a previous run's output, and I was unable to see the successful run\n- was unable to get images working\n- no editable preview\n- no way to add logo, header, footers, etc.",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCJh1kXHJEVzUDGRIgIFMjChJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJLfHF/Ag0ORhUNCChTBHpRFCoBDg0kLCRGUAJkTyE3MSsBWi8cKg9CEQcyVlw=",
       "specialAwards": []
     },
     {
       "id": "john-angelou-mostapha-abdelaziz-project",
       "teamId": "john-angelou-mostapha-abdelaziz",
       "title": "Report Generator - John Angelou & Mostapha Abdelaziz",
-      "description": "Project submission for Hackathon 2: The Revenge",
+      "description": "![john_mostapha_h2-1](/images/john_mostapha_h2-1.png)\nHere is the demo video: [https://rocscienceinc-my.sharepoint.com/:v:/g/personal/mostapha_abdelaziz_rocscience_com/IQBHVfsde8MIQIukMAea0OyRAXrhUeIC066utnrop6QS8vo](https://rocscienceinc-my.sharepoint.com/:v:/g/personal/mostapha_abdelaziz_rocscience_com/IQBHVfsde8MIQIukMAea0OyRAXrhUeIC066utnrop6QS8vo)\n\nRepo Link: [https://rocscience.visualstudio.com/Hackathons/_git/NewHackathon](https://rocscience.visualstudio.com/Hackathons/_git/NewHackathon)\n\nWork Breakdown:\nJohn:\n- Preview/Editing UI|\n- Exporting\n- AI Importing/Reading PDFs\n- Table of Contents\n\nMostapha:\n- AI Content Generation and Implementation\n- Template Implementation\n- Scrapped Header/Footer Implementation\n\n# AI Report Generator\n\nA WPF desktop application that leverages OpenAI's GPT-4 to generate professional engineering technical reports from source documents. Built with .NET 8 and designed for structural engineering teams at Rocscience.\n\n![.NET 8](https://img.shields.io/badge/.NET-8.0-512BD4)\n![WPF](https://img.shields.io/badge/WPF-Windows-0078D7)\n![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-412991)\n\n## Features\n\n- **AI-Powered Report Generation**: Uses OpenAI GPT-4o to intelligently synthesize content from multiple source documents into a cohesive technical report\n- **Multi-Format Input Support**: Import PDFs, text files, markdown documents, and images as source material\n- **Template-Based Structure**: Define your report structure using customizable markdown templates\n- **Real-Time Streaming**: Watch your report generate in real-time with streaming AI output\n- **Live Markdown Preview**: Toggle between edit mode and rendered preview using WebView2\n- **PDF Export**: Export your reports to PDF with automatic table of contents generation\n- **Appendix Management**: Attach PDF appendices that are automatically merged with cover pages during export\n- **Smart Content Handling**: Option to preserve original content (\"Keep as-is\") for text/markdown files\n- **Company Branding**: Add your company logo and information that persists between sessions\n- **Image Insertion**: Insert images from your source files directly into the report with markdown syntax\n\n## Requirements\n\n- Windows 10/11\n- .NET 8.0 SDK\n- WebView2 Runtime (usually pre-installed on Windows 10/11)\n\n## Getting Started\n\n### Running from Cursor IDE\n\nThe easiest way to launch the application is directly from Cursor:\n\n1. Open the project folder in Cursor\n2. Open the integrated terminal (`Ctrl+``)\n3. Navigate to the project directory and run:\n\n```powershell\ncd ReportGenerator\ndotnet run\n```\n\nAlternatively, you can use Cursor's built-in run functionality or ask the AI assistant to launch the program for you.\n\n### Running from Command Line\n\n```powershell\ncd ReportGenerator\ndotnet build\ndotnet run\n```\n\n### Building for Release\n\n```powershell\ncd ReportGenerator\ndotnet publish -c Release\n```\n\nThe executable will be located in `bin/Release/net8.0-windows/publish/`.\n\n## Usage\n\n### 1. Add Source Files\nClick **\"+ Add Files\"** to import your source documents:\n- **PDF files** - Extracted text and tables are parsed automatically\n- **Text/Markdown files** - Can optionally be preserved as-is without AI modification\n- **Images** - Referenced in the report using markdown image syntax\n\n### 2. Configure Report Settings\n- Select or import a **report template** to define the structure\n- Fill in **company information** (saved automatically for future sessions)\n- Add a **company logo** for the cover page\n- Optionally add **appendix PDFs** to attach at the end\n\n### 3. Generate Report\nClick **\"🤖 Generate Report\"** to start AI generation. The report streams in real-time - watch as each section is created based on your source materials.\n\n### 4. Edit & Preview\n- Toggle between **Edit Mode** (raw markdown) and **Preview Mode** (rendered HTML)\n- Insert images using the toolbar buttons\n- Make manual adjustments as needed\n\n### 5. Export\nClick **\"💾 Export PDF\"** to save your report:\n- **PDF format** - Rendered with proper styling, optional table of contents, and merged appendices\n- **Markdown format** - Raw markdown with appendix content extracted\n\n## Dependencies\n\n- [CommunityToolkit.Mvvm](https://www.nuget.org/packages/CommunityToolkit.Mvvm) - MVVM framework\n- [Microsoft.Web.WebView2](https://www.nuget.org/packages/Microsoft.Web.WebView2) - Markdown preview rendering\n- [OpenAI](https://www.nuget.org/packages/OpenAI) - AI report generation\n- [Docnet.Core](https://www.nuget.org/packages/Docnet.Core) - PDF text extraction\n- [PdfSharpCore](https://www.nuget.org/packages/PdfSharpCore) - PDF merging and manipulation\n\n## License\n\nInternal use only - Rocscience\n\n---\n\n*Built for the Rocscience Hackathon*\n",
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
       "id": "edwin-yang-danial-khan-project",
       "teamId": "edwin-yang-danial-khan",
       "title": "Report Generator - Edwin Yang & Danial Khan",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "We're excited to share what we accomplished during today’s hackathon! \nWe built a complete AI-Powered Report Generation feature that enables users to generate, edit, and export professional technical reports directly within RSInsight.\n\nWhat We Built\nReport Generator Agent (AI Core) – Danial\nPR: https://github.com/Rocscience/rsgpt-ai-core/pull/39\n• New agent powered by Claude to generate professional, geotechnical-aware markdown reports\n• Integrated as a callable tool within the orchestration agent\n• Streams reports as separate SSE events (report.generated) to preserve context budget\n• Supports analysis of uploaded documents via Claude Files API\n\nBackend Support (BE) – Danial\nPR: https://github.com/Rocscience/rsgpt-be/pull/59\n• Proxying of report.generated events from AI Core to the frontend\n• Database schema prepared for future report persistence\n\nFrontend Report Canvas (FE) – Edwin\nPR: https://github.com/Rocscience/rsgpt-fe/pull/81\n• File upload to Claude Files API (up to 100MB)\n• TipTap markdown editor with bidirectional parsing + WYSIWYG editing\n• Collapsible Report Canvas with preview snippet\n• Edit mode with full rich-text controls\n• View mode with formatted markdown\n• Export as text-based PDF or Markdown\n• Inline streaming: reports appear inline and persist in the conversation\n\nTechnical Highlights\n• TipTap + MarkedJS for markdown parsing and serialization\n• SSE architecture keeps report streaming separate from primary AI responses\n• Context window optimization: report output doesn’t consume token budget\n• Proper text-based PDF export with pagination\n\n![](/images/danial-edwin-h2-1.png)\n\nDemo Flow\nUser requests a report and optionally uploads files\n\nAI invokes the Report Generator\n\nReport appears inline as a collapsible canvas\n\nUser can expand, edit, and export\n\nConversation continues below the report\n\nFor the demo I performed analysis in RS2, then uploaded a template PDF, and asked it to merge the results into a similar type of PDF.\n\nNote, the Claude Files API is able to visually understand the PDF as explained in the video, https://platform.claude.com/docs/en/build-with-claude/pdf-support.\n\nHere are two Loom videos, please watch them sequentially, I had a limit for my free loom plan:\n\n\n[Cursor - report-canvas.tsx — rsinsight (Workspace) - 10 December 2025](https://www.loom.com/share/530a2a569db9413982dbb0502eaecdca)\n\n\n[Generating and Exporting Professional Reports: A Step-by-Step Guide](https://www.loom.com/share/407c082276ac478b97a5d228f7d903b5)\n\n\n\nLimitations:\n\n1. Claude Files API only accepts PDFs with 100 pages or less\n\n2. Currently we do not put images into the actual generated PDF, but the report agent does understand image input\n\n-> This can be added in the future by uploading to an S3 bucket and referencing those files before we convert the file to a PDF.\n\n3. Currently the PDF conversation happens on the client side, it would be better if we could do this on the server side.\n\n4. Currently this would be difficult to set up on someones machine, but I can temporarily make this available on the staging server of RSInsight for you to test.",
+      "judgesNotes": "- This is an interesting approach to this problem!\n",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": []
     },
     {
@@ -388,14 +311,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
@@ -406,14 +322,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
@@ -424,14 +333,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     },
     {
@@ -442,14 +344,7 @@
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": {
-        "workScope": 0,
-        "polish": 0,
-        "funUseful": 0,
-        "creativity": 0,
-        "innovation": 0,
-        "doesItWork": 0
-      },
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
       "specialAwards": []
     }
   ],
@@ -510,4 +405,3 @@
     ]
   }
 }
-
