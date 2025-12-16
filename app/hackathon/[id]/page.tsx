@@ -47,8 +47,33 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
     }
   };
 
+  // Helper function to get background color for category winners
+  const getCategoryBgColor = (category?: string) => {
+    switch (category) {
+      case '3D Soil Layers':
+        return 'from-blue-600 to-blue-700';
+      case 'Report Generator':
+        return 'from-green-600 to-green-700';
+      case 'Geometry Cleanup':
+        return 'from-purple-600 to-purple-700';
+      default:
+        return 'from-gray-600 to-gray-700';
+    }
+  };
+
   // Check if any teams have project categories (for showing legend)
   const hasProjectCategories = data.teams.some(team => team.projectCategory);
+
+  // Get winners by project category (if categories exist)
+  const categoryWinners = hasProjectCategories ? (() => {
+    const categories = [...new Set(data.teams.map(t => t.projectCategory).filter(Boolean))];
+    return categories.map(category => {
+      const categoryTeamIds = data.teams.filter(t => t.projectCategory === category).map(t => t.id);
+      const categoryProjects = projectsWithScores.filter(p => categoryTeamIds.includes(p.teamId));
+      const winner = categoryProjects.length > 0 ? categoryProjects[0] : null;
+      return { category, winner };
+    }).filter(cw => cw.winner !== null);
+  })() : [];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
@@ -79,61 +104,99 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Top 3 Projects - Only show if results are published */}
+        {/* Winners - Only show if results are published */}
         {hackathonInfo?.resultsPublished && (
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              🥇 Top 3 Projects
-            </h2>
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Rank
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Project
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Team
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {top3Projects.map((project, index) => {
-                    const team = data.teams.find(t => t.id === project.teamId);
+            {hasProjectCategories ? (
+              // Show winners by project category
+              <>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  🏆 Project Category Winners
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {categoryWinners.map(({ category, winner }) => {
+                    const team = data.teams.find(t => t.id === winner!.teamId);
+                    const bgColor = getCategoryBgColor(category as string);
                     
                     return (
-                      <tr key={project.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`text-2xl font-bold ${
-                            index === 0 ? 'text-yellow-500' : 
-                            index === 1 ? 'text-gray-400' : 
-                            'text-orange-600'
-                          }`}>
-                            {index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4">
+                      <div key={category} className="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div className={`bg-gradient-to-r ${bgColor} px-6 py-4`}>
+                          <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                            <span>🥇</span>
+                            <span>{category}</span>
+                          </h3>
+                        </div>
+                        <div className="p-6">
                           <Link 
-                            href={`/hackathon/${id}/team/${project.teamId}`}
-                            className="text-blue-600 hover:text-blue-800 font-medium text-lg"
+                            href={`/hackathon/${id}/team/${winner!.teamId}`}
+                            className="text-blue-600 hover:text-blue-800 font-semibold text-lg block mb-2"
                           >
-                            {project.title}
+                            {winner!.title}
                           </Link>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {team?.name}
-                        </td>
-                      </tr>
+                          <p className="text-sm text-gray-600">{team?.name}</p>
+                        </div>
+                      </div>
                     );
                   })}
-                </tbody>
-              </table>
-            </div>
-          </div>
+                </div>
+              </>
+            ) : (
+              // Show traditional top 3
+              <>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  🥇 Top 3 Projects
+                </h2>
+                <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-200">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Rank
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Project
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Team
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200">
+                        {top3Projects.map((project, index) => {
+                          const team = data.teams.find(t => t.id === project.teamId);
+                          
+                          return (
+                            <tr key={project.id} className="hover:bg-gray-50">
+                              <td className="px-6 py-4 whitespace-nowrap">
+                                <span className={`text-2xl font-bold ${
+                                  index === 0 ? 'text-yellow-500' : 
+                                  index === 1 ? 'text-gray-400' : 
+                                  'text-orange-600'
+                                }`}>
+                                  {index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}
+                                </span>
+                              </td>
+                              <td className="px-6 py-4">
+                                <Link 
+                                  href={`/hackathon/${id}/team/${project.teamId}`}
+                                  className="text-blue-600 hover:text-blue-800 font-medium text-lg"
+                                >
+                                  {project.title}
+                                </Link>
+                              </td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                {team?.name}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </>
+            )}
           </section>
         )}
 
