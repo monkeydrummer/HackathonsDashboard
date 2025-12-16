@@ -1,0 +1,513 @@
+{
+  "teams": [
+    {
+      "id": "liam-patterson-riana-mcbride",
+      "name": "Liam Patterson & Riana McBride",
+      "members": [
+        "Liam Patterson",
+        "Riana McBride"
+      ],
+      "projects": [
+        "liam-patterson-riana-mcbride-project"
+      ],
+      "projectCategory": "3D Soil Layers"
+    },
+    {
+      "id": "arnav-singh-igor-milevskiy",
+      "name": "Arnav Singh & Igor Milevskiy",
+      "members": [
+        "Arnav Singh",
+        "Igor Milevskiy"
+      ],
+      "projects": [
+        "arnav-singh-igor-milevskiy-project"
+      ],
+      "projectCategory": "3D Soil Layers"
+    },
+    {
+      "id": "abhi-sharma-tina-yee",
+      "name": "Abhi Sharma & Tina Yee",
+      "members": [
+        "Abhi Sharma",
+        "Tina Yee"
+      ],
+      "projects": [
+        "abhi-sharma-tina-yee-project"
+      ],
+      "projectCategory": "3D Soil Layers"
+    },
+    {
+      "id": "ali-chaudhry-carter-comish",
+      "name": "Ali Chaudhry & Carter Comish",
+      "members": [
+        "Ali Chaudhry",
+        "Carter Comish"
+      ],
+      "projects": [
+        "ali-chaudhry-carter-comish-project"
+      ],
+      "projectCategory": "3D Soil Layers"
+    },
+    {
+      "id": "hamza-salhi-samer-hmoud",
+      "name": "Hamza Salhi & Samer Hmoud",
+      "members": [
+        "Hamza Salhi",
+        "Samer Hmoud"
+      ],
+      "projects": [
+        "hamza-salhi-samer-hmoud-project"
+      ],
+      "projectCategory": "3D Soil Layers"
+    },
+    {
+      "id": "cristian-salvalaggio-armen-uzunian",
+      "name": "Cristian Salvalaggio & Armen Uzunian",
+      "members": [
+        "Cristian Salvalaggio",
+        "Armen Uzunian"
+      ],
+      "projects": [
+        "cristian-salvalaggio-armen-uzunian-project"
+      ],
+      "projectCategory": "Report Generator"
+    },
+    {
+      "id": "angela-li-liam-sy",
+      "name": "Angela Li & Liam Sy",
+      "members": [
+        "Angela Li",
+        "Liam Sy"
+      ],
+      "projects": [
+        "angela-li-liam-sy-project"
+      ],
+      "projectCategory": "Report Generator"
+    },
+    {
+      "id": "luca-duran-connor-burns",
+      "name": "Luca Duran & Connor Burns",
+      "members": [
+        "Luca Duran",
+        "Connor Burns"
+      ],
+      "projects": [
+        "luca-duran-connor-burns-project"
+      ],
+      "projectCategory": "Report Generator"
+    },
+    {
+      "id": "eric-wang-beverly-yang",
+      "name": "Eric Wang & Beverly Yang",
+      "members": [
+        "Eric Wang",
+        "Beverly Yang"
+      ],
+      "projects": [
+        "eric-wang-beverly-yang-project"
+      ],
+      "projectCategory": "Report Generator"
+    },
+    {
+      "id": "john-angelou-mostapha-abdelaziz",
+      "name": "John Angelou & Mostapha Abdelaziz",
+      "members": [
+        "John Angelou",
+        "Mostapha Abdelaziz"
+      ],
+      "projects": [
+        "john-angelou-mostapha-abdelaziz-project"
+      ],
+      "projectCategory": "Report Generator"
+    },
+    {
+      "id": "edwin-yang-danial-khan",
+      "name": "Edwin Yang & Danial Khan",
+      "members": [
+        "Edwin Yang",
+        "Danial Khan"
+      ],
+      "projects": [
+        "edwin-yang-danial-khan-project"
+      ],
+      "projectCategory": "Report Generator"
+    },
+    {
+      "id": "eugene-greene-michael-wei",
+      "name": "Eugene Greene & Michael Wei",
+      "members": [
+        "Eugene Greene",
+        "Michael Wei"
+      ],
+      "projects": [
+        "eugene-greene-michael-wei-project"
+      ],
+      "projectCategory": "Geometry Cleanup"
+    },
+    {
+      "id": "luke-oulahen-daniel-wai",
+      "name": "Luke Oulahen & Daniel Wai",
+      "members": [
+        "Luke Oulahen",
+        "Daniel Wai"
+      ],
+      "projects": [
+        "luke-oulahen-daniel-wai-project"
+      ],
+      "projectCategory": "Geometry Cleanup"
+    },
+    {
+      "id": "ivan-chen-grace-hu",
+      "name": "Ivan Chen & Grace Hu",
+      "members": [
+        "Ivan Chen",
+        "Grace Hu"
+      ],
+      "projects": [
+        "ivan-chen-grace-hu-project"
+      ],
+      "projectCategory": "Geometry Cleanup"
+    },
+    {
+      "id": "anton-mlynczyk-ted-liu",
+      "name": "Anton Mlynczyk & Ted Liu",
+      "members": [
+        "Anton Mlynczyk",
+        "Ted Liu"
+      ],
+      "projects": [
+        "anton-mlynczyk-ted-liu-project"
+      ],
+      "projectCategory": "Geometry Cleanup"
+    }
+  ],
+  "projects": [
+    {
+      "id": "liam-patterson-riana-mcbride-project",
+      "teamId": "liam-patterson-riana-mcbride",
+      "title": "3D Soil Layers - Liam Patterson & Riana McBride",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "arnav-singh-igor-milevskiy-project",
+      "teamId": "arnav-singh-igor-milevskiy",
+      "title": "3D Soil Layers - Arnav Singh & Igor Milevskiy",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "abhi-sharma-tina-yee-project",
+      "teamId": "abhi-sharma-tina-yee",
+      "title": "3D Soil Layers - Abhi Sharma & Tina Yee",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "ali-chaudhry-carter-comish-project",
+      "teamId": "ali-chaudhry-carter-comish",
+      "title": "3D Soil Layers - Ali Chaudhry & Carter Comish",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "hamza-salhi-samer-hmoud-project",
+      "teamId": "hamza-salhi-samer-hmoud",
+      "title": "3D Soil Layers - Hamza Salhi & Samer Hmoud",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "cristian-salvalaggio-armen-uzunian-project",
+      "teamId": "cristian-salvalaggio-armen-uzunian",
+      "title": "Report Generator - Cristian Salvalaggio & Armen Uzunian",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "angela-li-liam-sy-project",
+      "teamId": "angela-li-liam-sy",
+      "title": "Report Generator - Angela Li & Liam Sy",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "luca-duran-connor-burns-project",
+      "teamId": "luca-duran-connor-burns",
+      "title": "Report Generator - Luca Duran & Connor Burns",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "eric-wang-beverly-yang-project",
+      "teamId": "eric-wang-beverly-yang",
+      "title": "Report Generator - Eric Wang & Beverly Yang",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "john-angelou-mostapha-abdelaziz-project",
+      "teamId": "john-angelou-mostapha-abdelaziz",
+      "title": "Report Generator - John Angelou & Mostapha Abdelaziz",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "edwin-yang-danial-khan-project",
+      "teamId": "edwin-yang-danial-khan",
+      "title": "Report Generator - Edwin Yang & Danial Khan",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "eugene-greene-michael-wei-project",
+      "teamId": "eugene-greene-michael-wei",
+      "title": "Geometry Cleanup - Eugene Greene & Michael Wei",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "luke-oulahen-daniel-wai-project",
+      "teamId": "luke-oulahen-daniel-wai",
+      "title": "Geometry Cleanup - Luke Oulahen & Daniel Wai",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "ivan-chen-grace-hu-project",
+      "teamId": "ivan-chen-grace-hu",
+      "title": "Geometry Cleanup - Ivan Chen & Grace Hu",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    },
+    {
+      "id": "anton-mlynczyk-ted-liu-project",
+      "teamId": "anton-mlynczyk-ted-liu",
+      "title": "Geometry Cleanup - Anton Mlynczyk & Ted Liu",
+      "description": "Project submission for Hackathon 2: The Revenge",
+      "judgesNotes": "",
+      "images": [],
+      "links": [],
+      "scores": {
+        "workScope": 0,
+        "polish": 0,
+        "funUseful": 0,
+        "creativity": 0,
+        "innovation": 0,
+        "doesItWork": 0
+      },
+      "specialAwards": []
+    }
+  ],
+  "config": {
+    "categories": [
+      {
+        "id": "workScope",
+        "label": "Amount of Work/Scope",
+        "weight": 1
+      },
+      {
+        "id": "polish",
+        "label": "Polish (UI UX)",
+        "weight": 1
+      },
+      {
+        "id": "funUseful",
+        "label": "Fun/Usefulness",
+        "weight": 1
+      },
+      {
+        "id": "creativity",
+        "label": "Creativity",
+        "weight": 1
+      },
+      {
+        "id": "innovation",
+        "label": "Innovation",
+        "weight": 1
+      },
+      {
+        "id": "doesItWork",
+        "label": "Does it work?",
+        "weight": 1
+      }
+    ],
+    "specialAwards": [
+      {
+        "id": "best-ui-ux",
+        "name": "Best UI/UX",
+        "emoji": "🎨"
+      },
+      {
+        "id": "most-useful",
+        "name": "Most Useful",
+        "emoji": "🔧"
+      },
+      {
+        "id": "most-ambitious",
+        "name": "Most Ambitious",
+        "emoji": "🚀"
+      },
+      {
+        "id": "best-team-collaboration",
+        "name": "Best Team Collaboration",
+        "emoji": "🤝"
+      }
+    ]
+  }
+}
+

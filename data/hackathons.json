@@ -1,6 +1,16 @@
 {
   "hackathons": [
     {
+      "id": "2025-12-10",
+      "name": "Hackathon 2: The Revenge",
+      "date": "2025-12-10",
+      "description": "Three AI focused projects: Report Generator, Geometry Cleanup, and 3D Soil Layers!",
+      "emoji": "🤖",
+      "dataFile": "2025-12-10.json",
+      "resultsPublished": false,
+      "adminPassword": "Gg4AEggdDQENVx1aVFJZUEQ="
+    },
+    {
       "id": "2025-10-31",
       "name": "Halloween Hackathon 2025",
       "date": "2025-10-31",

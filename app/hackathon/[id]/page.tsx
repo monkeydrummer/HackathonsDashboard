@@ -33,6 +33,23 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
   // Get special award winners
   const awardWinners = data.projects.filter(p => p.specialAwards.length > 0);
 
+  // Helper function to get border color based on project category
+  const getProjectCategoryColor = (category?: string) => {
+    switch (category) {
+      case '3D Soil Layers':
+        return 'border-blue-500 hover:border-blue-600';
+      case 'Report Generator':
+        return 'border-green-500 hover:border-green-600';
+      case 'Geometry Cleanup':
+        return 'border-purple-500 hover:border-purple-600';
+      default:
+        return 'border-gray-200 hover:border-blue-400';
+    }
+  };
+
+  // Check if any teams have project categories (for showing legend)
+  const hasProjectCategories = data.teams.some(team => team.projectCategory);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
@@ -239,19 +256,49 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             👥 All Teams
           </h2>
+          
+          {/* Project Category Legend */}
+          {hasProjectCategories && (
+            <div className="mb-6 bg-white rounded-lg shadow-sm p-4 border border-gray-200">
+              <h3 className="text-sm font-semibold text-gray-700 mb-3">Project Categories:</h3>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded border-4 border-blue-500"></div>
+                  <span className="text-sm text-gray-700">3D Soil Layers</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded border-4 border-green-500"></div>
+                  <span className="text-sm text-gray-700">Report Generator</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded border-4 border-purple-500"></div>
+                  <span className="text-sm text-gray-700">Geometry Cleanup</span>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.teams.map(team => {
               const teamProjects = data.projects.filter(p => p.teamId === team.id);
+              const borderColor = getProjectCategoryColor(team.projectCategory);
 
               return (
                 <Link
                   key={team.id}
                   href={`/hackathon/${id}/team/${team.id}`}
-                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-200 hover:border-blue-400"
+                  className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border-2 ${borderColor}`}
                 >
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {team.name}
                   </h3>
+                  {team.projectCategory && (
+                    <div className="mb-2">
+                      <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                        {team.projectCategory}
+                      </span>
+                    </div>
+                  )}
                   <div className="mb-3">
                     <p className="text-sm text-gray-600 mb-1">Team Members:</p>
                     <div className="flex flex-wrap gap-2">

@@ -35,9 +35,13 @@ export default function AdminPage() {
   const [projectSortBy, setProjectSortBy] = useState<'score-desc' | 'score-asc' | 'alpha' | 'team'>('score-desc');
 
   useEffect(() => {
+    // Fetch hackathon info before authentication to get per-hackathon password
+    fetchHackathonsList();
+  }, []);
+
+  useEffect(() => {
     if (isAuthenticated) {
       fetchData();
-      fetchHackathonsList();
     }
   }, [isAuthenticated]);
 
@@ -57,8 +61,8 @@ export default function AdminPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Verify against obfuscated password
-    if (verifyPassword(password)) {
+    // Verify against obfuscated password (global or hackathon-specific)
+    if (verifyPassword(password, currentHackathon?.adminPassword)) {
       setIsAuthenticated(true);
     } else {
       alert('Incorrect password');
@@ -519,6 +523,39 @@ export default function AdminPage() {
     });
   };
 
+  const deleteCategory = (categoryId: string) => {
+    if (!data) return;
+
+    // Confirm deletion
+    if (!confirm(`Are you sure you want to delete this category? This will remove all scores for "${categoryId}" from all projects.`)) {
+      return;
+    }
+
+    // Remove category from config
+    const updatedCategories = data.config.categories.filter(cat => cat.id !== categoryId);
+
+    // Remove scores for this category from all projects
+    const updatedProjects = data.projects.map(project => {
+      const { [categoryId]: removed, ...remainingScores } = project.scores;
+      return {
+        ...project,
+        scores: remainingScores as any, // Type assertion since we're dynamically removing a key
+      };
+    });
+
+    setData({
+      ...data,
+      projects: updatedProjects,
+      config: {
+        ...data.config,
+        categories: updatedCategories,
+      },
+    });
+
+    setMessage('⚠️ Category deleted. Remember to save your changes!');
+    setTimeout(() => setMessage(''), 5000);
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
@@ -801,6 +838,13 @@ export default function AdminPage() {
                         onChange={(e) => updateCategoryWeight(category.id, parseFloat(e.target.value) || 1)}
                         className="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center focus:ring-2 focus:ring-indigo-500 text-gray-900"
                       />
+                      <button
+                        onClick={() => deleteCategory(category.id)}
+                        className="px-3 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors text-sm font-medium"
+                        title="Delete category"
+                      >
+                        🗑️ Delete
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1185,6 +1229,19 @@ export default function AdminPage() {
                   const overallScore = calculateOverallScore(project.scores, data.config.categories);
                   const isReviewed = overallScore > 0;
                   
+                  const getCategoryColor = (category?: string) => {
+                    switch (category) {
+                      case '3D Soil Layers':
+                        return 'bg-blue-100 text-blue-700 border-blue-300';
+                      case 'Report Generator':
+                        return 'bg-green-100 text-green-700 border-green-300';
+                      case 'Geometry Cleanup':
+                        return 'bg-purple-100 text-purple-700 border-purple-300';
+                      default:
+                        return '';
+                    }
+                  };
+
                   return (
                     <button
                       key={project.id}
@@ -1205,7 +1262,14 @@ export default function AdminPage() {
                             )}
                             <span className="truncate">{project.title}</span>
                           </div>
-                          <div className="text-xs text-gray-600">{team?.name}</div>
+                          <div className="flex items-center gap-2">
+                            <div className="text-xs text-gray-600">{team?.name}</div>
+                            {team?.projectCategory && (
+                              <span className={`text-xs px-2 py-0.5 rounded border ${getCategoryColor(team.projectCategory)}`}>
+                                {team.projectCategory}
+                              </span>
+                            )}
+                          </div>
                         </div>
                         {isReviewed && (
                           <div className="flex-shrink-0">

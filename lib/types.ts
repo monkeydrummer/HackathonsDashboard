@@ -3,6 +3,7 @@ export interface Team {
   name: string;
   members: string[];
   projects: string[];
+  projectCategory?: string;
 }
 
 export interface Link {
@@ -62,6 +63,7 @@ export interface HackathonInfo {
   emoji: string;
   resultsPublished: boolean;
   dataFile: string;
+  adminPassword?: string; // Optional per-hackathon obfuscated password
 }
 
 export interface HackathonsList {

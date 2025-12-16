@@ -42,8 +42,16 @@ export function encodePassword(password: string): string {
 /**
  * Verify if a password matches the default or environment password
  */
-export function verifyPassword(inputPassword: string): boolean {
-  // Check against obfuscated default password
+export function verifyPassword(inputPassword: string, hackathonPassword?: string): boolean {
+  // Check against hackathon-specific password (if provided)
+  if (hackathonPassword) {
+    const decodedHackathonPassword = decodePassword(hackathonPassword);
+    if (inputPassword === decodedHackathonPassword) {
+      return true;
+    }
+  }
+  
+  // Check against obfuscated default password (global admin)
   const defaultPassword = decodePassword(OBFUSCATED_DEFAULT_PASSWORD);
   if (inputPassword === defaultPassword) {
     return true;
