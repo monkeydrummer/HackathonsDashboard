@@ -18,6 +18,7 @@ export interface Scores {
   creativity: number;
   innovation: number;
   doesItWork: number;
+  [key: string]: number; // Index signature to allow dynamic key access
 }
 
 export interface Project {

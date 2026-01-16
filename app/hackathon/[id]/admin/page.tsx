@@ -539,7 +539,7 @@ export default function AdminPage() {
       const { [categoryId]: removed, ...remainingScores } = project.scores;
       return {
         ...project,
-        scores: remainingScores as any, // Type assertion since we're dynamically removing a key
+        scores: remainingScores as Scores,
       };
     });
 
