@@ -186,56 +186,64 @@
       "id": "liam-patterson-riana-mcbride-project",
       "teamId": "liam-patterson-riana-mcbride",
       "title": "3D Soil Layers - Liam Patterson & Riana McBride",
-      "description": "Project submission for Hackathon 2: The Revenge",
+      "description": "![img1](/images/h2-liam-riana.png)\n\nThe best looking UI, does the job as expected, and shows clear output to the results.\nVery well clear understanding of the problem needs, and shows the results clearly.\nWell documented, easy to read.\nVery clear representation of the cross section visualizer, 3D model, all shown in one program. Very easy to follow and see the results.\n\nImprovements:\n3D volumized model with cross sections would be a way to see how the extrapolations between cross sections intersecting would be nice to see.\n\n \nOverall, great progress and program. Inputs and outputs very well defined and clearly outlined. Understanding of the problem is well received, and output very clear to see and test out.\n\n",
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
-      "specialAwards": []
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMgMBJEMg81HjcsJgM0Q2RDe18dXi8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWQcyVlw=",
+      "specialAwards": [
+        "best-ui-ux"
+      ]
     },
     {
       "id": "arnav-singh-igor-milevskiy-project",
       "teamId": "arnav-singh-igor-milevskiy",
       "title": "3D Soil Layers - Arnav Singh & Igor Milevskiy",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "![img1](/images/h2-igor_arnav.png)",
+      "judgesNotes": "-\tGreat representation and well-written theory for explanation of the approaches.\n-\tApplication well done. Reads all required inputs and outputs correctly.\n-\tEasy to follow files with its distinct algorithms.\n\nImprovements:\n-\tFull 3D visualization with layers overlapping would be an improvement to make, instead of having each layers represented separately (when I ran, it just provided bunch of layers separately, which I had to ask cursor to combine the layers to see the full 3D image\n \n-\tStill the outputs are bit hard for me to visually see. The inputs are hard-coded. In terms of flexibility as a feature this is probably not the best program right now to use easily. I still need to revise the code to make it easy to use with clear input field\n",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMgIBJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
       "specialAwards": []
     },
     {
       "id": "abhi-sharma-tina-yee-project",
       "teamId": "abhi-sharma-tina-yee",
       "title": "3D Soil Layers - Abhi Sharma & Tina Yee",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "",
+      "judgesNotes": "Nailed it. Addressed the issue with unknowns with use of AI system with new method (Reinforcement Learning) as well as visualization issues with boreholes.\nAble to identify the issue and label correctly to achieve the 3D projection with cross section.\nThe best project and answered the question stated.\n",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
-      "specialAwards": []
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCOh1kXHJEVzUDGRIgIFMgMBJEMg81HjcsJgM0Q2RDe18dXi8wKQMGAzUNSS8NUQo5Jl0mBEIDfHF/Ag0ORhUNCChTBHpRFCoBDkUkLCRGUAJkTyE3MSsBWi8cKg9CWQcyVlw=",
+      "specialAwards": [
+        "best-ui-ux",
+        "most-useful"
+      ]
     },
     {
       "id": "ali-chaudhry-carter-comish-project",
       "teamId": "ali-chaudhry-carter-comish",
       "title": "3D Soil Layers - Ali Chaudhry & Carter Comish",
-      "description": "Project submission for Hackathon 2: The Revenge",
+      "description": "Great work getting the set up for AI assisted system to recognize the patterns of borehole configuration with cross section\nCreative approach with user-defined cross section and very easy to follow / use tools for crosss section and boreholes.\n\nImprovements:\nIt’d be great to see the extrapolation of the cross section to 3D surface. So far, this has its limitation with user defined cross section and boreholes. What if the cross section has already been defined in the json file and would the system be able to generate 3D model off of the provided result?\n",
       "judgesNotes": "",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMgIBJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": []
     },
     {
       "id": "hamza-salhi-samer-hmoud-project",
       "teamId": "hamza-salhi-samer-hmoud",
       "title": "3D Soil Layers - Hamza Salhi & Samer Hmoud",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "",
+      "judgesNotes": "Pros\nGreat work with research and digging into more realistic modelling approach by looking at the database and connecting with libraries to train the model.\nCreative approach and kudos for taking initiative to start with training the dataset by synthesizing data and testing out small samples and verifying on the results.\nRecognizing on the limitations and coming up with alternative solution was very clear and well planned out.\nLimitations\nCodebase is not provided so I wasn’t able to test out edge cases.\nAlso explanation of the training was well done but without the codebase and shared repos, it’s bit hard to evaluate the system. It was great place as starter for analysis of given problem, rather than building a program to solve various different scenarios.\n",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
-      "specialAwards": []
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMgIBJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CWAcyVlw=",
+      "specialAwards": [
+        "most-ambitious",
+        "best-video-demo"
+      ]
     },
     {
       "id": "cristian-salvalaggio-armen-uzunian-project",
