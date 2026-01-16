@@ -307,44 +307,48 @@
       "id": "eugene-greene-michael-wei-project",
       "teamId": "eugene-greene-michael-wei",
       "title": "Geometry Cleanup - Eugene Greene & Michael Wei",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "Repo: https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common\n\nBranch: ai-diagnostics-hackathon/eugene-michael\n\n \n\nREADME: https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common?path=/AIREPAIR.README.md&_a=preview\n\n \n\nVideo: https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common?path=/ai_driven_geometry_cleanup.webm\n\nImage: https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common?path=/ai_driven_geometry_cleanup.png\n\n \n\nRequirements: https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common?path=/requirements.txt\n\n \n\nWork breakdown: https://rocscience.visualstudio.com/RFC_Common/_git/RFC_Common?path=/AIREPAIR.README.md&_a=preview&anchor=developer-assignments",
+      "judgesNotes": "UI:\nI like the UI - showing the defect statistics with step by step diagnosis, fix attempt, results, and the annotated geometry in the main view let's you know what it's trying very clearly. \n\nHowever, the system shows the ai repair suggestions and then completely ignores it, opting for it's own rule based system of repairing all, then only non-manifold, then only holes, etc. This was misleading to me as I thought it would follow the ai's suggestion.\n\nfunctionality:\nIt does all of the basic things available in our repair tool, going further than just one click, it tries running the repair tools one at a time; first holes, then non manifold, etc. If the model can be fixed using the tools available in this dialog, then this system could save the user time of tediously repeating basic repair steps. \n\nI think this is a very reasonable thing to try and accomplish in a day. However, I would have rewarded more points for attempting to use AI in a more ambitious way, perhaps giving it images and guidelines for when to recommend to try and shrink wrap, or merge two entities, etc. \n\nOverall I think this is a good rule based system to help automate basic repairs with a strong UI, but suffers from a lack of ambition to use the machine learning flavor of ai to resolve larger issues. ",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCIh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": []
     },
     {
       "id": "luke-oulahen-daniel-wai-project",
       "teamId": "luke-oulahen-daniel-wai",
       "title": "Geometry Cleanup - Luke Oulahen & Daniel Wai",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "GeomRehab – Take your geometry from fucked to fixed  \n\nA single application to load a variety of geometry files, perform several cleaning and simplifying operations, and most importantly receive AI powered suggestions on how to take your geometry to the next level!\n\nLink to Repo: https://rocscience.visualstudio.com/Hackathons/_git/GeomRehab\n\n \n\nDescription of Gif (simply pretend I am speaking as the gif is playing): You can load geometry and look at it and stuff, you can do simplification things, and look at the geometry stats like triangle count. You can ask a question about how to use the simplification tools and receive an AI powered answer guiding you through the process.\n\n \n\nTeam work breakdown:\n\nLuke: wpf app and geometry stuff\n\nDaniel: AI integration",
+      "judgesNotes": "Holy cow! Building a whole new geometry editor is crazy for a day. Good use of 3rd party libraries like geometry3Sharp to do geometry operations and HelixToolkit for visualization. I like the idea of creating a separate geometry editor, it makes it easier to find the relevant operations that can be performed. The use of AI to suggest which tools to use is great. I noticed that it did seem to recommend that I use all of them every time, perhaps if we gave it some more example cases for what to do if it thinks it's dealing with a tunnel vs slope, then it may be more useful. You could also try and give it images of the model.",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
-      "specialAwards": []
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCOh1kXHJEVzUDGRIgIFMgMBJEMg81HjcsJgM0Q2RDe18dXy8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDkQkLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
+      "specialAwards": [
+        "most-ambitious"
+      ]
     },
     {
       "id": "ivan-chen-grace-hu-project",
       "teamId": "ivan-chen-grace-hu",
       "title": "Geometry Cleanup - Ivan Chen & Grace Hu",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "[Associated RS3 Scripting PR](https://rocscience.visualstudio.com/RS3Scripting/_git/RS3Scripting/pullrequest/23326)\n\nTeam: Ivan & Grace\n\nWork breakdown:\nIvan:\n- Created a workflow for AI to follow for cleanup\n- Setup RSInsight for taking users' prompts to clean up geometry automatically\n- Record the video for demo\nGrace:\n- Exposed surface triangulation tools, repairs, and divide all in RS3 scripting\n\nHow to build: \n1. Connect RS3 MCP to cursor\n2. Open RS3\n3. Follow README.md Build Section in RS3Scripting to install RS3Scripting\n## Build\n\nFirst, make sure you have python installed on your computer. Then follow the steps to build:  \n1. Run the command below to install the python build module.    \n```python -m pip install --upgrade build```  \n2. Run the script to build and reinstall:\n```./buildAndReinstall.bat```  \n\nThe next time you update the library, it can be re-built and re-installed using:\n```./buildAndReinstall.bat```\n\n4. Turn on the scripting server port and drag the test file in\n5. Tell Cursor which file you want to clean up. If you have any specific geometry you want to clean up, you can get the name of the geometry and tell cursor to fix that specific one.\n\nGIF Screenshot:\n![Hackathon_Demo (1) (2).gif](https://rocscience.visualstudio.com/c5517f3f-c52e-4a50-8a4c-5611a458b9ab/_apis/git/repositories/fc99cf50-c1fb-437d-86bd-33236c171d47/pullRequests/23325/attachments/Hackathon_Demo%20%281%29%20%282%29.gif) \n\nLink to MCP server.exe\nhttps://rocscienceinc-my.sharepoint.com/:u:/g/personal/ivan_chen_rocscience_com/IQCZUeKObrknSIdQSTZsYPrZAVVi2MZJqMMruql4PTsHjqc?e=y49Nfs\n\nLink to Video Demo:\nDemo Video\nhttps://rocscienceinc-my.sharepoint.com/:v:/g/personal/ivan_chen_rocscience_com/IQAB3X0ehFeEQpUM4L_ajJOOAa5Iahteuo1tCV3rK-CqkyY?e=41s1Td\nInstallation Instructions Video\nhttps://rocscienceinc-my.sharepoint.com/:v:/g/personal/ivan_chen_rocscience_com/IQAyPDjVtcQ_QJOCRX7YOqiiAXcD-bheuSmKNtmEJomRHR0?e=u27P5f\n\n",
+      "judgesNotes": "cool idea to expose tools to the AI. I think this would be a great approach if we could just expose all the tools, I think it was the most useful submission. The user experience is high because it uses cursor's agent to manage conversations etc, so it's better than other solutions at managing its context.\n\nThe number of tools exposed in a day and to have created an MCP server for it is impressive. The number of tools currently exposed makes the usage of it very limited, but that is to be expected in a day. \n",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
-      "specialAwards": []
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMgIBJEMg81HjcsJgM0Q2RDe18dXi8wKQMGAzUNSS8NUQo5Jl0mBEJIfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
+      "specialAwards": [
+        "most-useful"
+      ]
     },
     {
       "id": "anton-mlynczyk-ted-liu-project",
       "teamId": "anton-mlynczyk-ted-liu",
       "title": "Geometry Cleanup - Anton Mlynczyk & Ted Liu",
-      "description": "Project submission for Hackathon 2: The Revenge",
-      "judgesNotes": "",
+      "description": "This is definitely more of a work in progress than a finished product. Think of it as a nice little proof of concept that is likely just added extra steps to the repair all functionality, but slightly cooler :)\n\n**Breakdown of work:**\n\n- Started off with developing a plan together and some paired programming to get a starting point\n- Anton then focused on improving the overall workflow, UI & interaction with chatGPT.\n- Ted worked on optimizing the geometry repair workflow & tool selection. This was done by engineering the prompt provided to the LLM with all necessary data and clear guides to follow when providing answers.\n\n**Next steps:**\n- Better automation of repair tool usage (less clicks for the user overall)\n- Optimized repair tool usage\n- Overall improving UI\n- Testing performance on larger models\n- Edge cases (for example, rejecting multiple suggestions)\n\n**Demo video:** [Link](https://rocscienceinc-my.sharepoint.com/:v:/g/personal/ted_liu_rocscience_com/IQDw3MEFS1CqToDz_oB11GiUAXFjw3CT7XqsUOsOM8o2Co4?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=lcADMR)\n\n**Screenshots:**\n\n![image (2).png](https://rocscience.visualstudio.com/c5517f3f-c52e-4a50-8a4c-5611a458b9ab/_apis/git/repositories/fc99cf50-c1fb-437d-86bd-33236c171d47/pullRequests/23324/attachments/image%20%282%29.png) \n\n![image (3).png](https://rocscience.visualstudio.com/c5517f3f-c52e-4a50-8a4c-5611a458b9ab/_apis/git/repositories/fc99cf50-c1fb-437d-86bd-33236c171d47/pullRequests/23324/attachments/image%20%283%29.png) \n\n![image (4).png](https://rocscience.visualstudio.com/c5517f3f-c52e-4a50-8a4c-5611a458b9ab/_apis/git/repositories/fc99cf50-c1fb-437d-86bd-33236c171d47/pullRequests/23324/attachments/image%20%284%29.png) \n",
+      "judgesNotes": "Nice job! I see you built your custom tool calling system. Ivan and Grace did something similar but used MCP with scripting. Using MCP had become more standard nowadays, and it allows you to use other people's agent systems like Cursor so that you don't have to worry about preserving message history, switching between ai models, etc, but I like that you guys implemented your own, it's cool to see and I will add points for creativity :D.\n\nI was able to approve the ai's plans, reject and give feedback, very nice!\n\nI tried at some point to use the repair_all_bad_features, but it removed most of my geometry. Giving the ai some way to detect that geometry wasn't removed, or maybe to allow the user to undo would be good. \n\nI liked that you guys tried to expose various tools other than the generic repair tool. I noticed that certain more granular options like the alpha and offset for shrink wrap weren't exposed, and I wasn't able to switch between the old geometry and the new one. \n\nThe ui is nice, and makes it clear what the model's response was, what the plan is, and what to reply. ",
       "images": [],
       "links": [],
-      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCLh1kXHJEVzUDGRIgIFMjIBJEMg81HjcsJgM0Q2RDe18dGC8wKQMGAzUNSS8NUQo5Jl0mBEJFfHF/Ag0ORhUNCChTBHpRFCoBDgMkLCRGUAJkTyE3MSsBWi8cKg9CHwcyVlw=",
+      "scores": "FxYpQAFaLxw2V2MeAiQ+CDsCPh1kXHJEVzUDGRIgIFMjGhJEMg81HjcsJgM0Q2RDe18dFS8wKQMGAzUNSS8NUQo5Jl0mBEICfHF/Ag0ORhUNCChTBHpRFCoBDg4kLCRGUAJkTyE3MSsBWi8cKg9CEgcyVlw=",
       "specialAwards": []
     }
   ],
