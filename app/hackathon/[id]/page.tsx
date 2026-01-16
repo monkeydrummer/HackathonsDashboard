@@ -65,14 +65,25 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
   const hasProjectCategories = data.teams.some(team => team.projectCategory);
 
   // Get winners by project category (if categories exist)
+  // Support ties - multiple winners with the same highest score
   const categoryWinners = hasProjectCategories ? (() => {
     const categories = [...new Set(data.teams.map(t => t.projectCategory).filter(Boolean))];
     return categories.map(category => {
       const categoryTeamIds = data.teams.filter(t => t.projectCategory === category).map(t => t.id);
       const categoryProjects = projectsWithScores.filter(p => categoryTeamIds.includes(p.teamId));
-      const winner = categoryProjects.length > 0 ? categoryProjects[0] : null;
-      return { category, winner };
-    }).filter(cw => cw.winner !== null);
+      
+      if (categoryProjects.length === 0) {
+        return { category, winners: [] };
+      }
+      
+      // Find the highest score in this category
+      const highestScore = categoryProjects[0].overallScore;
+      
+      // Get all projects with the highest score (supports ties)
+      const winners = categoryProjects.filter(p => p.overallScore === highestScore);
+      
+      return { category, winners };
+    }).filter(cw => cw.winners.length > 0);
   })() : [];
 
   return (
@@ -114,9 +125,9 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
                   🏆 Project Category Winners
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {categoryWinners.map(({ category, winner }) => {
-                    const team = data.teams.find(t => t.id === winner!.teamId);
+                  {categoryWinners.map(({ category, winners }) => {
                     const bgColor = getCategoryBgColor(category as string);
+                    const isTie = winners.length > 1;
                     
                     return (
                       <div key={category} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -125,15 +136,27 @@ export default async function HackathonPage({ params }: { params: Promise<{ id: 
                             <span>🥇</span>
                             <span>{category}</span>
                           </h3>
+                          {isTie && (
+                            <p className="text-sm text-white/90 mt-1">
+                              🤝 {winners.length}-Way Tie!
+                            </p>
+                          )}
                         </div>
-                        <div className="p-6">
-                          <Link 
-                            href={`/hackathon/${id}/team/${winner!.teamId}`}
-                            className="text-blue-600 hover:text-blue-800 font-semibold text-lg block mb-2"
-                          >
-                            {winner!.title}
-                          </Link>
-                          <p className="text-sm text-gray-600">{team?.name}</p>
+                        <div className="p-6 space-y-4">
+                          {winners.map((winner, index) => {
+                            const team = data.teams.find(t => t.id === winner.teamId);
+                            return (
+                              <div key={winner.id} className={index > 0 ? 'pt-4 border-t border-gray-200' : ''}>
+                                <Link 
+                                  href={`/hackathon/${id}/team/${winner.teamId}`}
+                                  className="text-blue-600 hover:text-blue-800 font-semibold text-lg block mb-2"
+                                >
+                                  {winner.title}
+                                </Link>
+                                <p className="text-sm text-gray-600">{team?.name}</p>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     );
