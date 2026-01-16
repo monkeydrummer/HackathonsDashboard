@@ -11,15 +11,13 @@ export interface Link {
   url: string;
 }
 
-export interface Scores {
-  workScope: number;
-  polish: number;
-  funUseful: number;
-  creativity: number;
-  innovation: number;
-  doesItWork: number;
-  [key: string]: number; // Index signature to allow dynamic key access
-}
+export type ScoreKey = 'workScope' | 'polish' | 'funUseful' | 'creativity' | 'innovation' | 'doesItWork';
+
+export type Scores = {
+  [K in ScoreKey]: number;
+} & {
+  [key: string]: number; // Allow additional dynamic keys
+};
 
 export interface Project {
   id: string;
@@ -34,7 +32,7 @@ export interface Project {
 }
 
 export interface Category {
-  id: keyof Scores;
+  id: ScoreKey;
   label: string;
   weight: number;
 }

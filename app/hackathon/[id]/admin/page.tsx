@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { HackathonData, Project, SpecialAward, HackathonsList, HackathonInfo, Team } from '@/lib/types';
+import { HackathonData, Project, SpecialAward, HackathonsList, HackathonInfo, Team, Scores } from '@/lib/types';
 import { calculateOverallScore, formatScore, getScoreColor } from '@/lib/utils';
 import { verifyPassword } from '@/lib/auth';
 
